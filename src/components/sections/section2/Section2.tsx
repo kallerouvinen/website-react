@@ -1,26 +1,25 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
-import { Section1, Section2, Section3 } from "./components/sections/";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
-    flex: 1,
-    flexDirection: "column",
+    height: "100vh",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "beige",
   },
 });
 
-function App() {
+function Section2() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Section1 />
-      <Section2 />
-      <Section3 />
+      <Typography>TODO</Typography>
     </div>
   );
 }
 
-export default App;
+export default Section2;
