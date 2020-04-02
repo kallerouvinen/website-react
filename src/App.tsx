@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Section1, Section2, Section3 } from "./components/sections/";
+import { Section1, Section2, Section3, Section4 } from "./components/sections/";
 
 const useStyles = makeStyles({
   root: {
@@ -19,6 +19,7 @@ function App() {
       <Section1 />
       <Section2 />
       <Section3 />
+      <Section4 />
     </div>
   );
 }
