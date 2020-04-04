@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
+
+import PureCSS from "./PureCSS";
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +19,8 @@ function Section2() {
 
   return (
     <div className={classes.root}>
-      <Typography>TODO</Typography>
+      {/* <Typography>TODO</Typography> */}
+      <PureCSS />
     </div>
   );
 }
