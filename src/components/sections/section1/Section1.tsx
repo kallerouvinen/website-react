@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import PanelLeft from "./PanelLeft";
 import PanelRight from "./PanelRight";
 import ScrollIndicator from "./ScrollIndicator";
+import { FadeIn } from "../../basic";
 
 const useStyles = makeStyles({
   grid: {
@@ -49,7 +50,9 @@ function Section1() {
 
       {/* TODO: Scroll indicator should be a button? */}
       <div className={classes.scrollIndicator}>
-        <ScrollIndicator shouldAnimate={shouldAnimate} />
+        <FadeIn shouldAnimate={shouldAnimate} delay={2000} direction="down">
+          <ScrollIndicator />
+        </FadeIn>
       </div>
     </>
   );

@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { FadeIn } from "../../basic";
-
 const useStyles = makeStyles({
   mouse: {
     display: "flex",
@@ -26,20 +24,13 @@ const useStyles = makeStyles({
   },
 });
 
-interface Props {
-  shouldAnimate: boolean;
-}
-
-function ScrollIndicator(props: Props) {
-  const { shouldAnimate } = props;
+function ScrollIndicator() {
   const classes = useStyles();
 
   return (
-    <FadeIn shouldAnimate={shouldAnimate} delay={2000} direction="down">
-      <div className={classes.mouse}>
-        <div className={classes.wheel} />
-      </div>
-    </FadeIn>
+    <div className={classes.mouse}>
+      <div className={classes.wheel} />
+    </div>
   );
 }
 
