@@ -24,9 +24,9 @@ function DemoList() {
   return (
     <div className={classes.root}>
       <SlideMenu>
-        <Slide onClick={onItemClick} />
-        <Slide onClick={onItemClick} />
-        <Slide onClick={onItemClick} />
+        <Slide backgroundColor="red" onClick={onItemClick} />
+        <Slide backgroundColor="blue" onClick={onItemClick} />
+        <Slide backgroundColor="cyan" onClick={onItemClick} />
         <Mystery />
       </SlideMenu>
     </div>

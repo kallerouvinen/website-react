@@ -11,29 +11,17 @@ const useStyles = makeStyles({
   },
 });
 
-function getRandomColor() {
-  var letters = "0123456789ABCDEF";
-  var color = "#";
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-
 interface Props {
+  backgroundColor?: string;
   onClick?: () => void;
 }
 
 function Slide(props: Props) {
   const classes = useStyles();
-  const { onClick } = props;
+  const { backgroundColor = "#fff", onClick } = props;
 
   return (
-    <div
-      className={classes.root}
-      style={{ backgroundColor: getRandomColor() }}
-      onClick={onClick}
-    >
+    <div className={classes.root} style={{ backgroundColor }} onClick={onClick}>
       <Typography>Placeholder Slide</Typography>
     </div>
   );
