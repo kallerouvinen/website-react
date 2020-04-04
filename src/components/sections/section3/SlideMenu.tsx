@@ -1,9 +1,9 @@
 import React, { useState, ReactNode } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { makeStyles } from "@material-ui/core/styles";
-import IconButton from "@material-ui/core/IconButton";
-import KeyboardArrowUp from "@material-ui/icons/KeyboardArrowUp";
-import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
+import Button from "@material-ui/core/Button";
+
+import InfoContainer from "./InfoContainer";
 
 const useStyles = makeStyles({
   root: {
@@ -15,6 +15,13 @@ const useStyles = makeStyles({
   },
   buttonContainer: {
     display: "flex",
+    flex: 2,
+    flexDirection: "column",
+    padding: 10,
+  },
+  infoContainer: {
+    display: "flex",
+    flex: 3,
     flexDirection: "column",
   },
   box: {
@@ -34,11 +41,10 @@ const useStyles = makeStyles({
 const styles = {
   list: {
     display: "flex",
-    height: "100%",
-    width: 600,
-    paddingTop: "38%", // TODO: Calculate this correctly
+    flex: 3,
     overflow: "visible",
-    transform: "scale(0.8) perspective(750px) rotateY(30deg)",
+    // TODO: Edit translateX to move horizontally
+    transform: "translateX(-35px) perspective(750px) rotateY(-30deg)",
   },
   slideContainer: {
     height: 400,
@@ -58,27 +64,25 @@ function SlideMenu(props: Props) {
   const [selected, setSelected] = useState(0);
   const classes = useStyles();
 
-  const decrementSelected = () => {
-    if (selected > 0) {
-      setSelected(selected - 1);
-    }
-  };
-
-  const incrementSelected = () => {
-    if (selected < props.children.length - 1) {
-      setSelected(selected + 1);
-    }
-  };
+  const data = [
+    { title: "E-commerce websites", description: "" },
+    { title: "Slide 2", description: "" },
+    { title: "Slide 3", description: "" },
+    {
+      title: "Anything you need",
+      description: "Maybe your website will be the next one I create",
+    },
+  ];
 
   return (
     <div className={classes.root}>
       <div className={classes.buttonContainer}>
-        <IconButton onClick={decrementSelected}>
-          <KeyboardArrowUp />
-        </IconButton>
-        <IconButton onClick={incrementSelected}>
-          <KeyboardArrowDown />
-        </IconButton>
+        {data.map((item, index) => (
+          <Button onMouseEnter={() => setSelected(index)}>{item.title}</Button>
+        ))}
+      </div>
+      <div className={classes.infoContainer}>
+        <InfoContainer data={data} selected={selected} />
       </div>
       <SwipeableViews
         style={styles.list}
@@ -90,10 +94,12 @@ function SlideMenu(props: Props) {
         {props.children.map((child: any, index: number) => (
           <div style={styles.slide}>
             <div
-              className={`${classes.box} ${selected !== index &&
+              className={`${classes.box} ${
+                selected !== index &&
                 (Math.abs(index - selected) === 1
                   ? classes.faded
-                  : classes.faded2)}`}
+                  : classes.faded2)
+              }`}
             >
               {child}
             </div>

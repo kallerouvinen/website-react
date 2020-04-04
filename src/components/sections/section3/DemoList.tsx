@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import SlideMenu from "./SlideMenu";
 import Slide from "./Slide";
+import Mystery from "./demos/Mystery";
 
 const useStyles = makeStyles({
   root: {
@@ -22,7 +23,7 @@ function DemoList() {
         <Slide />
         <Slide />
         <Slide />
-        <Slide />
+        <Mystery />
       </SlideMenu>
     </div>
   );
