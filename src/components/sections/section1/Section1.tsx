@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 
 import PanelLeft from "./PanelLeft";
 import PanelRight from "./PanelRight";
+import ScrollIndicator from "./ScrollIndicator";
 
 const useStyles = makeStyles({
   grid: {
@@ -20,6 +21,11 @@ const useStyles = makeStyles({
   right: {
     alignItems: "center",
   },
+  scrollIndicator: {
+    position: "absolute",
+    bottom: 20,
+    alignSelf: "center",
+  },
 });
 
 function Section1() {
@@ -31,14 +37,19 @@ function Section1() {
   }, []);
 
   return (
-    <Grid className={classes.grid} container>
-      <Grid className={`${classes.gridItem} ${classes.left}`} item md={6}>
-        <PanelLeft shouldAnimate={shouldAnimate} />
+    <>
+      <Grid className={classes.grid} container>
+        <Grid className={`${classes.gridItem} ${classes.left}`} item md={6}>
+          <PanelLeft shouldAnimate={shouldAnimate} />
+        </Grid>
+        <Grid className={`${classes.gridItem} ${classes.right}`} item md={6}>
+          <PanelRight shouldAnimate={shouldAnimate} />
+        </Grid>
       </Grid>
-      <Grid className={`${classes.gridItem} ${classes.right}`} item md={6}>
-        <PanelRight shouldAnimate={shouldAnimate} />
-      </Grid>
-    </Grid>
+      <div className={classes.scrollIndicator}>
+        <ScrollIndicator shouldAnimate={shouldAnimate} />
+      </div>
+    </>
   );
 }
 
