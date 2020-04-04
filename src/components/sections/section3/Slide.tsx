@@ -20,11 +20,20 @@ function getRandomColor() {
   return color;
 }
 
-function Slide() {
+interface Props {
+  onClick?: () => void;
+}
+
+function Slide(props: Props) {
   const classes = useStyles();
+  const { onClick } = props;
 
   return (
-    <div className={classes.root} style={{ backgroundColor: getRandomColor() }}>
+    <div
+      className={classes.root}
+      style={{ backgroundColor: getRandomColor() }}
+      onClick={onClick}
+    >
       <Typography>Placeholder Slide</Typography>
     </div>
   );

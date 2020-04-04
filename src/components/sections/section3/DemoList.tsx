@@ -17,12 +17,16 @@ const useStyles = makeStyles({
 function DemoList() {
   const classes = useStyles();
 
+  const onItemClick = () => {
+    console.log("TODO");
+  };
+
   return (
     <div className={classes.root}>
       <SlideMenu>
-        <Slide />
-        <Slide />
-        <Slide />
+        <Slide onClick={onItemClick} />
+        <Slide onClick={onItemClick} />
+        <Slide onClick={onItemClick} />
         <Mystery />
       </SlideMenu>
     </div>
