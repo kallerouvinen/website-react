@@ -46,6 +46,8 @@ function Section1() {
           <PanelRight shouldAnimate={shouldAnimate} />
         </Grid>
       </Grid>
+
+      {/* TODO: Scroll indicator should be a button? */}
       <div className={classes.scrollIndicator}>
         <ScrollIndicator shouldAnimate={shouldAnimate} />
       </div>
