@@ -10,6 +10,8 @@ const useStyles = makeStyles({
     flexDirection: "column",
     // TODO: Adjust background color
     backgroundColor: "purple",
+    // TODO: Icons are visible on other slides
+    overflow: "hidden",
   },
 });
 
