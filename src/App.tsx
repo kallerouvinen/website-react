@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Section1, Section2, Section3, Section4 } from "./components/sections/";
 
-import Slide from "./components/sections/section3/Slide";
-
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -21,13 +19,13 @@ function App() {
     <Router>
       <Switch>
         <Route path="/slide1">
-          <Slide backgroundColor="red" />
+          <div>TODO</div>
         </Route>
         <Route path="/slide2">
-          <Slide backgroundColor="blue" />
+          <div>TODO</div>
         </Route>
         <Route path="/slide3">
-          <Slide backgroundColor="green" />
+          <div>TODO</div>
         </Route>
         <Route path="/">
           <div className={classes.root}>

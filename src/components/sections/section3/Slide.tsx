@@ -6,23 +6,46 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
+    height: "100%",
+    flexDirection: "row",
+    // TODO: Adjust background color
+    backgroundColor: "moccasin",
+  },
+  screenContainer: {
+    display: "flex",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  infoContainer: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
   },
 });
 
 interface Props {
-  backgroundColor?: string;
-  onClick?: () => void;
+  description?: string;
+  title?: string;
 }
 
 function Slide(props: Props) {
   const classes = useStyles();
-  const { backgroundColor = "#fff", onClick } = props;
+  const { description = "", title = "" } = props;
 
   return (
-    <div className={classes.root} style={{ backgroundColor }} onClick={onClick}>
-      <Typography>Placeholder Slide</Typography>
+    <div className={classes.root}>
+      <div className={classes.screenContainer}>
+        <p>TODO: Screen</p>
+      </div>
+      <div className={classes.infoContainer}>
+        <Typography gutterBottom variant="h5">
+          {title}
+        </Typography>
+        <Typography>{description}</Typography>
+      </div>
     </div>
   );
 }

@@ -1,58 +1,105 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import SwipeableViews from "react-swipeable-views";
+// import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
-import SlideMenu from "./SlideMenu";
+import IconButton from "@material-ui/core/IconButton";
+import ChevronLeft from "@material-ui/icons/ChevronLeft";
+import ChevronRight from "@material-ui/icons/ChevronRight";
+
+// import Mystery from "./demos/mystery/Mystery";
+
 import Slide from "./Slide";
-import Mystery from "./demos/Mystery";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
     height: "100vh",
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     overflow: "hidden",
   },
+  buttonContainer: {
+    display: "flex",
+    padding: 10,
+  },
 });
+
+const styles = {
+  views: {
+    display: "flex",
+    flex: 1,
+    width: "100%",
+  },
+  container: {
+    display: "flex",
+    flex: 1,
+  },
+};
 
 function Section3() {
   const classes = useStyles();
-  let history = useHistory();
+  // const history = useHistory();
   const [selected, setSelected] = useState(0);
 
-  const onItem1Click = () => {
-    if (selected !== 0) {
-      setSelected(0);
-    } else {
-      history.push("/slide1");
+  const decrementSelected = () => {
+    if (selected > 0) {
+      setSelected(selected - 1);
     }
   };
 
-  const onItem2Click = () => {
-    if (selected !== 1) {
-      setSelected(1);
-    } else {
-      history.push("/slide2");
+  const incrementSelected = () => {
+    if (selected < data.length - 1) {
+      setSelected(selected + 1);
     }
   };
 
-  const onItem3Click = () => {
-    if (selected !== 2) {
-      setSelected(2);
-    } else {
-      history.push("/slide3");
-    }
-  };
+  const data = [
+    {
+      title: "Landing pages",
+      description: "TODO: Description",
+      mobile: null,
+      desktop: null,
+      tablet: null,
+    },
+    {
+      title: "E-commerce websites",
+      description: "TODO: Description",
+      mobile: null,
+      desktop: null,
+      tablet: null,
+    },
+    {
+      title: "Something else?",
+      description:
+        "Contact me with your ideas and let's see if we can build something awesome together",
+      mobile: null,
+      desktop: null,
+      tablet: null,
+    },
+  ];
 
   return (
     <div className={classes.root}>
-      <SlideMenu selected={selected} onItemClick={setSelected}>
-        <Slide backgroundColor="red" onClick={onItem1Click} />
-        <Slide backgroundColor="blue" onClick={onItem2Click} />
-        <Slide backgroundColor="cyan" onClick={onItem3Click} />
-        <Mystery />
-      </SlideMenu>
+      <div className={classes.buttonContainer}>
+        <IconButton onClick={decrementSelected}>
+          <ChevronLeft />
+        </IconButton>
+        <IconButton onClick={incrementSelected}>
+          <ChevronRight />
+        </IconButton>
+      </div>
+      <SwipeableViews
+        style={styles.views}
+        containerStyle={styles.container}
+        index={selected}
+        // onChangeIndex={() => console.log('TODO')}
+      >
+        {data.map((item) => (
+          <Slide description={item.description} title={item.title} />
+        ))}
+        {/* <Mystery /> */}
+      </SwipeableViews>
     </div>
   );
 }
