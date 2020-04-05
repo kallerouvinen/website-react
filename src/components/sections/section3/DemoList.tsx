@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { useHistory } from "react-router-dom";
@@ -19,22 +19,35 @@ const useStyles = makeStyles({
 function DemoList() {
   const classes = useStyles();
   let history = useHistory();
+  const [selected, setSelected] = useState(0);
 
   const onItem1Click = () => {
-    history.push("/slide1");
+    if (selected !== 0) {
+      setSelected(0);
+    } else {
+      history.push("/slide1");
+    }
   };
 
   const onItem2Click = () => {
-    history.push("/slide2");
+    if (selected !== 1) {
+      setSelected(1);
+    } else {
+      history.push("/slide2");
+    }
   };
 
   const onItem3Click = () => {
-    history.push("/slide3");
+    if (selected !== 2) {
+      setSelected(2);
+    } else {
+      history.push("/slide3");
+    }
   };
 
   return (
     <div className={classes.root}>
-      <SlideMenu>
+      <SlideMenu selected={selected} onItemClick={setSelected}>
         <Slide backgroundColor="red" onClick={onItem1Click} />
         <Slide backgroundColor="blue" onClick={onItem2Click} />
         <Slide backgroundColor="cyan" onClick={onItem3Click} />

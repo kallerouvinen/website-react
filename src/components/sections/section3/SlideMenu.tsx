@@ -58,11 +58,13 @@ const styles = {
 
 interface Props {
   children: ReactNode[];
+  onItemClick: (i: number) => void;
+  selected: number;
 }
 
 function SlideMenu(props: Props) {
-  const [selected, setSelected] = useState(0);
   const classes = useStyles();
+  const { children, onItemClick, selected } = props;
 
   const data = [
     { title: "E-commerce websites", description: "" },
@@ -78,7 +80,7 @@ function SlideMenu(props: Props) {
     <div className={classes.root}>
       <div className={classes.buttonContainer}>
         {data.map((item, index) => (
-          <Button onMouseEnter={() => setSelected(index)}>{item.title}</Button>
+          <Button onMouseEnter={() => onItemClick(index)}>{item.title}</Button>
         ))}
       </div>
       <div className={classes.infoContainer}>
@@ -89,9 +91,9 @@ function SlideMenu(props: Props) {
         containerStyle={styles.slideContainer}
         axis="y"
         index={selected}
-        onChangeIndex={setSelected}
+        onChangeIndex={onItemClick}
       >
-        {props.children.map((child: any, index: number) => (
+        {children.map((child: any, index: number) => (
           <div style={styles.slide}>
             <div
               className={`${classes.box} ${
