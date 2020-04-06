@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
+import Demo from "./Demo";
+
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -9,7 +11,6 @@ const useStyles = makeStyles({
     height: "100%",
     flexDirection: "row",
     // TODO: Adjust background color
-    backgroundColor: "moccasin",
   },
   screenContainer: {
     display: "flex",
@@ -29,16 +30,21 @@ const useStyles = makeStyles({
 interface Props {
   description?: string;
   title?: string;
+  // TODO: Types
+  demo: {
+    laptop?: any;
+    mobile?: any;
+  };
 }
 
 function Slide(props: Props) {
   const classes = useStyles();
-  const { description = "", title = "" } = props;
+  const { description = "", title = "", demo } = props;
 
   return (
     <div className={classes.root}>
       <div className={classes.screenContainer}>
-        <p>TODO: Screen</p>
+        <Demo data={demo} />
       </div>
       <div className={classes.infoContainer}>
         <Typography gutterBottom variant="h5">

@@ -58,24 +58,27 @@ function Section3() {
     {
       title: "Landing pages",
       description: "TODO: Description",
-      mobile: null,
-      desktop: null,
-      tablet: null,
+      demo: {
+        laptop: null,
+        mobile: null,
+      },
     },
     {
       title: "E-commerce websites",
       description: "TODO: Description",
-      mobile: null,
-      desktop: null,
-      tablet: null,
+      demo: {
+        laptop: null,
+        mobile: null,
+      },
     },
     {
       title: "Something else?",
       description:
         "Contact me with your ideas and let's see if we can build something awesome together",
-      mobile: null,
-      desktop: null,
-      tablet: null,
+      demo: {
+        laptop: null,
+        mobile: null,
+      },
     },
   ];
 
@@ -96,7 +99,11 @@ function Section3() {
         // onChangeIndex={() => console.log('TODO')}
       >
         {data.map((item) => (
-          <Slide description={item.description} title={item.title} />
+          <Slide
+            description={item.description}
+            title={item.title}
+            demo={item.demo}
+          />
         ))}
         {/* <Mystery /> */}
       </SwipeableViews>
