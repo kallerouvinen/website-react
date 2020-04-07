@@ -7,6 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 
+import ChartLaptop from "./demos/chart/ChartLaptop";
+import ChartMobile from "./demos/chart/ChartMobile";
 import MysteryLaptop from "./demos/mystery/MysteryLaptop";
 import MysteryMobile from "./demos/mystery/MysteryMobile";
 
@@ -62,6 +64,14 @@ function Section3() {
       demos: {
         laptop: null,
         mobile: null,
+      },
+    },
+    {
+      title: "Data visualization",
+      description: "TODO: Description",
+      demos: {
+        laptop: <ChartLaptop />,
+        mobile: <ChartMobile />,
       },
     },
     {
