@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     display: "flex",
     flex: 1,
     backgroundColor: "#fff",
-    border: "1px solid lightgray",
   },
   keyboard: {
     display: "flex",
