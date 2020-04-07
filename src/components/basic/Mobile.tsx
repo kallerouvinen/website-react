@@ -1,22 +1,39 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
+import BatteryFull from "@material-ui/icons/BatteryFull";
+import SignalCellular4Bar from "@material-ui/icons/SignalCellular4Bar";
+
 const useStyles = makeStyles({
   bezel: {
     display: "flex",
-    padding: "2px 2px 10px 2px",
+    padding: "4px 4px 4px 4px",
     width: 135, // 9 * 15
-    height: 240, // 16 * 15
-    backgroundColor: "#fff",
-    border: "1px solid lightgray",
-    borderRadius: 8,
+    height: 270, // 18 * 15
+    backgroundColor: "#242429",
+    borderRadius: 12,
+    boxShadow: "0px 6px 10px -4px #808080",
   },
   screen: {
     display: "flex",
     flex: 1,
     backgroundColor: "#fff",
-    border: "1px solid lightgray",
-    borderRadius: 6,
+    borderRadius: 8,
+    justifyContent: "center",
+    overflow: "hidden",
+  },
+  statusBar: {
+    display: "flex",
+    flex: 1,
+    height: 10,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    paddingRight: 6,
+    fontSize: 6,
+    fontWeight: "bold",
+  },
+  icon: {
+    fontSize: 6,
   },
 });
 
@@ -26,10 +43,21 @@ interface Props {
 
 function Mobile(props: Props) {
   const classes = useStyles();
+  const now = new Date();
+  const clock = `${now.getHours()}:${
+    now.getMinutes() < 10 && "0"
+  }${now.getMinutes()}`;
 
   return (
     <div className={classes.bezel}>
-      <div className={classes.screen}>{props.children}</div>
+      <div className={classes.screen}>
+        <div className={classes.statusBar}>
+          <SignalCellular4Bar className={classes.icon} />
+          <BatteryFull className={classes.icon} />
+          {clock}
+        </div>
+        {props.children}
+      </div>
     </div>
   );
 }
