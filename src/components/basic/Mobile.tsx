@@ -44,9 +44,7 @@ interface Props {
 function Mobile(props: Props) {
   const classes = useStyles();
   const now = new Date();
-  const clock = `${now.getHours()}:${
-    now.getMinutes() < 10 && "0"
-  }${now.getMinutes()}`;
+  const clock = `${now.getHours()}:${("0" + now.getMinutes()).slice(-2)}`;
 
   return (
     <div className={classes.bezel}>
