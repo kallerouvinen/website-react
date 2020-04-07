@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 
 interface Props {
   // TODO: Types
-  data: {
+  demos: {
     laptop?: any;
     mobile?: any;
   };
@@ -39,21 +39,16 @@ interface Props {
 
 function Demo(props: Props) {
   const classes = useStyles();
-  // TODO: Use data
-  // const { data } = props;
+  const { demos } = props;
 
   return (
     <div className={classes.root}>
       <div className={classes.demoContainer}>
         <div className={classes.laptopContainer}>
-          <Laptop>
-            <div />
-          </Laptop>
+          <Laptop component={demos.laptop} />
         </div>
         <div className={classes.mobileContainer}>
-          <Mobile>
-            <div />
-          </Mobile>
+          <Mobile component={demos.mobile} />
         </div>
       </div>
     </div>

@@ -10,7 +10,6 @@ const useStyles = makeStyles({
     flex: 1,
     height: "100%",
     flexDirection: "row",
-    // TODO: Adjust background color
   },
   screenContainer: {
     display: "flex",
@@ -31,7 +30,7 @@ interface Props {
   description?: string;
   title?: string;
   // TODO: Types
-  demo: {
+  demos: {
     laptop?: any;
     mobile?: any;
   };
@@ -39,12 +38,12 @@ interface Props {
 
 function Slide(props: Props) {
   const classes = useStyles();
-  const { description = "", title = "", demo } = props;
+  const { description = "", title = "", demos } = props;
 
   return (
     <div className={classes.root}>
       <div className={classes.screenContainer}>
-        <Demo data={demo} />
+        <Demo demos={demos} />
       </div>
       <div className={classes.infoContainer}>
         <Typography gutterBottom variant="h5">

@@ -7,7 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 
-// import Mystery from "./demos/mystery/Mystery";
+import MysteryLaptop from "./demos/mystery/MysteryLaptop";
+import MysteryMobile from "./demos/mystery/MysteryMobile";
 
 import Slide from "./Slide";
 
@@ -58,7 +59,7 @@ function Section3() {
     {
       title: "Landing pages",
       description: "TODO: Description",
-      demo: {
+      demos: {
         laptop: null,
         mobile: null,
       },
@@ -66,7 +67,7 @@ function Section3() {
     {
       title: "E-commerce websites",
       description: "TODO: Description",
-      demo: {
+      demos: {
         laptop: null,
         mobile: null,
       },
@@ -75,9 +76,9 @@ function Section3() {
       title: "Something else?",
       description:
         "Contact me with your ideas and let's see if we can build something awesome together",
-      demo: {
-        laptop: null,
-        mobile: null,
+      demos: {
+        laptop: <MysteryLaptop />,
+        mobile: <MysteryMobile />,
       },
     },
   ];
@@ -102,10 +103,9 @@ function Section3() {
           <Slide
             description={item.description}
             title={item.title}
-            demo={item.demo}
+            demos={item.demos}
           />
         ))}
-        {/* <Mystery /> */}
       </SwipeableViews>
     </div>
   );

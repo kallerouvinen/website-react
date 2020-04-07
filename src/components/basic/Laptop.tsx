@@ -53,16 +53,17 @@ const useStyles = makeStyles({
 });
 
 interface Props {
-  children: any;
+  component?: any; // TODO: Type
 }
 
 function Laptop(props: Props) {
   const classes = useStyles();
+  const { component = null } = props;
 
   return (
     <div className={classes.root}>
       <div className={classes.monitorOuter}>
-        <div className={classes.monitorInner}>{props.children}</div>
+        <div className={classes.monitorInner}>{component}</div>
       </div>
       <div className={classes.keyboard}>
         <div className={classes.touchpad} />
