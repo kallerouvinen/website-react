@@ -1,15 +1,25 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+
+import Chart from "./Chart";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     flexDirection: "column",
-    backgroundImage: "linear-gradient(20deg, #ff8080, #ffc680)",
-    overflow: "hidden",
+  },
+  top: {
+    display: "flex",
+    flex: 1,
+    padding: 8,
+    paddingTop: 20,
+  },
+  text: {},
+  chart: {
+    display: "flex",
+    flex: 1,
   },
 });
 
@@ -18,7 +28,10 @@ function ChartMobile() {
 
   return (
     <div className={classes.root}>
-      <p>TODO</p>
+      <div className={classes.top}>
+        <Typography className={classes.text}>TODO</Typography>
+      </div>
+      <Chart />
     </div>
   );
 }

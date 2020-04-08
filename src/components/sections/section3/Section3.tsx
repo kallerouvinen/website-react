@@ -59,19 +59,19 @@ function Section3() {
 
   const data = [
     {
-      title: "Landing pages",
-      description: "TODO: Description",
-      demos: {
-        laptop: null,
-        mobile: null,
-      },
-    },
-    {
       title: "Data visualization",
       description: "TODO: Description",
       demos: {
         laptop: <ChartLaptop />,
         mobile: <ChartMobile />,
+      },
+    },
+    {
+      title: "Landing pages",
+      description: "TODO: Description",
+      demos: {
+        laptop: null,
+        mobile: null,
       },
     },
     {
