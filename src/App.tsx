@@ -20,17 +20,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/slide1">
-          <div className={classes.root}>
-            <ChartLaptop />
-          </div>
+        {/* TODO: Add routes here in the following manner:
+
+        <Route path="/pathToDemo">
+          <DemoComponent />
         </Route>
-        <Route path="/slide2">
-          <Mystery mode="laptop" />
-        </Route>
-        <Route path="/slide3">
-          <div>TODO</div>
-        </Route>
+            
+        */}
         <Route path="/">
           <div className={classes.root}>
             <Section1 />
