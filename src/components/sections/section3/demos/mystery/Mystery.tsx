@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import BubblingIcon from "./BubblingIcon";
@@ -48,4 +48,4 @@ function Mystery(props: Props) {
   );
 }
 
-export default Mystery;
+export default memo(Mystery);
