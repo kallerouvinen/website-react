@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 const useStyles = makeStyles({
   tabsRoot: {
     minHeight: 0,
+    width: "50%",
   },
   indicator: {
     display: "flex",
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
     },
   },
   tabRoot: {
-    width: "50%",
+    width: "33%",
     minWidth: 0,
     minHeight: 0,
     textTransform: "none",
@@ -38,7 +39,7 @@ interface Props {
   width: number;
 }
 
-function TradeTabs(props: Props) {
+function NavTabs(props: Props) {
   const { onChange, value, width } = props;
   const classes = useStyles();
 
@@ -56,17 +57,26 @@ function TradeTabs(props: Props) {
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
-        label="Buy"
-        style={{ fontSize: `${0.04 * width}px`, padding: `${0.02 * width}px` }}
+        label="Market"
+        style={{
+          fontSize: `${0.02 * width}px`,
+          padding: `${0.01 * width}px`,
+        }}
       />
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
-        label="Sell"
-        style={{ fontSize: `${0.04 * width}px`, padding: `${0.02 * width}px` }}
+        label="Portfolio"
+        style={{ fontSize: `${0.02 * width}px`, padding: `${0.01 * width}px` }}
+      />
+      <Tab
+        classes={{ root: classes.tabRoot }}
+        disableRipple
+        label="Placeholder"
+        style={{ fontSize: `${0.02 * width}px`, padding: `${0.01 * width}px` }}
       />
     </Tabs>
   );
 }
 
-export default withResizeDetector(TradeTabs);
+export default withResizeDetector(NavTabs);

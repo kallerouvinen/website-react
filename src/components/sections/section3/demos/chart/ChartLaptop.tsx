@@ -7,6 +7,8 @@ import Chart from "./Chart";
 import Trade from "./Trade";
 import Value from "./Value";
 
+import NavTabs from "./NavTabs";
+
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -58,7 +60,9 @@ function ChartLaptop() {
 
   return (
     <div className={classes.root}>
-      <div className={classes.navBar}>TODO: Navbar</div>
+      <div className={classes.navBar}>
+        <NavTabs value={0} onChange={() => console.log("TODO")} />
+      </div>
       <div className={classes.top}>
         <Value />
         <Divider className={classes.divider} orientation="vertical" />

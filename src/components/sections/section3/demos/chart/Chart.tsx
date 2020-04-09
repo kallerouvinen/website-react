@@ -48,8 +48,8 @@ function Chart(props: Props) {
       <AreaChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#ff8080" stopOpacity={1} />
-            <stop offset="95%" stopColor="#ffc680" stopOpacity={1} />
+            <stop offset="5%" stopColor="#8080ff" stopOpacity={1} />
+            <stop offset="95%" stopColor="#80ccff" stopOpacity={1} />
           </linearGradient>
         </defs>
         {/* TODO: Add tooltip */}
@@ -57,7 +57,7 @@ function Chart(props: Props) {
           animationDuration={1000}
           type="linear"
           dataKey="value"
-          stroke="#ff4600"
+          stroke="#4d4dff"
           strokeWidth={1}
           fill="url(#colorUv)"
         />
