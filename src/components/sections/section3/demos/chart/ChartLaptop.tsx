@@ -4,22 +4,33 @@ import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
 import Chart from "./Chart";
+import Trade from "./Trade";
+import Value from "./Value";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
     flexDirection: "column",
+    overflow: "hidden",
+  },
+  navBar: {
+    display: "flex",
+    flex: 1,
   },
   top: {
     display: "flex",
-    flex: 1,
-    padding: 16,
+    flex: 6,
+    padding: "16px 0",
+  },
+  chart: {
+    display: "flex",
+    flex: 6,
   },
   text: {},
   value: {
     display: "flex",
-    flex: 2,
+    flex: 1,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -30,26 +41,22 @@ const useStyles = makeStyles({
     color: "#00b300",
   },
   divider: {
-    height: "60%",
+    height: "80%",
     alignSelf: "center",
   },
   trade: {
     display: "flex",
-    flex: 1.5,
+    flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    padding: 8,
+    padding: 16,
   },
   feed: {
     display: "flex",
-    flex: 1.5,
+    flex: 1,
     flexDirection: "column",
     alignItems: "center",
     padding: 8,
-  },
-  chart: {
-    display: "flex",
-    flex: 1,
   },
 });
 
@@ -58,28 +65,22 @@ function ChartLaptop() {
 
   return (
     <div className={classes.root}>
+      <div className={classes.navBar}>TODO: Navbar</div>
       <div className={classes.top}>
-        <div className={classes.value}>
-          <Typography variant="body2" gutterBottom>
-            Example Ltd.
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            $46.55
-          </Typography>
-          <Typography variant="caption">
-            <strong className={classes.positive}>+$1.22 (2.69%)</strong> Today
-          </Typography>
-        </div>
+        <Value />
         <Divider className={classes.divider} orientation="vertical" />
         <div className={classes.trade}>
-          <Typography variant="caption">Trade</Typography>
+          {/* <Typography variant="caption">Trade</Typography> */}
+          <Trade />
         </div>
         <Divider className={classes.divider} orientation="vertical" />
         <div className={classes.feed}>
           <Typography variant="caption">News</Typography>
         </div>
       </div>
-      <Chart />
+      <div className={classes.chart}>
+        <Chart />
+      </div>
     </div>
   );
 }

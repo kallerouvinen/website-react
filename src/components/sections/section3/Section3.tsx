@@ -103,11 +103,13 @@ function Section3() {
           <ChevronRight />
         </IconButton>
       </div>
+      {/* TODO: Add virtualization for performance */}
+      {/* TODO: Add autoplay */}
       <SwipeableViews
         style={styles.views}
         containerStyle={styles.container}
         index={selected}
-        // onChangeIndex={() => console.log('TODO')}
+        onChangeIndex={() => console.log("TODO")}
       >
         {data.map((item) => (
           <Slide

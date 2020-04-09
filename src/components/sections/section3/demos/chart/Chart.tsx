@@ -1,15 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
+import { withResizeDetector } from "react-resize-detector";
 
-const useStyles = makeStyles({
-  chart: {
-    display: "flex",
-    flex: 1,
-  },
-});
-
+// TODO: Adjust data
 const data = [
   {
     name: "1/4/2020",
@@ -41,30 +35,35 @@ const data = [
   },
 ];
 
-function Chart() {
-  const classes = useStyles();
+interface Props {
+  height: number;
+  width: number;
+}
+
+function Chart(props: Props) {
+  const { height } = props;
 
   return (
-    <div className={classes.chart}>
-      <ResponsiveContainer height="100%" width="100%">
-        <AreaChart data={data} margin={{ top: -25 }}>
-          <defs>
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#ff8080" stopOpacity={1} />
-              <stop offset="95%" stopColor="#ffc680" stopOpacity={1} />
-            </linearGradient>
-          </defs>
-          <Area
-            type="linear"
-            dataKey="value"
-            stroke="#ff4600"
-            strokeWidth={1}
-            fill="url(#colorUv)"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
-    </div>
+    <ResponsiveContainer width="100%" height={height}>
+      <AreaChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#ff8080" stopOpacity={1} />
+            <stop offset="95%" stopColor="#ffc680" stopOpacity={1} />
+          </linearGradient>
+        </defs>
+        {/* TODO: Add tooltip */}
+        <Area
+          animationDuration={1000}
+          type="linear"
+          dataKey="value"
+          stroke="#ff4600"
+          strokeWidth={1}
+          fill="url(#colorUv)"
+        />
+      </AreaChart>
+    </ResponsiveContainer>
   );
 }
 
-export default Chart;
+export default withResizeDetector(Chart);
