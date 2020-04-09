@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
@@ -57,11 +57,12 @@ const useStyles = makeStyles({
 
 function ChartLaptop() {
   const classes = useStyles();
+  const [navTab, setNavTab] = useState(0);
 
   return (
     <div className={classes.root}>
       <div className={classes.navBar}>
-        <NavTabs value={0} onChange={() => console.log("TODO")} />
+        <NavTabs value={navTab} onChange={setNavTab} />
       </div>
       <div className={classes.top}>
         <Value />
