@@ -42,7 +42,7 @@ const styles = {
   },
 };
 
-function CustomTabs() {
+function Trade() {
   const classes = useStyles();
   const [selected, setSelected] = React.useState(0);
   const [buyAmount, setBuyAmount] = React.useState("");
@@ -87,4 +87,4 @@ function CustomTabs() {
   );
 }
 
-export default CustomTabs;
+export default Trade;

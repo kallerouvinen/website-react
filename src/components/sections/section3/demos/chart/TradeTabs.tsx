@@ -57,13 +57,13 @@ function TradeTabs(props: Props) {
         classes={{ root: classes.tabRoot }}
         disableRipple
         label="Buy"
-        style={{ fontSize: `${0.04 * width}px`, padding: `${0.02 * width}px` }}
+        style={{ fontSize: `${0.05 * width}px`, padding: `${0.02 * width}px` }}
       />
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
         label="Sell"
-        style={{ fontSize: `${0.04 * width}px`, padding: `${0.02 * width}px` }}
+        style={{ fontSize: `${0.05 * width}px`, padding: `${0.02 * width}px` }}
       />
     </Tabs>
   );
