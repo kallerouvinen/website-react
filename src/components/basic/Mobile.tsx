@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import BatteryFull from "@material-ui/icons/BatteryFull";
@@ -32,6 +32,11 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     color: "#333333",
   },
+  clickBlocker: {
+    position: "absolute",
+    width: 135,
+    height: 270,
+  },
   icon: {
     fontSize: 6,
   },
@@ -48,6 +53,10 @@ function Mobile(props: Props) {
   const now = new Date();
   const clock = `${now.getHours()}:${("0" + now.getMinutes()).slice(-2)}`;
 
+  const stopPropagation = (e: MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
     <div className={classes.bezel}>
       <div className={classes.screen}>
@@ -57,6 +66,7 @@ function Mobile(props: Props) {
           {clock}
         </div>
         {component}
+        <div className={classes.clickBlocker} onClick={stopPropagation} />
       </div>
     </div>
   );

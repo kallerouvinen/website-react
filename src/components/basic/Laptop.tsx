@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -23,6 +23,11 @@ const useStyles = makeStyles({
     display: "flex",
     flex: 1,
     backgroundColor: "#fff",
+  },
+  clickBlocker: {
+    position: "absolute",
+    width: 512,
+    height: 288,
   },
   keyboard: {
     display: "flex",
@@ -60,10 +65,17 @@ function Laptop(props: Props) {
   const classes = useStyles();
   const { component = null } = props;
 
+  const stopPropagation = (e: MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
     <div className={classes.root}>
       <div className={classes.monitorOuter}>
-        <div className={classes.monitorInner}>{component}</div>
+        <div className={classes.monitorInner}>
+          {component}
+          <div className={classes.clickBlocker} onClick={stopPropagation} />
+        </div>
       </div>
       <div className={classes.keyboard}>
         <div className={classes.touchpad} />
