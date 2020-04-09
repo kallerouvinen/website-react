@@ -65,6 +65,7 @@ function Section3() {
         laptop: <ChartLaptop />,
         mobile: <ChartMobile />,
       },
+      livePath: "COMING_SOON",
     },
     {
       id: 2,
@@ -74,6 +75,7 @@ function Section3() {
         laptop: null,
         mobile: null,
       },
+      livePath: "COMING_SOON",
     },
     {
       id: 3,
@@ -83,6 +85,7 @@ function Section3() {
         laptop: null,
         mobile: null,
       },
+      livePath: "COMING_SOON",
     },
     {
       id: 4,
@@ -120,6 +123,7 @@ function Section3() {
             description={item.description}
             title={item.title}
             demos={item.demos}
+            livePath={item.livePath}
           />
         ))}
       </SwipeableViews>
