@@ -58,6 +58,7 @@ function Section3() {
 
   const data = [
     {
+      id: 1,
       title: "Data visualization",
       description: "TODO: Description",
       demos: {
@@ -66,6 +67,7 @@ function Section3() {
       },
     },
     {
+      id: 2,
       title: "Landing pages",
       description: "TODO: Description",
       demos: {
@@ -74,6 +76,7 @@ function Section3() {
       },
     },
     {
+      id: 3,
       title: "E-commerce websites",
       description: "TODO: Description",
       demos: {
@@ -82,6 +85,7 @@ function Section3() {
       },
     },
     {
+      id: 4,
       title: "Something else?",
       description:
         "Contact me with your ideas and let's see if we can build something awesome together",
@@ -112,6 +116,7 @@ function Section3() {
       >
         {data.map((item) => (
           <Slide
+            key={`${item.id}`}
             description={item.description}
             title={item.title}
             demos={item.demos}

@@ -36,7 +36,7 @@ interface Props {
   width: number;
 }
 
-function CustomTabs(props: Props) {
+function TradeTabs(props: Props) {
   const { onChange, value, width } = props;
   const classes = useStyles();
 
@@ -55,16 +55,16 @@ function CustomTabs(props: Props) {
         classes={{ root: classes.tabRoot }}
         disableRipple
         label="Buy"
-        style={{ fontSize: 0.04 * width, padding: 0.01 * width }}
+        style={{ fontSize: `${0.04 * width}px`, padding: `${0.01 * width}px` }}
       />
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
         label="Sell"
-        style={{ fontSize: 0.04 * width, padding: 0.01 * width }}
+        style={{ fontSize: `${0.04 * width}px`, padding: `${0.01 * width}px` }}
       />
     </Tabs>
   );
 }
 
-export default withResizeDetector(CustomTabs);
+export default withResizeDetector(TradeTabs);

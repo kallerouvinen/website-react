@@ -29,9 +29,11 @@ function Value(props: Props) {
 
   return (
     <div className={classes.root}>
-      <Typography style={{ fontSize: 0.02 * width }}>Example Ltd.</Typography>
-      <Typography style={{ fontSize: 0.05 * width }}>$46.55</Typography>
-      <Typography style={{ fontSize: 0.018 * width }}>
+      <Typography style={{ fontSize: `${0.02 * width}px` }}>
+        Example Ltd.
+      </Typography>
+      <Typography style={{ fontSize: `${0.05 * width}px` }}>$46.55</Typography>
+      <Typography style={{ fontSize: `${0.018 * width}px` }}>
         <strong className={classes.positive}>+$1.22 (2.69%)</strong> Today
       </Typography>
     </div>
