@@ -10,8 +10,8 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
-    width: "100%",
     flexDirection: "column",
+    padding: 16,
   },
   buy: {
     display: "flex",

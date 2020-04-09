@@ -44,13 +44,6 @@ const useStyles = makeStyles({
     height: "80%",
     alignSelf: "center",
   },
-  trade: {
-    display: "flex",
-    flex: 1,
-    flexDirection: "column",
-    alignItems: "center",
-    padding: 16,
-  },
   feed: {
     display: "flex",
     flex: 1,
@@ -69,10 +62,7 @@ function ChartLaptop() {
       <div className={classes.top}>
         <Value />
         <Divider className={classes.divider} orientation="vertical" />
-        <div className={classes.trade}>
-          {/* <Typography variant="caption">Trade</Typography> */}
-          <Trade />
-        </div>
+        <Trade />
         <Divider className={classes.divider} orientation="vertical" />
         <div className={classes.feed}>
           <Typography variant="caption">News</Typography>
