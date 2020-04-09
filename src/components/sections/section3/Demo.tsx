@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
   mobileContainer: {
     position: "absolute",
-    transform: "translate(120%, 25%)",
+    transform: "translate(150%, 25%)",
   },
 });
 
