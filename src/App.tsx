@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Section1, Section2, Section3, Section4 } from "./components/sections/";
 import ChartLaptop from "./components/sections/section3/demos/chart/ChartLaptop";
-import MysteryLaptop from "./components/sections/section3/demos/mystery/MysteryLaptop";
+import Mystery from "./components/sections/section3/demos/mystery/Mystery";
 
 const useStyles = makeStyles({
   root: {
@@ -26,7 +26,7 @@ function App() {
           </div>
         </Route>
         <Route path="/slide2">
-          <MysteryLaptop />
+          <Mystery mode="laptop" />
         </Route>
         <Route path="/slide3">
           <div>TODO</div>

@@ -9,8 +9,7 @@ import ChevronRight from "@material-ui/icons/ChevronRight";
 
 import ChartLaptop from "./demos/chart/ChartLaptop";
 import ChartMobile from "./demos/chart/ChartMobile";
-import MysteryLaptop from "./demos/mystery/MysteryLaptop";
-import MysteryMobile from "./demos/mystery/MysteryMobile";
+import Mystery from "./demos/mystery/Mystery";
 
 import Slide from "./Slide";
 
@@ -87,8 +86,8 @@ function Section3() {
       description:
         "Contact me with your ideas and let's see if we can build something awesome together",
       demos: {
-        laptop: <MysteryLaptop />,
-        mobile: <MysteryMobile />,
+        laptop: <Mystery mode="laptop" />,
+        mobile: <Mystery mode="mobile" />,
       },
     },
   ];
