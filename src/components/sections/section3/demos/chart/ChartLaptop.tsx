@@ -4,10 +4,10 @@ import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
 import Chart from "./Chart";
+import Feed from "./Feed";
+import NavTabs from "./NavTabs";
 import Trade from "./Trade";
 import Value from "./Value";
-
-import NavTabs from "./NavTabs";
 
 const useStyles = makeStyles({
   root: {
@@ -46,13 +46,6 @@ const useStyles = makeStyles({
     height: "80%",
     alignSelf: "center",
   },
-  feed: {
-    display: "flex",
-    flex: 1,
-    flexDirection: "column",
-    alignItems: "center",
-    padding: 8,
-  },
 });
 
 function ChartLaptop() {
@@ -69,9 +62,7 @@ function ChartLaptop() {
         <Divider className={classes.divider} orientation="vertical" />
         <Trade />
         <Divider className={classes.divider} orientation="vertical" />
-        <div className={classes.feed}>
-          <Typography variant="caption">News</Typography>
-        </div>
+        <Feed />
       </div>
       <div className={classes.chart}>
         <Chart />
