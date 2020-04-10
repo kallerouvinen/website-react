@@ -3,12 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 
 import MobileTabs from "./MobileTabs";
+import { ResponsiveWrapperProps } from "../../../../hoc/withResponsiveWrapper";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
-    // flexDirection: "column", // TODO
     overflow: "hidden",
   },
   divider: {
@@ -17,19 +17,19 @@ const useStyles = makeStyles({
   },
 });
 
-interface Props {
-  children: any;
-  isMobile: boolean;
+interface Props extends ResponsiveWrapperProps {
+  children: any; // TODO: Type
 }
 
 function TopContainer(props: Props) {
   const classes = useStyles();
-  const { children, isMobile } = props;
+  const { children, size } = props;
+  const { isMobile } = size;
 
   return (
     <div className={classes.root}>
       {isMobile ? (
-        <MobileTabs>{children}</MobileTabs>
+        <MobileTabs size={size}>{children}</MobileTabs>
       ) : (
         children.map((child: any) => (
           <>

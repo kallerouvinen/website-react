@@ -3,13 +3,13 @@ import SwipeableViews from "react-swipeable-views";
 import { makeStyles } from "@material-ui/core/styles";
 
 import StockTabs from "./StockTabs";
+import { ResponsiveWrapperProps } from "../../../../hoc/withResponsiveWrapper";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
     flexDirection: "column",
-    // backgroundColor: "tomato",
   },
   slide: {
     display: "flex",
@@ -25,7 +25,6 @@ const styles = {
     display: "flex",
     flex: 1,
     width: "100%",
-    // backgroundColor: "tomato",
   },
   container: {
     display: "flex",
@@ -34,7 +33,7 @@ const styles = {
   },
 };
 
-interface Props {
+interface Props extends ResponsiveWrapperProps {
   children: any; // TODO: Type
 }
 
@@ -42,16 +41,17 @@ function MobileTabs(props: Props) {
   const [navTab, setNavTab] = useState(0);
   const classes = useStyles();
 
-  const { children } = props;
+  const { children, size } = props;
 
   return (
     <div className={classes.root}>
-      <StockTabs onChange={setNavTab} value={navTab} />
+      <StockTabs onChange={setNavTab} size={size} value={navTab} />
       <SwipeableViews
         style={styles.swipeableViews}
         containerStyle={styles.container}
         index={navTab}
       >
+        {/* TODO: Type */}
         {children.map((child: any) => (
           <div className={classes.slide}>{child}</div>
         ))}

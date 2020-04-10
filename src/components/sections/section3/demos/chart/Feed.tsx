@@ -65,7 +65,6 @@ function Feed(props: Props) {
   return (
     <div className={classes.root}>
       {!isMobile && <Typography style={styles.title}>News</Typography>}
-
       {data.map((item) => (
         <React.Fragment key={item.id}>
           <div className={classes.item} style={styles.item}>

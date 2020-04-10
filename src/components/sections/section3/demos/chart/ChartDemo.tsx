@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Divider from "@material-ui/core/Divider";
 
 import {
   withResponsiveWrapper,
@@ -9,7 +8,6 @@ import {
 
 import ChartComponent from "./ChartComponent";
 import Feed from "./Feed";
-import MobileTabs from "./MobileTabs";
 import NavTabs from "./NavTabs";
 import Trade from "./Trade";
 import Value from "./Value";
@@ -25,11 +23,11 @@ const useStyles = makeStyles({
   navBar: {
     display: "flex",
     flex: 1,
+    alignItems: "center",
   },
   top: {
     display: "flex",
     flex: 6,
-    padding: "16px 0",
   },
   chart: {
     display: "flex",
@@ -47,17 +45,18 @@ function ChartDemo(props: Props) {
   const classes = useStyles();
   const [navTab, setNavTab] = useState(0);
   const { size } = props;
-  const { isMobile } = size;
 
   return (
     <div className={classes.root}>
       {/* TODO: Navbar / Menu */}
       <div className={classes.navBar}>
-        {isMobile ? null : <NavTabs value={navTab} onChange={setNavTab} />}
+        {size.isMobile ? null : (
+          <NavTabs onChange={setNavTab} size={size} value={navTab} />
+        )}
       </div>
 
       <div className={classes.top}>
-        <TopContainer isMobile={isMobile}>
+        <TopContainer size={size}>
           <Value size={size} />
           <Trade size={size} />
           <Feed size={size} />

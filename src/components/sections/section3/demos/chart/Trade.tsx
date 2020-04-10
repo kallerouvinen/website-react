@@ -12,17 +12,10 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
+    width: "100%",
     flexDirection: "column",
-    padding: 16,
   },
-  buy: {
-    display: "flex",
-    height: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  sell: {
+  slide: {
     display: "flex",
     height: "100%",
     flexDirection: "column",
@@ -66,13 +59,13 @@ function Trade(props: Props) {
 
   return (
     <div className={classes.root}>
-      <TradeTabs onChange={setSelected} value={selected} />
+      <TradeTabs onChange={setSelected} size={size} value={selected} />
       <SwipeableViews
         style={styles.swipeableViews}
         containerStyle={styles.container}
         index={selected}
       >
-        <div className={classes.buy}>
+        <div className={classes.slide}>
           {/* <TextField
             label="Amount"
             onChange={handleBuyChange}
@@ -80,7 +73,7 @@ function Trade(props: Props) {
           />
           <Button>Buy</Button> */}
         </div>
-        <div className={classes.sell}>
+        <div className={classes.slide}>
           {/* <TextField
             label="Amount"
             onChange={handleSellChange}

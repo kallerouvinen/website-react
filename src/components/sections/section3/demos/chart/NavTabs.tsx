@@ -1,8 +1,9 @@
 import React from "react";
-import { withResizeDetector } from "react-resize-detector";
 import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+
+import { ResponsiveWrapperProps } from "../../../../hoc/withResponsiveWrapper";
 
 const useStyles = makeStyles({
   tabsRoot: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
   },
   tabRoot: {
     width: "33%",
+    maxWidth: "33%",
     minWidth: 0,
     minHeight: 0,
     textTransform: "none",
@@ -32,19 +34,28 @@ const useStyles = makeStyles({
   },
 });
 
-interface Props {
+interface Props extends ResponsiveWrapperProps {
   onChange: (i: number) => void;
   value: number;
-  height: number;
-  width: number;
 }
 
 function NavTabs(props: Props) {
-  const { onChange, value, width } = props;
   const classes = useStyles();
+  const { onChange, value } = props;
+  const { isMobile, isWide, wideBreakpoint, width } = props.size;
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     onChange(newValue);
+  };
+
+  const mobileMultiplier = isMobile ? 3 : 1;
+  const widthMultiplier = isWide ? wideBreakpoint : width;
+
+  const tabFontSize = 0.018 * mobileMultiplier * widthMultiplier;
+  const tabPadding = 0.005 * mobileMultiplier * widthMultiplier;
+
+  const styles = {
+    tab: { fontSize: `${tabFontSize}px`, padding: `${tabPadding}px` },
   };
 
   return (
@@ -58,25 +69,22 @@ function NavTabs(props: Props) {
         classes={{ root: classes.tabRoot }}
         disableRipple
         label="Market"
-        style={{
-          fontSize: `${0.02 * width}px`,
-          padding: `${0.01 * width}px`,
-        }}
+        style={styles.tab}
       />
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
         label="Portfolio"
-        style={{ fontSize: `${0.02 * width}px`, padding: `${0.01 * width}px` }}
+        style={styles.tab}
       />
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
         label="Placeholder"
-        style={{ fontSize: `${0.02 * width}px`, padding: `${0.01 * width}px` }}
+        style={styles.tab}
       />
     </Tabs>
   );
 }
 
-export default withResizeDetector(NavTabs);
+export default NavTabs;
