@@ -6,7 +6,12 @@ interface ResizeProps {
   width: number;
 }
 
-function withResponsiveWrapper(Component: any) {
+export interface ResponsiveWrapperProps extends ResizeProps {
+  isMobile: boolean;
+}
+
+// TODO: Typing
+export function withResponsiveWrapper(Component: any) {
   const CustomComponent = (props: ResizeProps) => {
     const { height, width } = props;
     const isMobile = height > width;
@@ -17,5 +22,3 @@ function withResponsiveWrapper(Component: any) {
 
   return withResizeDetector(CustomComponent);
 }
-
-export default withResponsiveWrapper;
