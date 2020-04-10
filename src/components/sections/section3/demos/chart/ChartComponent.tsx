@@ -40,7 +40,7 @@ interface Props {
   width: number;
 }
 
-function Chart(props: Props) {
+function ChartComponent(props: Props) {
   const { height } = props;
 
   return (
@@ -66,4 +66,4 @@ function Chart(props: Props) {
   );
 }
 
-export default withResizeDetector(Chart);
+export default withResizeDetector(ChartComponent);

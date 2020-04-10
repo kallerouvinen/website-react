@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 
-import Chart from "./Chart";
+import ChartComponent from "./ChartComponent";
 import Feed from "./Feed";
 import NavTabs from "./NavTabs";
 import Trade from "./Trade";
@@ -64,7 +64,7 @@ function ChartLaptop() {
         <Feed />
       </div>
       <div className={classes.chart}>
-        <Chart />
+        <ChartComponent />
       </div>
     </div>
   );

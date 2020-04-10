@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Chart from "./Chart";
+import ChartComponent from "./ChartComponent";
 import Feed from "./Feed";
 import StockTabs from "./StockTabs";
 import Trade from "./Trade";
@@ -71,7 +71,7 @@ function ChartMobile() {
         </SwipeableViews>
       </div>
       <div className={classes.chart}>
-        <Chart />
+        <ChartComponent />
       </div>
     </div>
   );
