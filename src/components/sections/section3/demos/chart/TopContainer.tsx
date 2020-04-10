@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 });
 
 interface Props extends ResponsiveWrapperProps {
-  children: any; // TODO: Type
+  children: React.ReactNode[];
 }
 
 function TopContainer(props: Props) {

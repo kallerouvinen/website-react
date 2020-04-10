@@ -30,10 +30,9 @@ const useStyles = makeStyles({
 });
 
 interface Props {
-  // TODO: Types
   demos: {
-    laptop?: any;
-    mobile?: any;
+    laptop?: React.ReactNode;
+    mobile?: React.ReactNode;
   };
 }
 

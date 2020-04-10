@@ -34,7 +34,7 @@ const styles = {
 };
 
 interface Props extends ResponsiveWrapperProps {
-  children: any; // TODO: Type
+  children: React.ReactNode[];
 }
 
 function MobileTabs(props: Props) {
@@ -51,7 +51,6 @@ function MobileTabs(props: Props) {
         containerStyle={styles.container}
         index={navTab}
       >
-        {/* TODO: Type */}
         {children.map((child: any) => (
           <div className={classes.slide}>{child}</div>
         ))}

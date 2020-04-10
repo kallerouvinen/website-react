@@ -58,7 +58,7 @@ const useStyles = makeStyles({
 });
 
 interface Props {
-  component?: any; // TODO: Type
+  component?: React.ReactNode;
 }
 
 function Laptop(props: Props) {
