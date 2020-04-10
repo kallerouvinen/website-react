@@ -6,17 +6,32 @@ interface ResizeProps {
   width: number;
 }
 
-export interface ResponsiveWrapperProps extends ResizeProps {
+interface SizeProps extends ResizeProps {
+  aspectRatio: "mobile" | "normal" | "wide";
   isMobile: boolean;
+  isNormal: boolean;
+  isWide: boolean;
+}
+
+export interface ResponsiveWrapperProps {
+  size: SizeProps;
 }
 
 // TODO: Typing
 export function withResponsiveWrapper(Component: any) {
   const CustomComponent = (props: ResizeProps) => {
     const { height, width } = props;
-    const isMobile = height > width;
 
-    const newProps = { ...props, isMobile };
+    const aspectRatio =
+      height > width ? "mobile" : width / height <= 16 / 9 ? "normal" : "wide";
+
+    const isMobile = aspectRatio === "mobile";
+    const isNormal = aspectRatio === "normal";
+    const isWide = aspectRatio === "wide";
+
+    const newProps = {
+      size: { ...props, aspectRatio, isMobile, isNormal, isWide },
+    };
     return <Component {...newProps} />;
   };
 
