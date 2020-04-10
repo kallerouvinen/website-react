@@ -10,21 +10,24 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
+    width: "100%",
     flexDirection: "column",
     textAlign: "center",
     color: "#262626",
-    padding: 16,
   },
 });
 
 interface Props {
+  mode?: "laptop" | "mobile";
   height: number;
   width: number;
 }
 
-function Value(props: Props) {
+function Feed(props: Props) {
   const classes = useStyles();
-  const { width } = props;
+  const { mode = "laptop", width } = props;
+
+  const isMobile = mode === "mobile";
 
   const data = [
     {
@@ -51,15 +54,18 @@ function Value(props: Props) {
 
   return (
     <div className={classes.root}>
-      <Typography style={{ fontSize: `${0.02 * width}px` }}>News</Typography>
+      {!isMobile && (
+        <Typography style={{ fontSize: `${0.02 * width}px` }}>News</Typography>
+      )}
+
       {data.map((item) => (
-        <>
-          <FeedItem key={item.id} label={item.label} />
+        <React.Fragment key={item.id}>
+          <FeedItem label={item.label} />
           <Divider />
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
 }
 
-export default withResizeDetector(Value);
+export default withResizeDetector(Feed);

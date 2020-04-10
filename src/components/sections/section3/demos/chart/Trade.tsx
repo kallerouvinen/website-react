@@ -42,11 +42,17 @@ const styles = {
   },
 };
 
-function Trade() {
+interface Props {
+  mode?: "laptop" | "mobile";
+}
+
+function Trade(props: Props) {
   const classes = useStyles();
   const [selected, setSelected] = React.useState(0);
   const [buyAmount, setBuyAmount] = React.useState("");
   const [sellAmount, setSellAmount] = React.useState("");
+
+  const { mode } = props;
 
   const handleBuyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.replace(/\D/g, "");
@@ -67,20 +73,20 @@ function Trade() {
         index={selected}
       >
         <div className={classes.buy}>
-          <TextField
+          {/* <TextField
             label="Amount"
             onChange={handleBuyChange}
             value={buyAmount}
           />
-          <Button>Buy</Button>
+          <Button>Buy</Button> */}
         </div>
         <div className={classes.sell}>
-          <TextField
+          {/* <TextField
             label="Amount"
             onChange={handleSellChange}
             value={sellAmount}
           />
-          <Button>Sell</Button>
+          <Button>Sell</Button> */}
         </div>
       </SwipeableViews>
     </div>

@@ -1,37 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
+import SwipeableViews from "react-swipeable-views";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 
 import Chart from "./Chart";
+import Feed from "./Feed";
+import StockTabs from "./StockTabs";
+import Trade from "./Trade";
+import Value from "./Value";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
     flex: 1,
     flexDirection: "column",
+    overflow: "hidden",
   },
   top: {
     display: "flex",
-    flex: 1,
-    padding: 8,
-    paddingTop: 20,
+    flexDirection: "column",
+    paddingTop: 16,
+    flex: 6,
   },
-  text: {},
+  slide: {
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   chart: {
     display: "flex",
-    flex: 1,
+    flex: 6,
   },
 });
 
+const styles = {
+  swipeableViews: {
+    display: "flex",
+    flex: 1,
+    width: "100%",
+  },
+  container: {
+    display: "flex",
+    width: "100%",
+  },
+};
+
 function ChartMobile() {
+  const [navTab, setNavTab] = useState(0);
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <div className={classes.top}>
-        <Typography className={classes.text}>TODO</Typography>
+        <StockTabs onChange={setNavTab} value={navTab} />
+        <SwipeableViews
+          style={styles.swipeableViews}
+          containerStyle={styles.container}
+          index={navTab}
+        >
+          <div className={classes.slide}>
+            <Value mode="mobile" />
+          </div>
+          <div className={classes.slide}>
+            <Trade mode="mobile" />
+          </div>
+          <div className={classes.slide}>
+            <Feed mode="mobile" />
+          </div>
+        </SwipeableViews>
       </div>
-      <Chart />
+      <div className={classes.chart}>
+        <Chart />
+      </div>
     </div>
   );
 }

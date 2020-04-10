@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
 
 import Chart from "./Chart";
 import Feed from "./Feed";
@@ -58,7 +57,7 @@ function ChartLaptop() {
         <NavTabs value={navTab} onChange={setNavTab} />
       </div>
       <div className={classes.top}>
-        <Value />
+        <Value mode="laptop" />
         <Divider className={classes.divider} orientation="vertical" />
         <Trade />
         <Divider className={classes.divider} orientation="vertical" />
