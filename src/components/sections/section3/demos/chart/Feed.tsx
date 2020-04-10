@@ -1,10 +1,9 @@
 import React from "react";
-import { withResizeDetector } from "react-resize-detector";
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
-import FeedItem from "./FeedItem";
+import { ResponsiveWrapperProps } from "../../../../hoc/withResponsiveWrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -15,57 +14,68 @@ const useStyles = makeStyles({
     textAlign: "center",
     color: "#262626",
   },
+  item: {
+    display: "flex",
+    color: "#262626",
+  },
 });
 
-interface Props {
-  mode?: "laptop" | "mobile";
-  height: number;
-  width: number;
-}
+const data = [
+  {
+    id: 1,
+    label: "Placeholder 1",
+  },
+  {
+    id: 2,
+    label: "Placeholder 2",
+  },
+  {
+    id: 3,
+    label: "Placeholder 3",
+  },
+  {
+    id: 4,
+    label: "Placeholder 3",
+  },
+  {
+    id: 5,
+    label: "Placeholder 3",
+  },
+];
+
+interface Props extends ResponsiveWrapperProps {}
 
 function Feed(props: Props) {
   const classes = useStyles();
-  const { mode = "laptop", width } = props;
+  const { isMobile, isWide, wideBreakpoint, width } = props.size;
 
-  const isMobile = mode === "mobile";
+  const mobileMultiplier = isMobile ? 3 : 1;
+  const widthMultiplier = isWide ? wideBreakpoint : width;
 
-  const data = [
-    {
-      id: 1,
-      label: "Placeholder 1",
-    },
-    {
-      id: 2,
-      label: "Placeholder 2",
-    },
-    {
-      id: 3,
-      label: "Placeholder 3",
-    },
-    {
-      id: 4,
-      label: "Placeholder 3",
-    },
-    {
-      id: 5,
-      label: "Placeholder 3",
-    },
-  ];
+  const titleFontSize = 0.02 * widthMultiplier;
+  const itemPadding = 0.01 * mobileMultiplier * widthMultiplier;
+  const labelFontSize = 0.01 * mobileMultiplier * widthMultiplier;
+
+  const styles = {
+    title: { fontSize: `${titleFontSize}px` },
+    item: { padding: `${itemPadding}px` },
+    label: { fontSize: `${labelFontSize}px` },
+  };
 
   return (
     <div className={classes.root}>
-      {!isMobile && (
-        <Typography style={{ fontSize: `${0.02 * width}px` }}>News</Typography>
-      )}
+      {!isMobile && <Typography style={styles.title}>News</Typography>}
 
       {data.map((item) => (
         <React.Fragment key={item.id}>
-          <FeedItem label={item.label} />
-          <Divider />
+          <div className={classes.item} style={styles.item}>
+            <Typography style={styles.label}>{item.label}</Typography>
+          </div>
+          <Divider variant="middle" />
         </React.Fragment>
       ))}
     </div>
   );
 }
 
-export default withResizeDetector(Feed);
+export default Feed;

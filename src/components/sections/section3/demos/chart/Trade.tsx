@@ -6,6 +6,8 @@ import TextField from "@material-ui/core/TextField";
 
 import TradeTabs from "./TradeTabs";
 
+import { ResponsiveWrapperProps } from "../../../../hoc/withResponsiveWrapper";
+
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -42,9 +44,7 @@ const styles = {
   },
 };
 
-interface Props {
-  mode?: "laptop" | "mobile";
-}
+interface Props extends ResponsiveWrapperProps {}
 
 function Trade(props: Props) {
   const classes = useStyles();
@@ -52,7 +52,7 @@ function Trade(props: Props) {
   const [buyAmount, setBuyAmount] = React.useState("");
   const [sellAmount, setSellAmount] = React.useState("");
 
-  const { mode } = props;
+  const { size } = props;
 
   const handleBuyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.replace(/\D/g, "");

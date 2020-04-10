@@ -11,6 +11,8 @@ interface SizeProps extends ResizeProps {
   isMobile: boolean;
   isNormal: boolean;
   isWide: boolean;
+  mobileBreakpoint: number;
+  wideBreakpoint: number;
 }
 
 export interface ResponsiveWrapperProps {
@@ -23,14 +25,29 @@ export function withResponsiveWrapper(Component: any) {
     const { height, width } = props;
 
     const aspectRatio =
-      height > width ? "mobile" : width / height <= 16 / 9 ? "normal" : "wide";
+      height > 1.25 * width
+        ? "mobile"
+        : width / height <= 16 / 9
+        ? "normal"
+        : "wide";
 
     const isMobile = aspectRatio === "mobile";
     const isNormal = aspectRatio === "normal";
     const isWide = aspectRatio === "wide";
 
+    const mobileBreakpoint = height / 1.25;
+    const wideBreakpoint = (16 / 9) * height;
+
     const newProps = {
-      size: { ...props, aspectRatio, isMobile, isNormal, isWide },
+      size: {
+        ...props,
+        aspectRatio,
+        isMobile,
+        isNormal,
+        isWide,
+        mobileBreakpoint,
+        wideBreakpoint,
+      },
     };
     return <Component {...newProps} />;
   };
