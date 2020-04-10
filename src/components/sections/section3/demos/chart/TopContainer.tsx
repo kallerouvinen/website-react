@@ -31,7 +31,7 @@ function TopContainer(props: Props) {
       {isMobile ? (
         <MobileTabs size={size}>{children}</MobileTabs>
       ) : (
-        children.map((child: any) => (
+        children.map((child) => (
           <>
             {child}
             <Divider className={classes.divider} orientation="vertical" />

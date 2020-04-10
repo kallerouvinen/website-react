@@ -51,7 +51,7 @@ function MobileTabs(props: Props) {
         containerStyle={styles.container}
         index={navTab}
       >
-        {children.map((child: any) => (
+        {children.map((child) => (
           <div className={classes.slide}>{child}</div>
         ))}
       </SwipeableViews>

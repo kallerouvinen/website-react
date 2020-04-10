@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 });
 
 interface Props {
-  children: any;
+  children: React.ReactNode;
 }
 
 function Window(props: Props) {

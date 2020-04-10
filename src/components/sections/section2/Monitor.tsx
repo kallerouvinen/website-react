@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 });
 
 interface Props {
-  children: any;
+  children: React.ReactNode;
 }
 
 function Monitor(props: Props) {
