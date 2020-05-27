@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
-import FlightTakeoff from "@material-ui/icons/FlightTakeoff";
 import GiftOutline from "mdi-material-ui/GiftOutline";
 import PalmTree from "mdi-material-ui/PalmTree";
 import WeatherPouring from "mdi-material-ui/WeatherPouring";
@@ -21,23 +19,24 @@ const useStyles = makeStyles({
     color: "#262626",
     padding: 8,
   },
-  content: {
+  amountContainer: {
     display: "flex",
+    width: "90%",
     flexDirection: "column",
     alignItems: "center",
     padding: "32px 8px",
   },
   goalsContainer: {
+    display: "flex",
     flex: 1,
     width: "90%",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "32px 8px",
   },
   icon: {
     fontSize: 28,
     padding: "4px 0 4px 12px",
-  },
-  divider: {
-    // height: "80%",
-    // alignSelf: "center",
   },
 });
 
@@ -62,12 +61,12 @@ function Savings(props: Props) {
 
   return (
     <div className={classes.root}>
-      <div className={classes.content}>
+      <div className={classes.amountContainer}>
         <Typography style={styles.medium}>You have saved</Typography>
         <Typography style={styles.large}>$326.55</Typography>
         <Typography style={styles.medium}>Keep going!</Typography>
       </div>
-      <div className={`${classes.content} ${classes.goalsContainer}`}>
+      <div className={classes.goalsContainer}>
         <Typography style={styles.small}>Allocate savings</Typography>
         <Goal
           icon={<GiftOutline className={classes.icon} />}
