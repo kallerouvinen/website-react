@@ -30,12 +30,10 @@ const useStyles = makeStyles({
     width: "100%",
     boxSizing: "border-box",
     borderRadius: 24,
-    border: "2px solid #f2f2f2",
   },
   inner: {
     background: "linear-gradient(to right, #8080ff, #80ccff)",
     color: "#fff",
-    padding: "0 1px",
   },
   leftContainer: {
     display: "flex",

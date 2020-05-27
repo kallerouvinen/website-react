@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     color: "#262626",
-    padding: 8,
+    padding: "8px 0",
   },
   amountContainer: {
     display: "flex",
@@ -25,6 +25,9 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     padding: "32px 8px",
+    borderRadius: 8,
+    backgroundColor: "#fff",
+    border: "1px solid #e6e6e6",
   },
   goalsContainer: {
     display: "flex",

@@ -19,6 +19,7 @@ const useStyles = makeStyles({
     flex: 1,
     flexDirection: "column",
     overflow: "hidden",
+    background: "linear-gradient(#fff, #f2f2f2 5%, #f2f2f2 5%, #fff)",
   },
   navBar: {
     display: "flex",
