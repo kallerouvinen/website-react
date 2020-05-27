@@ -37,12 +37,21 @@ const useStyles = makeStyles({
     color: "#fff",
     padding: "0 1px",
   },
+  leftContainer: {
+    display: "flex",
+    flex: 1,
+  },
   labelContainer: {
     display: "flex",
-    alignItems: "center",
+    flexDirection: "column",
   },
   text: {
-    fontSize: 16,
+    fontSize: 14,
+    textOverflow: "ellipsis",
+  },
+  secondaryText: {
+    fontSize: 10,
+    textOverflow: "ellipsis",
   },
   icon: {
     fontSize: 28,
@@ -57,12 +66,13 @@ const useStyles = makeStyles({
 interface Props extends ResponsiveWrapperProps {
   icon: any;
   label: string;
-  progress: number;
+  goal: number;
+  current: number;
 }
 
 function Goal(props: Props) {
   const classes = useStyles();
-  const { icon, label, progress } = props;
+  const { current, goal, icon, label } = props;
   const { isMobile, isWide, wideBreakpoint, width } = props.size;
 
   const mobileMultiplier = isMobile ? 3 : 1;
@@ -81,21 +91,32 @@ function Goal(props: Props) {
   return (
     <div className={classes.root}>
       <div className={`${classes.bar} ${classes.outer}`}>
-        <div className={classes.labelContainer}>
+        <div className={classes.leftContainer}>
           {icon}
-          <Typography className={classes.text}>{label}</Typography>
+          <div className={classes.labelContainer}>
+            <Typography className={classes.text}>{label}</Typography>
+            <Typography
+              className={classes.secondaryText}
+            >{`$${current} / $${goal}`}</Typography>
+          </div>
         </div>
-        {progress === 100 && <CheckCircle className={classes.checkIcon} />}
+
+        {current >= goal && <CheckCircle className={classes.checkIcon} />}
       </div>
       <div
         className={`${classes.bar} ${classes.inner}`}
-        style={{ width: `${progress}%` }}
+        style={{ width: `${(current / goal) * 100}%` }}
       >
-        <div className={classes.labelContainer}>
+        <div className={classes.leftContainer}>
           {icon}
-          <Typography className={classes.text}>{label}</Typography>
+          <div className={classes.labelContainer}>
+            <Typography className={classes.text}>{label}</Typography>
+            <Typography
+              className={classes.secondaryText}
+            >{`$${current} / $${goal}`}</Typography>
+          </div>
         </div>
-        {progress === 100 && <CheckCircle className={classes.checkIcon} />}
+        {current >= goal && <CheckCircle className={classes.checkIcon} />}
       </div>
     </div>
   );

@@ -72,19 +72,22 @@ function Savings(props: Props) {
         <Goal
           icon={<GiftOutline className={classes.icon} />}
           label="Birthday present"
-          progress={100}
+          goal={20}
+          current={20}
           size={props.size}
         />
         <Goal
           icon={<PalmTree className={classes.icon} />}
           label="Holiday"
-          progress={40}
+          goal={1000}
+          current={356}
           size={props.size}
         />
         <Goal
           icon={<WeatherPouring className={classes.icon} />}
-          label="Rainy day savings"
-          progress={20}
+          label="Rainy Day"
+          goal={3000}
+          current={481}
           size={props.size}
         />
       </div>
