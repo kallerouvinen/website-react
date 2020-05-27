@@ -67,19 +67,19 @@ function StockTabs(props: Props) {
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
-        label="Price"
+        label="Savings"
         style={styles.tab}
       />
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
-        label="Trade"
+        label="Expenses"
         style={styles.tab}
       />
       <Tab
         classes={{ root: classes.tabRoot }}
         disableRipple
-        label="News"
+        label="Investments"
         style={styles.tab}
       />
     </Tabs>

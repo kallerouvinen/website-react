@@ -7,10 +7,10 @@ import {
 } from "../../../../hoc/withResponsiveWrapper";
 
 import ChartComponent from "./ChartComponent";
-import Feed from "./Feed";
+import Investments from "./Investments";
 import NavTabs from "./NavTabs";
-import Trade from "./Trade";
-import Value from "./Value";
+import Expenses from "./Expenses";
+import Savings from "./Savings";
 import TopContainer from "./TopContainer";
 
 const useStyles = makeStyles({
@@ -25,13 +25,9 @@ const useStyles = makeStyles({
     flex: 1,
     alignItems: "center",
   },
-  top: {
+  section: {
     display: "flex",
-    flex: 6,
-  },
-  chart: {
-    display: "flex",
-    flex: 6,
+    flex: 12,
   },
   divider: {
     height: "80%",
@@ -55,17 +51,19 @@ function ChartDemo(props: Props) {
         )}
       </div>
 
-      <div className={classes.top}>
+      <div className={classes.section}>
         <TopContainer size={size}>
-          <Value size={size} />
-          <Trade size={size} />
-          <Feed size={size} />
+          <Savings size={size} />
+          <Expenses size={size} />
+          <Investments size={size} />
         </TopContainer>
       </div>
 
-      <div className={classes.chart}>
+      {/* <div className={classes.section}></div> */}
+
+      {/* <div className={classes.chart}>
         <ChartComponent />
-      </div>
+      </div> */}
     </div>
   );
 }

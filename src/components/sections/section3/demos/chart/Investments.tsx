@@ -45,7 +45,7 @@ const data = [
 
 interface Props extends ResponsiveWrapperProps {}
 
-function Feed(props: Props) {
+function Investments(props: Props) {
   const classes = useStyles();
   const { isMobile, isWide, wideBreakpoint, width } = props.size;
 
@@ -64,17 +64,9 @@ function Feed(props: Props) {
 
   return (
     <div className={classes.root}>
-      {!isMobile && <Typography style={styles.title}>News</Typography>}
-      {data.map((item) => (
-        <React.Fragment key={item.id}>
-          <div className={classes.item} style={styles.item}>
-            <Typography style={styles.label}>{item.label}</Typography>
-          </div>
-          <Divider variant="middle" />
-        </React.Fragment>
-      ))}
+      {!isMobile && <Typography style={styles.title}>Investments</Typography>}
     </div>
   );
 }
 
-export default Feed;
+export default Investments;
