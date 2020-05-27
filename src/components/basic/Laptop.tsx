@@ -74,7 +74,7 @@ function Laptop(props: Props) {
       <div className={classes.monitorOuter}>
         <div className={classes.monitorInner}>
           {component}
-          <div className={classes.clickBlocker} onClick={stopPropagation} />
+          {/* <div className={classes.clickBlocker} onClick={stopPropagation} /> */}
         </div>
       </div>
       <div className={classes.keyboard}>

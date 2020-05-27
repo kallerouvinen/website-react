@@ -66,7 +66,7 @@ function Mobile(props: Props) {
           {clock}
         </div>
         {component}
-        <div className={classes.clickBlocker} onClick={stopPropagation} />
+        {/* <div className={classes.clickBlocker} onClick={stopPropagation} /> */}
       </div>
     </div>
   );
