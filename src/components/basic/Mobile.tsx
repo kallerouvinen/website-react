@@ -65,8 +65,11 @@ function Mobile(props: Props) {
           <BatteryFull className={classes.icon} />
           {clock}
         </div>
-        {component}
-        {/* <div className={classes.clickBlocker} onClick={stopPropagation} /> */}
+        {component && typeof component === "string" && (
+          <img src={component} alt="Demo" />
+        )}
+        {component && typeof component === "object" && component}
+        <div className={classes.clickBlocker} onClick={stopPropagation} />
       </div>
     </div>
   );

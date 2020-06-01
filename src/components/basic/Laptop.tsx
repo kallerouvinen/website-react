@@ -73,8 +73,11 @@ function Laptop(props: Props) {
     <div className={classes.root}>
       <div className={classes.monitorOuter}>
         <div className={classes.monitorInner}>
-          {component}
-          {/* <div className={classes.clickBlocker} onClick={stopPropagation} /> */}
+          {component && typeof component === "string" && (
+            <img src={component} alt="Demo" />
+          )}
+          {component && typeof component === "object" && component}
+          <div className={classes.clickBlocker} onClick={stopPropagation} />
         </div>
       </div>
       <div className={classes.keyboard}>
