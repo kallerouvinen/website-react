@@ -6,7 +6,7 @@ import PalmTree from "mdi-material-ui/PalmTree";
 import WeatherPouring from "mdi-material-ui/WeatherPouring";
 
 import { ResponsiveWrapperProps } from "../../../../hoc/withResponsiveWrapper";
-import Goal from "./Goal";
+import Goal from "../basic/Goal";
 
 const useStyles = makeStyles({
   root: {
@@ -76,21 +76,18 @@ function Savings(props: Props) {
           label="Birthday present"
           goal={20}
           current={20}
-          size={props.size}
         />
         <Goal
           icon={<PalmTree className={classes.icon} />}
           label="Holiday"
           goal={1000}
           current={356}
-          size={props.size}
         />
         <Goal
           icon={<WeatherPouring className={classes.icon} />}
           label="Rainy Day"
           goal={3000}
           current={481}
-          size={props.size}
         />
       </div>
     </div>
