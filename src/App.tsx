@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Section1, Section2, Section3, Section4 } from "./components/sections/";
-import ChartDemo from "./components/sections/section3/demos/chart/ChartDemo";
 
 const useStyles = makeStyles({
   root: {
@@ -26,11 +25,6 @@ function App() {
         </Route>
             
         */}
-        <Route path="/demo">
-          <div className={classes.root}>
-            <ChartDemo />
-          </div>
-        </Route>
         <Route path="/">
           <div className={classes.root}>
             <Section1 />

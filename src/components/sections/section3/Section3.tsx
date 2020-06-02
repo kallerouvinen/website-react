@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { makeStyles } from "@material-ui/core/styles";
-
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 
-import Mystery from "./demos/mystery/Mystery";
-
+import Mystery from "./Mystery";
 import Slide from "./Slide";
 
 const useStyles = makeStyles({
