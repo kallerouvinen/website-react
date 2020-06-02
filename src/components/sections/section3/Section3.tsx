@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
-// import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 
-import ChartDemo from "./demos/chart/ChartDemo";
 import Mystery from "./demos/mystery/Mystery";
 
 import Slide from "./Slide";
@@ -40,7 +38,6 @@ const styles = {
 
 function Section3() {
   const classes = useStyles();
-  // const history = useHistory();
   const [selected, setSelected] = useState(0);
 
   const decrementSelected = () => {
@@ -58,11 +55,11 @@ function Section3() {
   const data = [
     {
       id: 1,
-      title: "Data visualization",
+      title: "Applications",
       description: "TODO: Description",
       demos: {
-        laptop: <ChartDemo />,
-        mobile: <ChartDemo />,
+        laptop: "", // TODO: Add .gif for desktop demo
+        mobile: "", // TODO: Add .gif for mobile demo
       },
       livePath: "COMING_SOON",
     },
@@ -71,8 +68,8 @@ function Section3() {
       title: "Landing pages",
       description: "TODO: Description",
       demos: {
-        laptop: null,
-        mobile: null,
+        laptop: "", // TODO: Add .gif for desktop demo
+        mobile: "", // TODO: Add .gif for mobile demo
       },
       livePath: "COMING_SOON",
     },
@@ -81,8 +78,8 @@ function Section3() {
       title: "E-commerce websites",
       description: "TODO: Description",
       demos: {
-        laptop: null,
-        mobile: null,
+        laptop: "", // TODO: Add .gif for desktop demo
+        mobile: "", // TODO: Add .gif for mobile demo
       },
       livePath: "COMING_SOON",
     },
