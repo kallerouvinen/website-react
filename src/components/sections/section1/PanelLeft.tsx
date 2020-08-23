@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { FadeIn } from "components";
-const image = require("../../../assets/image.JPG");
+import image from "assets/image.jpg";
 
 const useStyles = makeStyles({
   image: {
