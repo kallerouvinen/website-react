@@ -8,12 +8,10 @@ import ChevronRight from "@material-ui/icons/ChevronRight";
 import Slide from "./Slide";
 
 const useStyles = makeStyles({
-  root: {
+  section3: {
     display: "flex",
-    flex: 1,
-    minHeight: "100%",
-    flexDirection: "column",
     position: "relative",
+    flexDirection: "column",
   },
   buttonContainer: {
     display: "flex",
@@ -93,7 +91,7 @@ function Section3() {
   ];
 
   return (
-    <div className={classes.root}>
+    <div className={classes.section3}>
       <div className={classes.buttonContainer}>
         <IconButton onClick={decrementSelected}>
           <ChevronLeft />
