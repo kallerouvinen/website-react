@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import TextPanel from "./TextPanel";
-import ScrollIndicator from "./ScrollIndicator";
-import { FadeIn } from "components";
 import image from "assets/image.jpg";
+import { FadeIn } from "components";
+import ScrollIndicator from "./ScrollIndicator";
+import TextPanel from "./TextPanel";
 
 const useStyles = makeStyles({
   sectionContainer: {
