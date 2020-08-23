@@ -123,7 +123,7 @@ const useStyles = makeStyles({
   },
 });
 
-function PanelRight() {
+function TextPanel() {
   const classes = useStyles();
 
   return (
@@ -150,4 +150,4 @@ function PanelRight() {
   );
 }
 
-export default PanelRight;
+export default TextPanel;

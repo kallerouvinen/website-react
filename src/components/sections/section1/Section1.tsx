@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import PanelRight from "./PanelRight";
+import TextPanel from "./TextPanel";
 import ScrollIndicator from "./ScrollIndicator";
 import { FadeIn } from "components";
 import image from "assets/image.jpg";
@@ -64,7 +64,7 @@ function Section1() {
           </FadeIn>
         </div>
         <Grid className={classes.gridItem} item lg={6}>
-          <PanelRight />
+          <TextPanel />
         </Grid>
       </Grid>
 
