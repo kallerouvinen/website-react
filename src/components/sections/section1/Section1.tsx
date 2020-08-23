@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-import PanelLeft from "./PanelLeft";
 import PanelRight from "./PanelRight";
 import ScrollIndicator from "./ScrollIndicator";
 import { FadeIn } from "components";
+import image from "assets/image.jpg";
 
 const useStyles = makeStyles({
   grid: {
@@ -18,6 +18,10 @@ const useStyles = makeStyles({
   },
   left: {
     alignItems: "flex-end",
+  },
+  image: {
+    height: "90vh",
+    objectFit: "contain",
   },
   right: {
     alignItems: "center",
@@ -37,11 +41,15 @@ function Section1() {
     setShouldAnimate(true);
   }, []);
 
+  // TODO: Add multiple scaled images depending on screen size
+
   return (
     <>
       <Grid className={classes.grid} container>
         <Grid className={`${classes.gridItem} ${classes.left}`} item md={6}>
-          <PanelLeft shouldAnimate={shouldAnimate} />
+          <FadeIn shouldAnimate={shouldAnimate} delay={300} direction="down">
+            <img className={classes.image} src={image} alt="" />
+          </FadeIn>
         </Grid>
         <Grid className={`${classes.gridItem} ${classes.right}`} item md={6}>
           <PanelRight shouldAnimate={shouldAnimate} />
