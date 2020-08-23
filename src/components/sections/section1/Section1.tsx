@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import PanelLeft from "./PanelLeft";
 import PanelRight from "./PanelRight";
 import ScrollIndicator from "./ScrollIndicator";
-import { FadeIn } from "../../basic";
+import { FadeIn } from "components";
 
 const useStyles = makeStyles({
   grid: {
