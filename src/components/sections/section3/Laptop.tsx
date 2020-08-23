@@ -7,53 +7,72 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    width: 244.5,
+    height: 121.5,
+    "@media (min-width:600px)": {
+      width: 326,
+      height: 162,
+    },
+    "@media (min-width:960px)": {
+      width: 489,
+      height: 243,
+    },
+    "@media (min-width:1280px)": {
+      width: 489,
+      height: 243,
+    },
+    "@media (min-width:1920px)": {
+      width: 652,
+      height: 324,
+    },
   },
   monitorOuter: {
     display: "flex",
-    padding: "6px 6px 16px 6px",
-    width: 512, // 16 * 32
-    height: 288, // 9 * 32
+    width: "78.53%",
+    height: "88.89%",
+    padding: "0.92% 0.92% 2.45% 0.92%",
     backgroundColor: "#18181b",
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderBottomLeftRadius: "2px 14px",
-    borderBottomRightRadius: "2px 14px",
+    borderTopLeftRadius: "1.15% 1.94%",
+    borderTopRightRadius: "1.15% 1.94%",
+    borderBottomLeftRadius: "0.38% 4.52%",
+    borderBottomRightRadius: "0.38% 4.52%",
   },
   monitorInner: {
+    position: "relative",
     display: "flex",
     flex: 1,
     backgroundColor: "#fff",
   },
   clickBlocker: {
     position: "absolute",
-    width: 512,
-    height: 288,
+    width: "100%",
+    height: "100%",
   },
   keyboard: {
     display: "flex",
     justifyContent: "center",
-    width: 652,
-    height: 4,
-    borderTopLeftRadius: 2,
-    borderTopRightRadius: 2,
+    width: "100%",
+    height: "1.23%",
+    borderTopLeftRadius: "0.31% 50%",
+    borderTopRightRadius: "0.31% 50%",
     backgroundImage:
       "linear-gradient(to right, #18181b, #d9d9d9 2%, #d9d9d9 4%, #a6a6b0 6%, #c9c9cf 50%, #a6a6b0 94%, #d9d9d9 96%, #d9d9d9 98%, #18181b 100%)",
   },
   touchpad: {
-    width: 120,
-    height: 4,
+    width: "18.40%",
+    height: "100%",
     backgroundImage:
       "linear-gradient(to right, #18181b, #60606c 4%, #aeaeb7 20%, #aeaeb7 80%, #60606c 96%, #18181b 100%)",
   },
   bottom: {
     display: "flex",
     justifyContent: "center",
-    width: 652,
-    height: 10,
-    borderBottomLeftRadius: "100px 10px",
-    borderBottomRightRadius: "100px 10px",
+    width: "100%",
+    height: "3.09%",
+    borderBottomLeftRadius: "15.34% 100%",
+    borderBottomRightRadius: "15.34% 100%",
     backgroundImage: "linear-gradient(#54545f, #000000)",
-    boxShadow: "0px 6px 8px #808080",
+    boxShadow: "0px 6px 8px #808080", // TODO: Use percentages instead of pixels
   },
 });
 

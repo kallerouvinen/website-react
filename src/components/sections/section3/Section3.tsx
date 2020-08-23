@@ -5,7 +5,6 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 
-import Mystery from "./Mystery";
 import Slide from "./Slide";
 
 const useStyles = makeStyles({
@@ -14,24 +13,21 @@ const useStyles = makeStyles({
     flex: 1,
     minHeight: "100%",
     flexDirection: "column",
-    alignItems: "center",
-    overflow: "hidden",
+    position: "relative",
   },
   buttonContainer: {
     display: "flex",
     padding: 10,
+    alignSelf: "center",
   },
 });
 
 const styles = {
   views: {
-    display: "flex",
-    flex: 1,
-    width: "100%",
+    height: "100%",
   },
   container: {
-    display: "flex",
-    flex: 1,
+    height: "100%",
   },
 };
 
@@ -88,8 +84,10 @@ function Section3() {
       description:
         "Contact me with your ideas and let's see if we can build something awesome together",
       demos: {
-        laptop: <Mystery mode="laptop" />,
-        mobile: <Mystery mode="mobile" />,
+        laptop: "", // TODO: Add .gif for desktop demo
+        mobile: "", // TODO: Add .gif for mobile demo
+        // laptop: <Mystery mode="laptop" />,
+        // mobile: <Mystery mode="mobile" />,
       },
     },
   ];
@@ -114,7 +112,6 @@ function Section3() {
       >
         {data.map((item) => (
           <Slide
-            key={`${item.id}`}
             description={item.description}
             title={item.title}
             demos={item.demos}

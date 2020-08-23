@@ -7,38 +7,85 @@ import SignalCellular4Bar from "@material-ui/icons/SignalCellular4Bar";
 const useStyles = makeStyles({
   bezel: {
     display: "flex",
-    padding: "4px 4px 4px 4px",
-    width: 135, // 9 * 15
-    height: 270, // 18 * 15
+    padding: "2.97%",
     backgroundColor: "#242429",
-    borderRadius: 16,
-    boxShadow: "0px 6px 10px -4px #808080",
+    borderTopLeftRadius: "11.85% 5.93%",
+    borderTopRightRadius: "11.85% 5.93%",
+    borderBottomLeftRadius: "11.85% 5.93%",
+    borderBottomRightRadius: "11.85% 5.93%",
+    boxShadow: "0px 6px 10px -4px #808080", // TODO: Use percentages instead of pixels
+    width: 50.5,
+    height: 101.5,
+    "@media (min-width:600px)": {
+      width: 67.5,
+      height: 135,
+    },
+    "@media (min-width:960px)": {
+      width: 101.25,
+      height: 202.5,
+    },
+    "@media (min-width:1280px)": {
+      width: 101.25,
+      height: 202.5,
+    },
+    "@media (min-width:1920px)": {
+      width: 135, // 9 * 15
+      height: 270, // 18 * 15
+    },
   },
   screen: {
+    position: "relative",
     display: "flex",
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#fff",
-    borderRadius: 12,
+    borderTopLeftRadius: "8.89% 4.44%",
+    borderTopRightRadius: "8.89% 4.44%",
+    borderBottomLeftRadius: "8.89% 4.44%",
+    borderBottomRightRadius: "8.89% 4.44%",
     overflow: "hidden",
   },
   statusBar: {
     position: "absolute",
     display: "flex",
     alignItems: "center",
-    height: 16,
-    right: 10,
-    fontSize: 6,
+    height: "5.93%",
+    right: "7.41%",
+    fontSize: 3,
     fontWeight: "bold",
     color: "#333333",
+    "@media (min-width:600px)": {
+      fontSize: 4,
+    },
+    "@media (min-width:960px)": {
+      fontSize: 5,
+    },
+    "@media (min-width:1280px)": {
+      fontSize: 5,
+    },
+    "@media (min-width:1920px)": {
+      fontSize: 6,
+    },
   },
   clickBlocker: {
     position: "absolute",
-    width: 135,
-    height: 270,
+    width: "100%",
+    height: "100%",
   },
   icon: {
-    fontSize: 6,
+    fontSize: 3,
+    "@media (min-width:600px)": {
+      fontSize: 4,
+    },
+    "@media (min-width:960px)": {
+      fontSize: 5,
+    },
+    "@media (min-width:1280px)": {
+      fontSize: 5,
+    },
+    "@media (min-width:1920px)": {
+      fontSize: 6,
+    },
   },
 });
 

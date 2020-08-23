@@ -4,16 +4,37 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
-import Demo from "./Demo";
+import Laptop from "./Laptop";
+import Mobile from "./Mobile";
 
 const useStyles = makeStyles({
-  root: {
+  gridContainer: {
     display: "flex",
-    flex: 1,
-    height: "100%",
-    flexDirection: "row",
+    justifyContent: "center",
+    overflow: "hidden",
   },
-  gridItem: {
+  demoContainer: {
+    display: "flex",
+    position: "relative",
+    flexDirection: "column",
+    height: 240,
+    justifyContent: "center",
+    alignItems: "center",
+    "@media (min-width:600px)": {
+      height: 320,
+    },
+    "@media (min-width:960px)": {
+      height: 400,
+    },
+    "@media (min-width:1280px)": {
+      height: 560,
+    },
+  },
+  mobileContainer: {
+    position: "absolute",
+    transform: "translate(150%, 25%)",
+  },
+  textContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -36,23 +57,22 @@ function Slide(props: Props) {
   const { demos, description = "", livePath, title = "" } = props;
 
   return (
-    <div className={classes.root}>
-      <Grid container>
-        <Grid item className={classes.gridItem} xs={12} lg={6}>
-          <Demo demos={demos} />
-        </Grid>
-        <Grid item className={classes.gridItem} xs={12} lg={6}>
-          <Typography gutterBottom variant="h5">
-            {title}
-          </Typography>
-          <Typography gutterBottom>{description}</Typography>
-          {livePath && livePath !== "COMING_SOON" && <Button>TODO</Button>}
-          {livePath === "COMING_SOON" && (
-            <Typography>Live demo coming soon.</Typography>
-          )}
-        </Grid>
+    <Grid container className={classes.gridContainer}>
+      <Grid item xs={12} lg={6} className={classes.demoContainer}>
+        <Laptop component={demos.laptop} />
+        <div className={classes.mobileContainer}>
+          <Mobile component={demos.mobile} />
+        </div>
       </Grid>
-    </div>
+      <Grid item xs={12} lg={6} className={classes.textContainer}>
+        <Typography variant="h5">{title}</Typography>
+        <Typography>{description}</Typography>
+        {livePath && livePath !== "COMING_SOON" && <Button>TODO</Button>}
+        {livePath === "COMING_SOON" && (
+          <Typography>Live demo coming soon.</Typography>
+        )}
+      </Grid>
+    </Grid>
   );
 }
 
