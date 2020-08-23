@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Laptop from "../../basic/Laptop";
-import Mobile from "../../basic/Mobile";
+import Laptop from "./Laptop";
+import Mobile from "./Mobile";
 
 const useStyles = makeStyles({
   root: {
