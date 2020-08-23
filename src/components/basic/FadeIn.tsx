@@ -36,7 +36,7 @@ interface Props {
   shouldAnimate?: boolean;
 }
 
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function FadeIn(props: Props) {
   const { delay = 0, direction = "up", shouldAnimate = false } = props;
