@@ -6,14 +6,15 @@ import Help from "mdi-material-ui/Help";
 const useStyles = makeStyles({
   root: {
     position: "absolute",
-    color: "white",
+    color: "#ffe8cc",
     animation: "$float linear infinite",
   },
 
   "@keyframes float": {
-    // TODO: These values should come from props?
-    "0%": { transform: "translateY(350px)" },
-    "100%": { transform: "translateY(-50px)" },
+    "0%": { transform: "translateY(220px)", opacity: 0 },
+    "30%": { opacity: 1 },
+    "70%": { opacity: 1 },
+    "100%": { transform: "translateY(10px)", opacity: 0 },
   },
 });
 
