@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles({
   root: {
     display: "flex",
-    height: "100vh",
+    minHeight: "100%",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "beige",

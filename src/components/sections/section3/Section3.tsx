@@ -11,7 +11,8 @@ import Slide from "./Slide";
 const useStyles = makeStyles({
   root: {
     display: "flex",
-    height: "100vh",
+    flex: 1,
+    minHeight: "100%",
     flexDirection: "column",
     alignItems: "center",
     overflow: "hidden",

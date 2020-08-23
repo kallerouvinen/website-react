@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import PanelRight from "./PanelRight";
 import ScrollIndicator from "./ScrollIndicator";
@@ -8,23 +9,37 @@ import { FadeIn } from "components";
 import image from "assets/image.jpg";
 
 const useStyles = makeStyles({
-  grid: {
-    height: "100vh",
+  sectionContainer: {
+    position: "relative",
+    display: "flex",
+    minHeight: "100%",
+    justifyContent: "center",
+    overflow: "hidden",
+  },
+  imageContainer: {
+    position: "absolute",
+    bottom: 0,
+    marginLeft: "auto",
+    marginRight: "auto",
+    opacity: 0.1,
+    "@media (min-width:1280px)": {
+      left: "calc(25vw - 30vh)",
+      opacity: 1,
+    },
+  },
+  image: {
+    height: "85vh",
+    objectFit: "contain",
+    "@media (min-width:1280px)": {
+      height: "90vh",
+    },
   },
   gridItem: {
     display: "flex",
     flex: 1,
     justifyContent: "center",
-  },
-  left: {
-    alignItems: "flex-end",
-  },
-  image: {
-    height: "90vh",
-    objectFit: "contain",
-  },
-  right: {
     alignItems: "center",
+    paddingBottom: 60,
   },
   scrollIndicator: {
     position: "absolute",
@@ -35,18 +50,20 @@ const useStyles = makeStyles({
 
 function Section1() {
   const classes = useStyles();
+  const lgUp = useMediaQuery("(min-width:1280px)");
+  const gridJustify = lgUp ? "flex-end" : "center";
 
   // TODO: Add multiple scaled images depending on screen size
 
   return (
-    <>
-      <Grid className={classes.grid} container>
-        <Grid className={`${classes.gridItem} ${classes.left}`} item md={6}>
+    <div className={classes.sectionContainer}>
+      <Grid container justify={gridJustify}>
+        <div className={classes.imageContainer}>
           <FadeIn shouldAnimate delay={300} direction="down">
             <img className={classes.image} src={image} alt="" />
           </FadeIn>
-        </Grid>
-        <Grid className={`${classes.gridItem} ${classes.right}`} item md={6}>
+        </div>
+        <Grid className={classes.gridItem} item lg={6}>
           <PanelRight />
         </Grid>
       </Grid>
@@ -57,7 +74,7 @@ function Section1() {
           <ScrollIndicator />
         </FadeIn>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -9,38 +9,111 @@ const useStyles = makeStyles({
     display: "flex",
     flex: 1,
     flexDirection: "column",
-    height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    overflow: "hidden",
+    minWidth: 310,
   },
   divider: {
     backgroundColor: "#ff3200",
     height: 6,
-    width: 500,
-    margin: "30px 0",
+    width: 250,
+    margin: "16px 0",
     borderRadius: 3,
     opacity: 0.5,
+    "@media (min-width:600px)": {
+      width: 370,
+    },
+    "@media (min-width:960px)": {
+      width: 500,
+    },
+    "@media (min-width:1280px)": {
+      width: 370,
+      margin: "24px 0",
+    },
+    "@media (min-width:1920px)": {
+      width: 500,
+      margin: "32px 0",
+    },
   },
   first: {
-    fontSize: 100,
+    fontSize: 50,
     color: "#ff0000",
+    "@media (min-width:600px)": {
+      fontSize: 75,
+    },
+    "@media (min-width:960px)": {
+      fontSize: 100,
+    },
+    "@media (min-width:1280px)": {
+      fontSize: 75,
+    },
+    "@media (min-width:1920px)": {
+      fontSize: 100,
+    },
   },
   second: {
-    fontSize: 69,
+    fontSize: 34,
     color: "#ff2300",
+    "@media (min-width:600px)": {
+      fontSize: 51,
+    },
+    "@media (min-width:960px)": {
+      fontSize: 69,
+    },
+    "@media (min-width:1280px)": {
+      fontSize: 51,
+    },
+    "@media (min-width:1920px)": {
+      fontSize: 69,
+    },
   },
   third: {
-    fontSize: 57.5,
+    fontSize: 29,
     color: "#ff4600",
+    "@media (min-width:600px)": {
+      fontSize: 43,
+    },
+    "@media (min-width:960px)": {
+      fontSize: 57.5,
+    },
+    "@media (min-width:1280px)": {
+      fontSize: 43,
+    },
+    "@media (min-width:1920px)": {
+      fontSize: 57.5,
+    },
   },
   fourth: {
-    fontSize: 62,
+    fontSize: 31,
     color: "#ff6900",
+    "@media (min-width:600px)": {
+      fontSize: 46,
+    },
+    "@media (min-width:960px)": {
+      fontSize: 62,
+    },
+    "@media (min-width:1280px)": {
+      fontSize: 46,
+    },
+    "@media (min-width:1920px)": {
+      fontSize: 62,
+    },
   },
   fifth: {
-    fontSize: 107,
+    fontSize: 54,
     color: "#ff8c00",
+    "@media (min-width:600px)": {
+      fontSize: 80,
+    },
+    "@media (min-width:960px)": {
+      fontSize: 107,
+    },
+    "@media (min-width:1280px)": {
+      fontSize: 80,
+    },
+    "@media (min-width:1920px)": {
+      fontSize: 107,
+    },
   },
 });
 

@@ -1,13 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import Typography from "@material-ui/core/Typography";
+import Typography from "@material-ui/core/Typography";
 
-import PureCSS from "./PureCSS";
+// import PureCSS from "./PureCSS";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
-    height: "100vh",
+    minHeight: "100%",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "beige",
@@ -19,8 +19,8 @@ function Section2() {
 
   return (
     <div className={classes.root}>
-      {/* <Typography>TODO</Typography> */}
-      <PureCSS />
+      <Typography>TODO</Typography>
+      {/* <PureCSS /> */}
     </div>
   );
 }
