@@ -34,12 +34,7 @@ const useStyles = makeStyles({
 });
 
 function Section1() {
-  const [shouldAnimate, setShouldAnimate] = useState(false);
   const classes = useStyles();
-
-  useEffect(() => {
-    setShouldAnimate(true);
-  }, []);
 
   // TODO: Add multiple scaled images depending on screen size
 
@@ -47,18 +42,18 @@ function Section1() {
     <>
       <Grid className={classes.grid} container>
         <Grid className={`${classes.gridItem} ${classes.left}`} item md={6}>
-          <FadeIn shouldAnimate={shouldAnimate} delay={300} direction="down">
+          <FadeIn shouldAnimate delay={300} direction="down">
             <img className={classes.image} src={image} alt="" />
           </FadeIn>
         </Grid>
         <Grid className={`${classes.gridItem} ${classes.right}`} item md={6}>
-          <PanelRight shouldAnimate={shouldAnimate} />
+          <PanelRight />
         </Grid>
       </Grid>
 
       {/* TODO: Scroll indicator should be a button? */}
       <div className={classes.scrollIndicator}>
-        <FadeIn shouldAnimate={shouldAnimate} delay={2000} direction="down">
+        <FadeIn shouldAnimate delay={2000} direction="down">
           <ScrollIndicator />
         </FadeIn>
       </div>
