@@ -6,6 +6,7 @@ import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 
 import Slide from "./Slide";
+import { demos } from "data";
 
 const useStyles = makeStyles({
   section3: {
@@ -40,55 +41,10 @@ function Section3() {
   };
 
   const incrementSelected = () => {
-    if (selected < data.length - 1) {
+    if (selected < demos.length - 1) {
       setSelected(selected + 1);
     }
   };
-
-  const data = [
-    {
-      id: 1,
-      title: "Applications",
-      description: "TODO: Description",
-      demos: {
-        laptop: "", // TODO: Add .gif for desktop demo
-        mobile: "", // TODO: Add .gif for mobile demo
-      },
-      livePath: "COMING_SOON",
-    },
-    {
-      id: 2,
-      title: "Landing pages",
-      description: "TODO: Description",
-      demos: {
-        laptop: "", // TODO: Add .gif for desktop demo
-        mobile: "", // TODO: Add .gif for mobile demo
-      },
-      livePath: "COMING_SOON",
-    },
-    {
-      id: 3,
-      title: "E-commerce websites",
-      description: "TODO: Description",
-      demos: {
-        laptop: "", // TODO: Add .gif for desktop demo
-        mobile: "", // TODO: Add .gif for mobile demo
-      },
-      livePath: "COMING_SOON",
-    },
-    {
-      id: 4,
-      title: "Something else?",
-      description:
-        "Contact me with your ideas and let's see if we can build something awesome together",
-      demos: {
-        laptop: "", // TODO: Add .gif for desktop demo
-        mobile: "", // TODO: Add .gif for mobile demo
-        // laptop: <Mystery mode="laptop" />,
-        // mobile: <Mystery mode="mobile" />,
-      },
-    },
-  ];
 
   return (
     <div className={classes.section3}>
@@ -108,7 +64,7 @@ function Section3() {
         index={selected}
         onChangeIndex={() => console.log("TODO")}
       >
-        {data.map((item) => (
+        {demos.map((item) => (
           <Slide
             description={item.description}
             title={item.title}
