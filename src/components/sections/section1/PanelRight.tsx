@@ -15,23 +15,29 @@ const useStyles = makeStyles({
   },
   divider: {
     backgroundColor: "#ff3200",
-    height: 6,
     width: 250,
+    height: 4,
     margin: "16px 0",
     borderRadius: 3,
     opacity: 0.5,
     "@media (min-width:600px)": {
       width: 370,
+      height: 5,
+      margin: "24px 0",
     },
     "@media (min-width:960px)": {
       width: 500,
+      height: 6,
+      margin: "32px 0",
     },
     "@media (min-width:1280px)": {
       width: 370,
+      height: 5,
       margin: "24px 0",
     },
     "@media (min-width:1920px)": {
       width: 500,
+      height: 6,
       margin: "32px 0",
     },
   },
