@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { FadeIn } from "components";
-import image from "assets/image.jpg";
+// import image from "assets/image.jpg";
 
 const useStyles = makeStyles({
   image: {
@@ -23,7 +23,7 @@ function PanelLeft(props: Props) {
 
   return (
     <FadeIn shouldAnimate={shouldAnimate} delay={300} direction="down">
-      <img className={classes.image} src={image} alt="" />
+      {/* <img className={classes.image} src={image} alt="" /> */}
     </FadeIn>
   );
 }
