@@ -7,10 +7,19 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles({
   root: {
     display: "flex",
-    minHeight: "100%",
+    flexDirection: "column",
+    minHeight: 300,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "beige",
+    backgroundColor: "#f29022",
+    padding: 32,
+  },
+  title: {
+    color: "#fff",
+    fontWeight: 500,
+  },
+  text: {
+    color: "#fff",
   },
 });
 
@@ -19,7 +28,10 @@ function Section2() {
 
   return (
     <div className={classes.root}>
-      <Typography>TODO</Typography>
+      <Typography className={classes.title} gutterBottom variant="h4">
+        TODO: Title
+      </Typography>
+      <Typography className={classes.text}>TODO: Description</Typography>
       {/* <PureCSS /> */}
     </div>
   );
