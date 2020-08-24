@@ -20,7 +20,6 @@ const useStyles = makeStyles({
     height: 200,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "tomato",
     "@media (min-width:600px)": {
       height: 280,
     },
