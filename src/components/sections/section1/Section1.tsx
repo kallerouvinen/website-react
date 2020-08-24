@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     marginLeft: "auto",
     marginRight: "auto",
     opacity: 0.1,
-    "@media (min-width:1280px)": {
+    "@media (min-width:960px)": {
       left: "calc(25% - 30vh)",
       opacity: 1,
     },
@@ -57,8 +57,8 @@ const useStyles = makeStyles({
 
 function Section1() {
   const classes = useStyles();
-  const lgUp = useMediaQuery("(min-width:1280px)");
-  const gridJustify = lgUp ? "flex-end" : "center";
+  const mdUp = useMediaQuery("(min-width:960px)");
+  const gridJustify = mdUp ? "flex-end" : "center";
 
   // TODO: Add multiple scaled images depending on screen size
 
@@ -71,7 +71,7 @@ function Section1() {
               <img className={classes.image} src={image} alt="" />
             </FadeIn>
           </div>
-          <Grid className={classes.gridItem} item lg={6}>
+          <Grid className={classes.gridItem} item md={6}>
             <TextPanel />
           </Grid>
         </Grid>
