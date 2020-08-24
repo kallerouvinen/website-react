@@ -17,14 +17,15 @@ const useStyles = makeStyles({
     display: "flex",
     position: "relative",
     flexDirection: "column",
-    height: 240,
+    height: 200,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "tomato",
     "@media (min-width:600px)": {
-      height: 320,
+      height: 280,
     },
     "@media (min-width:960px)": {
-      height: 400,
+      height: 360,
     },
     "@media (min-width:1280px)": {
       height: 560,
