@@ -13,24 +13,23 @@ const useStyles = makeStyles({
     borderTopRightRadius: "11.85% 5.93%",
     borderBottomLeftRadius: "11.85% 5.93%",
     borderBottomRightRadius: "11.85% 5.93%",
-    boxShadow: "0px 6px 10px -4px #808080", // TODO: Use percentages instead of pixels
     width: 50.5,
     height: 101.5,
+    boxShadow: "0px 0.140625em 0.234375em -0.09375em #808080",
     "@media (min-width:600px)": {
       width: 67.5,
       height: 135,
+      boxShadow: "0px 0.1875em 0.3125em -0.125em #808080",
     },
     "@media (min-width:960px)": {
       width: 101.25,
       height: 202.5,
-    },
-    "@media (min-width:1280px)": {
-      width: 101.25,
-      height: 202.5,
+      boxShadow: "0px 0.28125em 0.46875em -0.1875em #808080",
     },
     "@media (min-width:1920px)": {
       width: 135, // 9 * 15
       height: 270, // 18 * 15
+      boxShadow: "0px 0.375em 0.625em -0.25em #808080",
     },
   },
   screen: {
@@ -62,9 +61,6 @@ const useStyles = makeStyles({
         fontSize: 4,
       },
       "@media (min-width:960px)": {
-        fontSize: 5,
-      },
-      "@media (min-width:1280px)": {
         fontSize: 5,
       },
       "@media (min-width:1920px)": {

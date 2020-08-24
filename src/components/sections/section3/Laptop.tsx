@@ -17,10 +17,6 @@ const useStyles = makeStyles({
       width: 489,
       height: 243,
     },
-    "@media (min-width:1280px)": {
-      width: 489,
-      height: 243,
-    },
     "@media (min-width:1920px)": {
       width: 652,
       height: 324,
@@ -72,7 +68,16 @@ const useStyles = makeStyles({
     borderBottomLeftRadius: "15.34% 100%",
     borderBottomRightRadius: "15.34% 100%",
     backgroundImage: "linear-gradient(#54545f, #000000)",
-    boxShadow: "0px 6px 8px #808080", // TODO: Use percentages instead of pixels
+    boxShadow: "0px 0.140625em 0.1875em #808080",
+    "@media (min-width:600px)": {
+      boxShadow: "0px 0.1875em 0.25em #808080",
+    },
+    "@media (min-width:960px)": {
+      boxShadow: "0px 0.28125em 0.375em #808080",
+    },
+    "@media (min-width:1920px)": {
+      boxShadow: "0px 0.375em 0.5em #808080",
+    },
   },
 });
 
