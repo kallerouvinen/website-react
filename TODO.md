@@ -3,24 +3,21 @@
 ### Code
 
 #### Section 1
-- Responsiveness
 - Add hover-effect for scroll indicator
 - Add click-action for scroll indicator
 - Possibly rethink the texts
 
 #### Section 2
-- TODO
+- ??
 
 #### Section 3
-- Responsiveness
-- Title
-- Description
+- ??
 
 ##### Landing pages
-- TODO
+- ??
 
 ##### E-commerce websites
-- TODO
+- ??
 
 ##### Applications
 - Rework into savings app

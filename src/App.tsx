@@ -7,13 +7,6 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        {/* TODO: Add routes here in the following manner:
-
-        <Route path="/pathToDemo">
-          <DemoComponent />
-        </Route>
-            
-        */}
         <Route path="/">
           <Section1 />
           <Section2 />
