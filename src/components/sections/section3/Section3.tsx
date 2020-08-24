@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
@@ -58,21 +59,23 @@ function Section3() {
       </div>
       {/* TODO: Add virtualization for performance */}
       {/* TODO: Add autoplay */}
-      <SwipeableViews
-        style={styles.views}
-        containerStyle={styles.container}
-        index={selected}
-        onChangeIndex={() => console.log("TODO")}
-      >
-        {demos.map((item) => (
-          <Slide
-            description={item.description}
-            title={item.title}
-            demos={item.demos}
-            livePath={item.livePath}
-          />
-        ))}
-      </SwipeableViews>
+      <Container maxWidth="lg">
+        <SwipeableViews
+          style={styles.views}
+          containerStyle={styles.container}
+          index={selected}
+          onChangeIndex={() => console.log("TODO")}
+        >
+          {demos.map((item) => (
+            <Slide
+              description={item.description}
+              title={item.title}
+              demos={item.demos}
+              livePath={item.livePath}
+            />
+          ))}
+        </SwipeableViews>
+      </Container>
     </div>
   );
 }

@@ -14,13 +14,16 @@ const useStyles = makeStyles({
       height: 162,
     },
     "@media (min-width:960px)": {
+      width: 326,
+      height: 162,
+    },
+    "@media (min-width:1280px)": {
       width: 489,
       height: 243,
     },
-    "@media (min-width:1920px)": {
-      width: 652,
-      height: 324,
-    },
+    // Original values for reference
+    //   width: 652,
+    //   height: 324,
   },
   monitorOuter: {
     display: "flex",
@@ -73,11 +76,13 @@ const useStyles = makeStyles({
       boxShadow: "0px 0.1875em 0.25em #808080",
     },
     "@media (min-width:960px)": {
+      boxShadow: "0px 0.1875em 0.25em #808080",
+    },
+    "@media (min-width:1280px)": {
       boxShadow: "0px 0.28125em 0.375em #808080",
     },
-    "@media (min-width:1920px)": {
-      boxShadow: "0px 0.375em 0.5em #808080",
-    },
+    // Original values for reference
+    //   boxShadow: "0px 0.375em 0.5em #808080",
   },
 });
 

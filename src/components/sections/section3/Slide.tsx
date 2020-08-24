@@ -24,9 +24,6 @@ const useStyles = makeStyles({
       height: 280,
     },
     "@media (min-width:960px)": {
-      height: 360,
-    },
-    "@media (min-width:1280px)": {
       height: 560,
     },
   },
@@ -62,13 +59,13 @@ function Slide(props: Props) {
 
   return (
     <Grid container className={classes.gridContainer}>
-      <Grid item xs={12} lg={6} className={classes.demoContainer}>
+      <Grid item xs={12} md={6} className={classes.demoContainer}>
         <Laptop component={demos.laptop} />
         <div className={classes.mobileContainer}>
           <Mobile component={demos.mobile} />
         </div>
       </Grid>
-      <Grid item xs={12} lg={6} className={classes.textContainer}>
+      <Grid item xs={12} md={6} className={classes.textContainer}>
         <Typography variant="h5">{title}</Typography>
         <Typography>{description}</Typography>
         {livePath && livePath !== "COMING_SOON" && <Button>TODO</Button>}
