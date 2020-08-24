@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
@@ -16,6 +17,12 @@ const useStyles = makeStyles({
     justifyContent: "center",
     overflow: "hidden",
   },
+  container: {
+    display: "flex",
+  },
+  gridContainer: {
+    position: "relative",
+  },
   imageContainer: {
     position: "absolute",
     bottom: 0,
@@ -23,7 +30,7 @@ const useStyles = makeStyles({
     marginRight: "auto",
     opacity: 0.1,
     "@media (min-width:1280px)": {
-      left: "calc(25vw - 30vh)",
+      left: "calc(25% - 30vh)",
       opacity: 1,
     },
   },
@@ -57,16 +64,18 @@ function Section1() {
 
   return (
     <div className={classes.sectionContainer}>
-      <Grid container justify={gridJustify}>
-        <div className={classes.imageContainer}>
-          <FadeIn shouldAnimate delay={300} direction="down">
-            <img className={classes.image} src={image} alt="" />
-          </FadeIn>
-        </div>
-        <Grid className={classes.gridItem} item lg={6}>
-          <TextPanel />
+      <Container className={classes.container} maxWidth="xl">
+        <Grid container justify={gridJustify} className={classes.gridContainer}>
+          <div className={classes.imageContainer}>
+            <FadeIn shouldAnimate delay={300} direction="down">
+              <img className={classes.image} src={image} alt="" />
+            </FadeIn>
+          </div>
+          <Grid className={classes.gridItem} item lg={6}>
+            <TextPanel />
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
 
       {/* TODO: Scroll indicator should be a button? */}
       <div className={classes.scrollIndicator}>
