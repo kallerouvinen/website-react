@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
@@ -19,6 +18,14 @@ const useStyles = makeStyles({
     display: "flex",
     padding: 10,
     alignSelf: "center",
+  },
+  swipeableViewsOverlay: {
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+    pointerEvents: "none",
+    background:
+      "linear-gradient(to right, #fff calc(50% - 680px), transparent calc(50% - 600px), transparent calc(50% + 600px), #fff calc(50% + 680px))",
   },
 });
 
@@ -50,6 +57,10 @@ function Section3() {
     }
   };
 
+  const handleChangeIndex = (index: number) => {
+    setSelected(index);
+  };
+
   return (
     <div className={classes.section3}>
       <div className={classes.buttonContainer}>
@@ -66,18 +77,18 @@ function Section3() {
         style={styles.views}
         containerStyle={styles.container}
         index={selected}
-        onChangeIndex={() => console.log("TODO")}
+        onChangeIndex={handleChangeIndex}
       >
-        {demos.map((item, i) => (
+        {demos.map((item) => (
           <Slide
             description={item.description}
             title={item.title}
             demos={item.demos}
             livePath={item.livePath}
-            selected={selected === i}
           />
         ))}
       </SwipeableViews>
+      <div className={classes.swipeableViewsOverlay} />
     </div>
   );
 }
