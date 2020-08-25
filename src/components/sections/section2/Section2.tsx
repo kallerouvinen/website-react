@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     backgroundColor: "#f29022",
     padding: 32,
+    borderTop: "5px solid #fff",
   },
   title: {
     color: "#fff",
