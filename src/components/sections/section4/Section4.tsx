@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
@@ -8,7 +9,13 @@ const useStyles = makeStyles({
     minHeight: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "beige",
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "8px 48px",
   },
 });
 
@@ -17,7 +24,9 @@ function Section4() {
 
   return (
     <div className={classes.root}>
-      <Typography>TODO: Contact form</Typography>
+      <Container className={classes.container} maxWidth="md">
+        <Typography>TODO: Contact form</Typography>
+      </Container>
     </div>
   );
 }
