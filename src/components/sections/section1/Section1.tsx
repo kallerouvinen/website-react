@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import image from "assets/image.jpg";
+import image from "assets/image900.webp";
 import { FadeIn } from "components";
 import ScrollIndicator from "./ScrollIndicator";
 import TextPanel from "./TextPanel";
