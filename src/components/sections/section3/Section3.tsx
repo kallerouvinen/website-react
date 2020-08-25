@@ -25,6 +25,9 @@ const useStyles = makeStyles({
 const styles = {
   views: {
     height: "100%",
+    // This effectively makes single slide max width 1280px
+    // and allows rest of the slides be visible
+    padding: "0 calc(50% - 640px)",
   },
   container: {
     height: "100%",
@@ -59,23 +62,22 @@ function Section3() {
       </div>
       {/* TODO: Add virtualization for performance */}
       {/* TODO: Add autoplay */}
-      <Container maxWidth="lg">
-        <SwipeableViews
-          style={styles.views}
-          containerStyle={styles.container}
-          index={selected}
-          onChangeIndex={() => console.log("TODO")}
-        >
-          {demos.map((item) => (
-            <Slide
-              description={item.description}
-              title={item.title}
-              demos={item.demos}
-              livePath={item.livePath}
-            />
-          ))}
-        </SwipeableViews>
-      </Container>
+      <SwipeableViews
+        style={styles.views}
+        containerStyle={styles.container}
+        index={selected}
+        onChangeIndex={() => console.log("TODO")}
+      >
+        {demos.map((item, i) => (
+          <Slide
+            description={item.description}
+            title={item.title}
+            demos={item.demos}
+            livePath={item.livePath}
+            selected={selected === i}
+          />
+        ))}
+      </SwipeableViews>
     </div>
   );
 }

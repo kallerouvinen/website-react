@@ -12,6 +12,11 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     overflow: "hidden",
+    opacity: 0,
+    transition: "opacity 0.3s",
+  },
+  selected: {
+    opacity: 1,
   },
   demoContainer: {
     display: "flex",
@@ -51,14 +56,18 @@ interface Props {
     mobile?: React.ReactNode;
   };
   livePath?: string;
+  selected: boolean;
 }
 
 function Slide(props: Props) {
   const classes = useStyles();
-  const { demos, description = "", livePath, title = "" } = props;
+  const { demos, description = "", livePath, selected, title = "" } = props;
 
   return (
-    <Grid container className={classes.gridContainer}>
+    <Grid
+      container
+      className={`${classes.gridContainer} ${selected && classes.selected}`}
+    >
       <Grid item xs={12} md={6} className={classes.demoContainer}>
         <Laptop component={demos.laptop} />
         <div className={classes.mobileContainer}>
