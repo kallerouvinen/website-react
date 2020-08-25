@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 
 // import PureCSS from "./PureCSS";
 
@@ -28,10 +28,10 @@ function Section2() {
 
   return (
     <div className={classes.root}>
-      <Typography className={classes.title} gutterBottom variant="h4">
+      {/* <Typography className={classes.title} gutterBottom variant="h4">
         TODO: Title
       </Typography>
-      <Typography className={classes.text}>TODO: Description</Typography>
+      <Typography className={classes.text}>TODO: Description</Typography> */}
       {/* <PureCSS /> */}
     </div>
   );
