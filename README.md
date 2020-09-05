@@ -2,17 +2,23 @@ TODO: Readme
 
 ## Available Scripts
 
-In the project directory, you can run:
+Run the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `yarn start`
+```
+yarn start
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Launch the test runner in the interactive watch mode:
+```
+yarn test
+```
 
-### `yarn test`
+Build the app for production to the `build` folder:
+```
+yarn build
+```
 
-Launches the test runner in the interactive watch mode.<br />
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
+Once that's done, you can run your production build locally:
+```
+npx serve -s build
+```
