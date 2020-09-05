@@ -41,9 +41,11 @@ function Section4() {
     <div className={classes.root}>
       <Container className={classes.container} maxWidth="md">
         <Typography gutterBottom variant="h4">
-          TODO: Title
+          Contact me
         </Typography>
         <Typography gutterBottom>TODO: Description</Typography>
+        {/* TODO: Status */}
+        {/* TODO: Move contact form to another route */}
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextInput label={"Name"} />
@@ -55,7 +57,7 @@ function Section4() {
             <TextInput label={"Message"} multiline rows={5} />
           </Grid>
           <Grid item xs={12} className={classes.buttonContainer}>
-            <Button onClick={handleSubmit}>Submit</Button>
+            <Button onClick={handleSubmit}>Send message</Button>
           </Grid>
         </Grid>
       </Container>
