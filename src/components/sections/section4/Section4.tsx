@@ -48,13 +48,13 @@ function Section4() {
         {/* TODO: Move contact form to another route */}
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <TextInput label={"Name"} />
+            <TextInput label="Name" />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextInput label={"Email"} />
+            <TextInput label="Email" />
           </Grid>
           <Grid item xs={12}>
-            <TextInput label={"Message"} multiline rows={5} />
+            <TextInput label="Message" multiline rows={5} />
           </Grid>
           <Grid item xs={12} className={classes.buttonContainer}>
             <Button onClick={handleSubmit}>Send message</Button>
