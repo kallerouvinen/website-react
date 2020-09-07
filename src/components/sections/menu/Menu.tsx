@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
@@ -73,10 +73,10 @@ const useStyles = makeStyles({
     height: 0,
     backgroundColor: "purple",
     borderBottomLeftRadius: size,
-    animationFillMode: "forwards",
-    // TODO: Disable close menu animation on first mount
-    animation: `$closeMenu 500ms`,
     overflow: "hidden",
+  },
+  menuAnimated: {
+    animation: `$closeMenu 500ms`,
   },
   menuOpen: {
     animation: `$openMenu 500ms`,
@@ -104,6 +104,13 @@ const useStyles = makeStyles({
 function Menu() {
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState(false);
+  const enableAnimations = useRef(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      enableAnimations.current = true;
+    }, 5);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -111,7 +118,11 @@ function Menu() {
 
   return (
     <>
-      <div className={`${classes.menu} ${isOpen && classes.menuOpen}`}>
+      <div
+        className={`${classes.menu} ${
+          enableAnimations.current && classes.menuAnimated
+        } ${isOpen && classes.menuOpen}`}
+      >
         <div
           className={`${classes.navLinkContainer} ${
             isOpen && classes.navLinkContainerOpen
