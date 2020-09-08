@@ -3,23 +3,29 @@
 ### Code
 
 #### Section 1
+
 - Add hover-effect for scroll indicator
 - Add click-action for scroll indicator
 - Possibly rethink the texts
 
 #### Section 2
+
 - ??
 
 #### Section 3
+
 - ??
 
 ##### Landing pages
+
 - ??
 
 ##### E-commerce websites
+
 - ??
 
 ##### Applications
+
 - Rework into savings app
 - Tabs
   - Savings
@@ -35,11 +41,24 @@
 - Projection of savings?
 
 ##### Something else?
+
 - TODO
 
 #### Section 4
+
 - Contact form
 - Social media links
 
 ### Other
+
 - Fix readme
+
+### Color theme
+
+1.  #3f5efb   rgb(63, 94, 251)
+2.  #6e58d7   rgb(110, 88, 215)
+3.  #9e52b3   rgb(158, 82, 179)
+4.  #cd4c8f   rgb(205, 76, 143)
+5.  #fc466b   rgb(252, 70, 107)
+
+2.5  #8655c5   rgb(134, 85, 197)
