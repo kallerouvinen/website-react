@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
-import Button from "./Button";
+import { Button } from "components";
 
 const useStyles = makeStyles({
   root: {
@@ -51,7 +51,7 @@ function Section4() {
             </Typography>
             {/* TODO: Status */}
             <Link to="/contact">
-              <Button>TODO: Button label</Button>
+              <Button color="color5">TODO: Button label</Button>
             </Link>
           </Grid>
           <Grid item xs={12} md={6}></Grid>

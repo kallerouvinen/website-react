@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
-import Button from "./Button";
+import { Button } from "components";
 import TextInput from "./TextInput";
 
 const useStyles = makeStyles({

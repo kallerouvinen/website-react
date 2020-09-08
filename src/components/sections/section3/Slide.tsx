@@ -1,9 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
+import { Button } from "components";
 import Laptop from "./Laptop";
 import Mobile from "./Mobile";
 
@@ -68,9 +68,18 @@ function Slide(props: Props) {
       <Grid item xs={12} md={6} className={classes.textContainer}>
         <Typography variant="h5">{title}</Typography>
         <Typography>{description}</Typography>
-        {livePath && livePath !== "COMING_SOON" && <Button>TODO</Button>}
+        {livePath && livePath !== "COMING_SOON" && (
+          <Button>Visit Website</Button>
+        )}
         {livePath === "COMING_SOON" && (
-          <Typography>Live demo coming soon.</Typography>
+          <Button
+            disabled
+            onClick={() => {
+              console.log("TODO");
+            }}
+          >
+            No live demo
+          </Button>
         )}
       </Grid>
     </Grid>
