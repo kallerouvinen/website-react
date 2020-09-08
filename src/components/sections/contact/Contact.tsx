@@ -10,8 +10,7 @@ import TextInput from "./TextInput";
 const useStyles = makeStyles({
   root: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    flex: 1,
     padding: "96px 0",
   },
   container: {
