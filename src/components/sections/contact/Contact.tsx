@@ -1,20 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 import Button from "./Button";
+import TextInput from "./TextInput";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "192px 0 96px 0",
-    backgroundColor: "purple",
-    clipPath: "polygon(0 0, 100% 96px, 100% 100%, 0 100%)",
+    padding: "96px 0",
   },
   container: {
     display: "flex",
@@ -32,28 +30,37 @@ const useStyles = makeStyles({
   },
 });
 
-function Section4() {
+function Contact() {
   const classes = useStyles();
+
+  const handleSubmit = () => {
+    console.log("TODO: Submit");
+  };
 
   return (
     <div className={classes.root}>
       <Container className={classes.container} maxWidth="md">
-        <Grid container>
-          <Grid item xs={12} md={6}>
-            <Typography gutterBottom variant="h4">
-              TODO: Title
-            </Typography>
-            <Typography gutterBottom>TODO: Description</Typography>
-            {/* TODO: Status */}
-            <Link to="/contact">
-              <Button>TODO: Button label</Button>
-            </Link>
+        <Typography gutterBottom variant="h4">
+          Contact me
+        </Typography>
+        <Typography gutterBottom>TODO: Description</Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextInput label="Name" />
           </Grid>
-          <Grid item xs={12} md={6}></Grid>
+          <Grid item xs={12} sm={6}>
+            <TextInput label="Email" />
+          </Grid>
+          <Grid item xs={12}>
+            <TextInput label="Message" multiline rows={5} />
+          </Grid>
+          <Grid item xs={12} className={classes.buttonContainer}>
+            <Button onClick={handleSubmit}>Send message</Button>
+          </Grid>
         </Grid>
       </Container>
     </div>
   );
 }
 
-export default Section4;
+export default Contact;
