@@ -49,6 +49,7 @@ const useStyles = makeStyles({
     cursor: "pointer",
     transition: "0.3s all",
     backgroundColor: "#3f5efb",
+    WebkitTapHighlightColor: "transparent",
     "& > *": {
       color: "#fff",
       fontSize: 32,
