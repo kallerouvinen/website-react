@@ -5,14 +5,15 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 
-import Slide from "./Slide";
 import { demos } from "data";
+import Slide from "./Slide";
 
 const useStyles = makeStyles({
   section3: {
     display: "flex",
     position: "relative",
     flexDirection: "column",
+    padding: "96px 0",
   },
   buttonContainer: {
     display: "flex",
@@ -79,12 +80,13 @@ function Section3() {
         index={selected}
         onChangeIndex={handleChangeIndex}
       >
-        {demos.map((item) => (
+        {demos.map((item, index) => (
           <Slide
-            description={item.description}
-            title={item.title}
             demos={item.demos}
+            description={item.description}
+            key={index}
             livePath={item.livePath}
+            title={item.title}
           />
         ))}
       </SwipeableViews>
