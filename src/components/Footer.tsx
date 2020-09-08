@@ -9,6 +9,9 @@ import Instagram from "@material-ui/icons/Instagram";
 import LinkedIn from "@material-ui/icons/LinkedIn";
 
 const useStyles = makeStyles({
+  footer: {
+    backgroundColor: "#3d28a4",
+  },
   container: {
     display: "flex",
     flexDirection: "column",
@@ -24,25 +27,35 @@ const useStyles = makeStyles({
       textDecoration: "underline",
     },
   },
+  text: {
+    // TODO: Darken
+    color: "#fff",
+  },
+  icon: {
+    // TODO: Darken
+    color: "#fff",
+  },
 });
 
 function Footer() {
   const classes = useStyles();
 
   return (
-    <footer>
+    <footer className={classes.footer}>
       <Container className={classes.container} maxWidth="md">
         <Grid container className={classes.gridContainer} spacing={2}>
           <Grid item xs={12} md={6}>
-            <Typography>© 2020 Kalle Rouvinen. All rights reserved.</Typography>
+            <Typography className={classes.text}>
+              © 2020 Kalle Rouvinen. All rights reserved.
+            </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
             {/* TODO: Links */}
             <IconButton>
-              <Instagram />
+              <Instagram className={classes.icon} />
             </IconButton>
             <IconButton>
-              <LinkedIn />
+              <LinkedIn className={classes.icon} />
             </IconButton>
             <a
               href="https://github.com/kallerouvinen"
@@ -50,7 +63,7 @@ function Footer() {
               rel="noreferrer noopener"
             >
               <IconButton>
-                <GitHub />
+                <GitHub className={classes.icon} />
               </IconButton>
             </a>
           </Grid>

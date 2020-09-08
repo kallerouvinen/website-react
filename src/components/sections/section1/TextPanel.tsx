@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     minWidth: 310,
   },
   divider: {
-    backgroundColor: "#ff3200",
+    backgroundColor: "#8655c5",
     width: 225,
     height: 4,
     margin: "16px 0",
@@ -42,8 +42,8 @@ const useStyles = makeStyles({
     },
   },
   first: {
+    color: "#3f5efb",
     fontSize: 45,
-    color: "#ff0000",
     "@media (min-width:600px)": {
       fontSize: 85,
     },
@@ -58,8 +58,8 @@ const useStyles = makeStyles({
     },
   },
   second: {
+    color: "#6e58d7",
     fontSize: 31,
-    color: "#ff2300",
     "@media (min-width:600px)": {
       fontSize: 58,
     },
@@ -74,8 +74,8 @@ const useStyles = makeStyles({
     },
   },
   third: {
+    color: "#9e52b3",
     fontSize: 26,
-    color: "#ff4600",
     "@media (min-width:600px)": {
       fontSize: 49,
     },
@@ -90,8 +90,8 @@ const useStyles = makeStyles({
     },
   },
   fourth: {
+    color: "#cd4c8f",
     fontSize: 28,
-    color: "#ff6900",
     "@media (min-width:600px)": {
       fontSize: 53,
     },
@@ -106,8 +106,8 @@ const useStyles = makeStyles({
     },
   },
   fifth: {
+    color: "#fc466b",
     fontSize: 48,
-    color: "#ff8c00",
     "@media (min-width:600px)": {
       fontSize: 92,
     },

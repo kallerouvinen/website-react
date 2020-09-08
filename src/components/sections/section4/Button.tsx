@@ -4,13 +4,14 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   button: {
     padding: "12px 64px",
-    border: "2px solid purple",
+    border: "2px solid #3d28a4",
     borderRadius: 48,
     cursor: "pointer",
     transition: "0.3s all",
-    backgroundColor: "#fff",
+    backgroundColor: "#3d28a4",
     "&:hover": {
-      backgroundColor: "purple",
+      backgroundColor: "#2d1e7b",
+      transform: "scale(1.1)",
       "& > *": {
         color: "#fff",
       },
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
     transition: "0.3s all",
     fontFamily: "roboto",
     fontSize: 18,
-    color: "purple",
+    color: "#fff",
     fontWeight: 500,
   },
 });

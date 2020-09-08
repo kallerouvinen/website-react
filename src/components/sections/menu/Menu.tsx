@@ -48,13 +48,13 @@ const useStyles = makeStyles({
     border: "none",
     cursor: "pointer",
     transition: "0.3s all",
-    backgroundColor: "purple",
+    backgroundColor: "#3f5efb",
     "& > *": {
       color: "#fff",
       fontSize: 32,
     },
     "&:hover": {
-      backgroundColor: "purple",
+      backgroundColor: "#3f5efb", // TODO: Darken
     },
     "&:focus": {
       outline: "none",
@@ -71,7 +71,7 @@ const useStyles = makeStyles({
     right: 0,
     width: 0,
     height: 0,
-    backgroundColor: "purple",
+    backgroundColor: "#3f5efb",
     borderBottomLeftRadius: size,
     overflow: "hidden",
   },

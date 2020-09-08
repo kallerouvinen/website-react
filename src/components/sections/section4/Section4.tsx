@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     padding: "192px 0 96px 0",
-    backgroundColor: "purple",
+    backgroundColor: "#6e58d7",
     clipPath: "polygon(0 0, 100% 96px, 100% 100%, 0 100%)",
   },
   container: {
@@ -25,6 +25,9 @@ const useStyles = makeStyles({
   },
   title: {},
   description: {},
+  text: {
+    color: "#fff",
+  },
   buttonContainer: {
     display: "flex",
     justifyContent: "center",
@@ -40,10 +43,12 @@ function Section4() {
       <Container className={classes.container} maxWidth="md">
         <Grid container>
           <Grid item xs={12} md={6}>
-            <Typography gutterBottom variant="h4">
+            <Typography className={classes.text} gutterBottom variant="h4">
               TODO: Title
             </Typography>
-            <Typography gutterBottom>TODO: Description</Typography>
+            <Typography className={classes.text} gutterBottom>
+              TODO: Description
+            </Typography>
             {/* TODO: Status */}
             <Link to="/contact">
               <Button>TODO: Button label</Button>

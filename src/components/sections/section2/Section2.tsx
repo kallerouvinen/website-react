@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     minHeight: 300,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f29022",
+    backgroundColor: "#fc466b",
     padding: "96px 0 192px 0",
     borderTop: "5px solid #fff",
     clipPath: "polygon(0 0, 0 calc(100% - 96px), 100% 100%, 100% 0)",
