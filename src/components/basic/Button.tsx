@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-interface StyledButtonProps {
+interface ButtonProps {
   color: string;
 }
 
-const StyledButton = styled.button<StyledButtonProps>`
+const StyledButton = styled.button<ButtonProps>`
   padding: 12px 48px;
   border: none;
   border-radius: 48px;
@@ -22,7 +22,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
 `;
 
-const StyledLabel = styled.span`
+const Label = styled.span`
   transition: 0.2s all;
   font-family: roboto;
   font-size: 18px;
@@ -36,12 +36,11 @@ interface Props extends React.HTMLProps<HTMLButtonElement> {
 }
 
 function Button(props: Props) {
-  const { children = "", color = "color1", ...otherProps } = props;
+  const { children = "", color = "color1", onClick } = props;
 
-  // {...otherProps} type="button"
   return (
-    <StyledButton color={color}>
-      <StyledLabel>{children}</StyledLabel>
+    <StyledButton color={color} onClick={onClick} type="button">
+      <Label>{children}</Label>
     </StyledButton>
   );
 }
