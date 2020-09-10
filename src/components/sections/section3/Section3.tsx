@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
+
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 
 import { demos } from "data";
 import Slide from "./Slide";
+import { Stepper } from "components";
 
 const useStyles = makeStyles({
   section3: {
@@ -14,28 +18,47 @@ const useStyles = makeStyles({
     position: "relative",
     flexDirection: "column",
     padding: "96px 0",
+    justifyContent: "center",
   },
-  buttonContainer: {
+  container: {
+    position: "relative",
     display: "flex",
-    padding: 10,
-    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 0,
+    "&:hover > button": {
+      opacity: 1,
+    },
   },
   swipeableViewsOverlay: {
     position: "absolute",
+    top: 0,
+    left: 0,
     height: "100%",
     width: "100%",
     pointerEvents: "none",
     background:
-      "linear-gradient(to right, #fff calc(50% - 680px), transparent calc(50% - 600px), transparent calc(50% + 600px), #fff calc(50% + 680px))",
+      "linear-gradient(to right, #fff, transparent 5%, transparent 95%, #fff)",
+  },
+  buttonPrev: {
+    position: "absolute",
+    left: 16,
+    opacity: 0,
+    color: "white",
+    backgroundColor: "#3f5efb",
+  },
+  buttonNext: {
+    position: "absolute",
+    right: 16,
+    opacity: 0,
+    color: "white",
+    backgroundColor: "#3f5efb",
   },
 });
 
 const styles = {
   views: {
     height: "100%",
-    // This effectively makes single slide max width 1280px
-    // and allows rest of the slides be visible
-    padding: "0 calc(50% - 640px)",
   },
   container: {
     height: "100%",
@@ -64,33 +87,42 @@ function Section3() {
 
   return (
     <div className={classes.section3}>
-      <div className={classes.buttonContainer}>
-        <IconButton onClick={decrementSelected}>
-          <ChevronLeft />
-        </IconButton>
-        <IconButton onClick={incrementSelected}>
-          <ChevronRight />
-        </IconButton>
-      </div>
-      {/* TODO: Add virtualization for performance */}
-      {/* TODO: Add autoplay */}
-      <SwipeableViews
-        style={styles.views}
-        containerStyle={styles.container}
-        index={selected}
-        onChangeIndex={handleChangeIndex}
-      >
-        {demos.map((item, index) => (
-          <Slide
-            demos={item.demos}
-            description={item.description}
-            key={index}
-            livePath={item.livePath}
-            title={item.title}
-          />
-        ))}
-      </SwipeableViews>
-      <div className={classes.swipeableViewsOverlay} />
+      <Container className={classes.container} maxWidth="lg">
+        {/* TODO: Add virtualization for performance */}
+        {/* TODO: Add autoplay */}
+        <SwipeableViews
+          style={styles.views}
+          containerStyle={styles.container}
+          index={selected}
+          onChangeIndex={handleChangeIndex}
+        >
+          {demos.map((item, index) => (
+            <Slide
+              demos={item.demos}
+              description={item.description}
+              key={index}
+              livePath={item.livePath}
+              title={item.title}
+            />
+          ))}
+        </SwipeableViews>
+        <div className={classes.swipeableViewsOverlay} />
+        <Hidden smDown>
+          <IconButton
+            className={classes.buttonPrev}
+            onClick={decrementSelected}
+          >
+            <ChevronLeft />
+          </IconButton>
+          <IconButton
+            className={classes.buttonNext}
+            onClick={incrementSelected}
+          >
+            <ChevronRight />
+          </IconButton>
+        </Hidden>
+        <Stepper activeStep={selected} steps={demos.length} />
+      </Container>
     </div>
   );
 }
