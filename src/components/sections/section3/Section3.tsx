@@ -106,7 +106,9 @@ function Section3() {
             />
           ))}
         </SwipeableViews>
-        <div className={classes.swipeableViewsOverlay} />
+        <Hidden mdDown>
+          <div className={classes.swipeableViewsOverlay} />
+        </Hidden>
         <Hidden smDown>
           <IconButton
             className={classes.buttonPrev}
