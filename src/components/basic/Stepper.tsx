@@ -12,8 +12,8 @@ interface DotProps {
 
 const Container = styled.div`
   position: absolute;
-  bottom: 0;
   display: flex;
+  bottom: 0;
   & > * {
     margin: 4px;
   }
