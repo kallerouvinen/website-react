@@ -102,7 +102,7 @@ function Carousel(props: Props) {
       <Hidden mdDown>
         <Overlay />
       </Hidden>
-      <Hidden mdDown>
+      <Hidden smDown>
         <ButtonPrev onClick={onPrevClick}>
           <ChevronLeft />
         </ButtonPrev>
