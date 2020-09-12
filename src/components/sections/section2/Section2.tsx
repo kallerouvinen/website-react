@@ -1,15 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 // import PureCSS from "./PureCSS";
+import Card from "./Card";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: 300,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fc466b",
@@ -38,12 +39,23 @@ function Section2() {
 
   return (
     <div className={classes.root}>
-      <Container className={classes.container} maxWidth="md">
+      <Container className={classes.container} maxWidth="lg">
         <Typography className={classes.title} gutterBottom variant="h4">
-          TODO: Content
+          What I do
         </Typography>
         {/* <Typography className={classes.text}>TODO: Description</Typography> */}
         {/* <PureCSS /> */}
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4}>
+            <Card />
+          </Grid>
+          {/* <Grid item xs={12} md={4}>
+            <Card />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card />
+          </Grid> */}
+        </Grid>
       </Container>
     </div>
   );
