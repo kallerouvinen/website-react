@@ -5,7 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 // import PureCSS from "./PureCSS";
-import Card from "./Card";
+import CardDesign from "./CardDesign";
+import CardDevelopment from "./CardDevelopment";
 
 const useStyles = makeStyles({
   root: {
@@ -46,13 +47,13 @@ function Section2() {
         {/* <Typography className={classes.text}>TODO: Description</Typography> */}
         {/* <PureCSS /> */}
         <Grid container spacing={2}>
-          <Grid item xs={12} md={4}>
-            <Card />
+          <Grid item xs={12} md={6}>
+            <CardDevelopment />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <CardDesign />
           </Grid>
           {/* <Grid item xs={12} md={4}>
-            <Card />
-          </Grid>
-          <Grid item xs={12} md={4}>
             <Card />
           </Grid> */}
         </Grid>

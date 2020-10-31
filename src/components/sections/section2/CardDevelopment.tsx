@@ -32,13 +32,14 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
+    margin: "0 10%",
     "& > *": {
       margin: 2,
     },
   },
 });
 
-function Card() {
+function CardDevelopment() {
   const classes = useStyles();
 
   /* 
@@ -70,4 +71,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default CardDevelopment;
