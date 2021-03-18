@@ -46,7 +46,7 @@ function Footer() {
         <Grid container className={classes.gridContainer} spacing={2}>
           <Grid item xs={12} md={6}>
             <Typography className={classes.text}>
-              © 2020 Kalle Rouvinen. All rights reserved.
+              © 2021 Kalle Rouvinen. All rights reserved.
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
