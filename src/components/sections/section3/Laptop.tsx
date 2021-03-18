@@ -40,6 +40,7 @@ const useStyles = makeStyles({
     position: "relative",
     display: "flex",
     flex: 1,
+    width: "100%",
     backgroundColor: "#fff",
   },
   clickBlocker: {
@@ -103,7 +104,7 @@ function Laptop(props: Props) {
       <div className={classes.monitorOuter}>
         <div className={classes.monitorInner}>
           {component && typeof component === "string" && (
-            <img src={component} alt="Demo" />
+            <img src={`${process.env.PUBLIC_URL}/assets/${component}`} alt="" />
           )}
           {component && typeof component === "object" && component}
           <div className={classes.clickBlocker} onClick={stopPropagation} />

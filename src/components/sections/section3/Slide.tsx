@@ -38,8 +38,9 @@ const useStyles = makeStyles({
     alignItems: "center",
     padding: 32,
     "& > *": {
-      margin: "8px 0",
+      margin: "12px 48px",
     },
+    textAlign: "center",
   },
 });
 
@@ -69,7 +70,9 @@ function Slide(props: Props) {
         <Typography variant="h5">{title}</Typography>
         <Typography>{description}</Typography>
         {livePath && livePath !== "COMING_SOON" && (
-          <Button>Visit Website</Button>
+          <a href={livePath} target="_blank" rel="noreferrer">
+            <Button>Visit Website</Button>
+          </a>
         )}
         {livePath === "COMING_SOON" && (
           <Button

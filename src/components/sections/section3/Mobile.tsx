@@ -1,9 +1,6 @@
 import React, { MouseEvent } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import BatteryFull from "@material-ui/icons/BatteryFull";
-import SignalCellular4Bar from "@material-ui/icons/SignalCellular4Bar";
-
 const useStyles = makeStyles({
   bezel: {
     display: "flex",
@@ -48,30 +45,6 @@ const useStyles = makeStyles({
     borderBottomRightRadius: "8.89% 4.44%",
     overflow: "hidden",
   },
-  statusBar: {
-    position: "absolute",
-    display: "flex",
-    width: "100%",
-    height: "5.93%",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    right: 0,
-    paddingRight: "7.41%",
-    "& > *": {
-      fontSize: 3,
-      fontWeight: "bold",
-      color: "#333333",
-      "@media (min-width:600px)": {
-        fontSize: 4,
-      },
-      "@media (min-width:960px)": {
-        fontSize: 4,
-      },
-      "@media (min-width:1280px)": {
-        fontSize: 5,
-      },
-    },
-  },
   clickBlocker: {
     position: "absolute",
     width: "100%",
@@ -87,9 +60,6 @@ function Mobile(props: Props) {
   const classes = useStyles();
   const { component = null } = props;
 
-  const now = new Date();
-  const clock = `${now.getHours()}:${("0" + now.getMinutes()).slice(-2)}`;
-
   const stopPropagation = (e: MouseEvent) => {
     e.stopPropagation();
   };
@@ -97,13 +67,8 @@ function Mobile(props: Props) {
   return (
     <div className={classes.bezel}>
       <div className={classes.screen}>
-        <div className={classes.statusBar}>
-          <SignalCellular4Bar />
-          <BatteryFull />
-          <span>{clock}</span>
-        </div>
         {component && typeof component === "string" && (
-          <img src={component} alt="Demo" />
+          <img src={`${process.env.PUBLIC_URL}/assets/${component}`} alt="" />
         )}
         {component && typeof component === "object" && component}
         <div className={classes.clickBlocker} onClick={stopPropagation} />

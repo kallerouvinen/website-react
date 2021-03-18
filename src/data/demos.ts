@@ -3,18 +3,18 @@
 export const demos = [
   {
     id: 1,
-    title: "Applications",
-    description: "Description",
+    title: "Makoisat.com",
+    description: "Hobby project for finding diet-friendly restaurants. Website and brand design + front-end implementation by yours truly. Not localized yet, so available only in Finnish for now.",
     demos: {
-      laptop: "",
-      mobile: "",
+      laptop: "makoisat-preview-laptop.gif",
+      mobile: "makoisat-preview-mobile.gif",
     },
-    livePath: "COMING_SOON",
+    livePath: "https://www.makoisat.com",
   },
   {
     id: 2,
-    title: "Landing pages",
-    description: "Description",
+    title: "TODO: Title",
+    description: "TODO: Description",
     demos: {
       laptop: "",
       mobile: "",
@@ -23,16 +23,6 @@ export const demos = [
   },
   {
     id: 3,
-    title: "E-commerce websites",
-    description: "Description",
-    demos: {
-      laptop: "",
-      mobile: "",
-    },
-    livePath: "COMING_SOON",
-  },
-  {
-    id: 4,
     title: "Something else?",
     description:
       "Contact me with your ideas and let's see if we can build something awesome together",

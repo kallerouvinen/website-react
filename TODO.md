@@ -62,3 +62,10 @@
 5.  #fc466b   rgb(252, 70, 107)
 
 2.5  #8655c5   rgb(134, 85, 197)
+
+### GIF sizes
+Desktop - 384 x 216
+Mobile - 101.25 x 202.5
+
+Desktop - 1715,55 x 965
+Mobile
