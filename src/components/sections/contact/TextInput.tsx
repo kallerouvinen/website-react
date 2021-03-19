@@ -30,12 +30,19 @@ const useStyles = makeStyles({
 interface Props extends React.HTMLProps<HTMLInputElement> {
   label?: string;
   multiline?: boolean;
+  name?: string;
   rows?: number;
 }
 
 function TextInput(props: Props) {
   const classes = useStyles();
-  const { label = "", multiline = false, rows = 1, ...otherProps } = props;
+  const {
+    label = "",
+    multiline = false,
+    name = "",
+    rows = 1,
+    ...otherProps
+  } = props;
 
   return (
     <div className={classes.inputContainer}>
@@ -43,10 +50,16 @@ function TextInput(props: Props) {
       {multiline ? (
         <textarea
           className={`${classes.input} ${classes.textArea}`}
+          name={name}
           rows={rows}
         ></textarea>
       ) : (
-        <input {...otherProps} className={classes.input} type="text" />
+        <input
+          {...otherProps}
+          className={classes.input}
+          name={name}
+          type="text"
+        />
       )}
     </div>
   );
