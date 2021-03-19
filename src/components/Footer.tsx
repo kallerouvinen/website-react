@@ -50,13 +50,24 @@ function Footer() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            {/* TODO: Links */}
-            <IconButton>
-              <Instagram className={classes.icon} />
-            </IconButton>
-            <IconButton>
-              <LinkedIn className={classes.icon} />
-            </IconButton>
+            <a
+              href="https://instagram.com/kallerouvinen"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <IconButton>
+                <Instagram className={classes.icon} />
+              </IconButton>
+            </a>
+            <a
+              href="https://linkedin.com/in/kalle-rouvinen-794b4215b"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <IconButton>
+                <LinkedIn className={classes.icon} />
+              </IconButton>
+            </a>
             <a
               href="https://github.com/kallerouvinen"
               target="_blank"
