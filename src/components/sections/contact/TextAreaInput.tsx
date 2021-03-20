@@ -8,8 +8,19 @@ const useStyles = makeStyles({
     flex: 1,
     flexDirection: "column",
   },
+  labelContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
   label: {
-    padding: 8,
+    padding: "4px 8px",
+  },
+  error: {
+    color: "#eb4034",
+    fontSize: 14,
+    paddingRight: 8,
   },
   textArea: {
     display: "flex",
@@ -23,21 +34,32 @@ const useStyles = makeStyles({
     },
     resize: "none",
   },
+  errorBorder: {
+    borderColor: "#eb4034",
+  },
 });
 
 interface Props extends React.HTMLProps<HTMLTextAreaElement> {
+  error?: string;
   label?: string;
   rows?: number;
 }
 
 function TextInput(props: Props) {
   const classes = useStyles();
-  const { label = "", rows = 1, ...otherProps } = props;
+  const { error = "", label = "", rows = 1, ...otherProps } = props;
 
   return (
     <div className={classes.inputContainer}>
-      {label && <Typography className={classes.label}>{label}</Typography>}
-      <textarea {...otherProps} className={classes.textArea} rows={rows} />
+      <div className={classes.labelContainer}>
+        {label && <Typography className={classes.label}>{label}</Typography>}
+        {error && <Typography className={classes.error}>{error}</Typography>}
+      </div>
+      <textarea
+        {...otherProps}
+        className={`${classes.textArea} ${error && classes.errorBorder}`}
+        rows={rows}
+      />
     </div>
   );
 }

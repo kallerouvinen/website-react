@@ -36,7 +36,6 @@
 
 - On failed, tell user to try re-sending and if still not working to contact via social media
 - Add captcha validation
-- Add validation for email field
 - Typing
 - Possibly move components to their own files
 

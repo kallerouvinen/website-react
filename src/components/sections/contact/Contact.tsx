@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 import { Formik } from "formik";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -38,9 +38,6 @@ const useStyles = makeStyles({
     "& > *": {
       marginBottom: 6,
     },
-  },
-  error: {
-    color: "red",
   },
 });
 
@@ -108,14 +105,14 @@ function Contact() {
             if (!values.name) {
               errors.name = "Required";
             }
+            if (!validateEmail(values.email)) {
+              errors.email = "Invalid email";
+            }
             if (!values.email) {
               errors.email = "Required";
             }
             if (!values.message) {
               errors.message = "Required";
-            }
-            if (!validateEmail(values.email)) {
-              errors.email = "Invalid email";
             }
 
             return errors;
@@ -131,6 +128,11 @@ function Contact() {
                     name="name"
                     onChange={handleChange}
                     value={values.name}
+                    error={
+                      errors.name === "Required"
+                        ? "Name is required"
+                        : undefined
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -139,6 +141,13 @@ function Contact() {
                     name="email"
                     onChange={handleChange}
                     value={values.email}
+                    error={
+                      errors.email === "Required"
+                        ? "Email is required"
+                        : errors.email === "Invalid email"
+                        ? "Invalid email address"
+                        : undefined
+                    }
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -148,21 +157,14 @@ function Contact() {
                     onChange={handleChange}
                     rows={5}
                     value={values.message}
+                    error={
+                      errors.message === "Required"
+                        ? "Message is required"
+                        : undefined
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} className={classes.buttonContainer}>
-                  {(errors.name === "Required" ||
-                    errors.email === "Required" ||
-                    errors.message === "Required") && (
-                    <Typography className={classes.error}>
-                      Fill the remaining fields
-                    </Typography>
-                  )}
-                  {errors.email === "Invalid email" && (
-                    <Typography className={classes.error}>
-                      Invalid email address
-                    </Typography>
-                  )}
                   <SubmitButton
                     state={loadingState}
                     disabled={loadingState !== "Ready"}

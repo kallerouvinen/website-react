@@ -8,8 +8,19 @@ const useStyles = makeStyles({
     flex: 1,
     flexDirection: "column",
   },
+  labelContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
   label: {
     padding: 8,
+  },
+  error: {
+    color: "#eb4034",
+    fontSize: 14,
+    paddingRight: 8,
   },
   input: {
     display: "flex",
@@ -22,20 +33,31 @@ const useStyles = makeStyles({
       outline: "none",
     },
   },
+  errorBorder: {
+    borderColor: "#eb4034",
+  },
 });
 
 interface Props extends React.HTMLProps<HTMLInputElement> {
+  error?: string;
   label?: string;
 }
 
 function TextInput(props: Props) {
   const classes = useStyles();
-  const { label = "", ...otherProps } = props;
+  const { error = "", label = "", ...otherProps } = props;
 
   return (
     <div className={classes.inputContainer}>
-      {label && <Typography className={classes.label}>{label}</Typography>}
-      <input {...otherProps} className={classes.input} type="text" />
+      <div className={classes.labelContainer}>
+        {label && <Typography className={classes.label}>{label}</Typography>}
+        {error && <Typography className={classes.error}>{error}</Typography>}
+      </div>
+      <input
+        {...otherProps}
+        className={`${classes.input} ${error && classes.errorBorder}`}
+        type="text"
+      />
     </div>
   );
 }
