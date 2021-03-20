@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   label: {
     padding: 8,
   },
-  input: {
+  textArea: {
     display: "flex",
     flex: 1,
     padding: 16,
@@ -21,21 +21,23 @@ const useStyles = makeStyles({
     "&:focus": {
       outline: "none",
     },
+    resize: "none",
   },
 });
 
-interface Props extends React.HTMLProps<HTMLInputElement> {
+interface Props extends React.HTMLProps<HTMLTextAreaElement> {
   label?: string;
+  rows?: number;
 }
 
 function TextInput(props: Props) {
   const classes = useStyles();
-  const { label = "", ...otherProps } = props;
+  const { label = "", rows = 1, ...otherProps } = props;
 
   return (
     <div className={classes.inputContainer}>
       {label && <Typography className={classes.label}>{label}</Typography>}
-      <input {...otherProps} className={classes.input} type="text" />
+      <textarea {...otherProps} className={classes.textArea} rows={rows} />
     </div>
   );
 }

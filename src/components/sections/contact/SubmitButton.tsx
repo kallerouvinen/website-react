@@ -47,7 +47,7 @@ const Container = styled.div<ButtonProps>`
   ${({ state }) =>
     state === "Error" &&
     css`
-      animation: 0.4s ${errorAnim} linear 0.4s;
+      animation: 0.4s ${errorAnim} linear 0.35s;
     `}
 `;
 

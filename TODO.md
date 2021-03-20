@@ -16,14 +16,6 @@
 
 - ??
 
-##### Landing pages
-
-- ??
-
-##### E-commerce websites
-
-- ??
-
 ##### Applications
 
 - Rework into savings app
@@ -40,14 +32,13 @@
     - Investments chart
 - Projection of savings?
 
-##### Something else?
-
-- TODO
-
 #### Section 4
 
-- Contact form
-- Social media links
+- On failed, tell user to try re-sending and if still not working to contact via social media
+- Add captcha validation
+- Add validation for email field
+- Typing
+- Possibly move components to their own files
 
 ### Other
 
