@@ -10,6 +10,11 @@ import SubmitButton from "./SubmitButton";
 import TextAreaInput from "./TextAreaInput";
 import TextInput from "./TextInput";
 
+function validateEmail(email: string) {
+  const regEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+  return regEx.test(email);
+}
+
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -27,8 +32,12 @@ const useStyles = makeStyles({
   description: {},
   buttonContainer: {
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
     margin: 24,
+    "& > *": {
+      marginBottom: 6,
+    },
   },
   error: {
     color: "red",
@@ -97,20 +106,23 @@ function Contact() {
             const errors: any = {};
 
             if (!values.name) {
-              errors.name = true;
+              errors.name = "Required";
             }
             if (!values.email) {
-              errors.email = true;
+              errors.email = "Required";
             }
             if (!values.message) {
-              errors.message = true;
+              errors.message = "Required";
+            }
+            if (!validateEmail(values.email)) {
+              errors.email = "Invalid email";
             }
 
             return errors;
           }}
           onSubmit={handleFormSubmit}
         >
-          {({ values, errors, touched, handleChange, handleSubmit }) => (
+          {({ values, errors, handleChange, handleSubmit }) => (
             <form className="contact-form" onSubmit={handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
@@ -139,16 +151,23 @@ function Contact() {
                   />
                 </Grid>
                 <Grid item xs={12} className={classes.buttonContainer}>
+                  {(errors.name === "Required" ||
+                    errors.email === "Required" ||
+                    errors.message === "Required") && (
+                    <Typography className={classes.error}>
+                      Fill the remaining fields
+                    </Typography>
+                  )}
+                  {errors.email === "Invalid email" && (
+                    <Typography className={classes.error}>
+                      Invalid email address
+                    </Typography>
+                  )}
                   <SubmitButton
                     state={loadingState}
                     disabled={loadingState !== "Ready"}
                   />
                 </Grid>
-                {(errors.name || errors.email || errors.message) && (
-                  <Typography className={classes.error}>
-                    Täytä kaikki kentät
-                  </Typography>
-                )}
               </Grid>
             </form>
           )}
