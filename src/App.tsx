@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import {
   Menu,
@@ -12,18 +11,14 @@ import { Footer } from "components";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/">
-          <Section1 />
-          <Section2 />
-          <Section3 />
-          <Section4 />
-          <Footer />
-          <Menu />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <>
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
+      <Footer />
+      <Menu />
+    </>
   );
 }
 
