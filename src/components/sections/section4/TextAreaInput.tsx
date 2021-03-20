@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     padding: 16,
     font: "inherit",
     borderRadius: 8,
-    border: "1px solid #e6e6e6",
+    border: "1px solid #d9d9d9",
     "&:focus": {
       outline: "none",
     },
