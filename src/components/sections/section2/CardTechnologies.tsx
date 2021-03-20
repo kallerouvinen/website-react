@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
-// import Code from "@material-ui/icons/Code";
 import CPPIcon from "mdi-material-ui/LanguageCpp";
 import CSSIcon from "mdi-material-ui/LanguageCss3";
 import GitIcon from "mdi-material-ui/Git";

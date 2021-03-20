@@ -4,7 +4,6 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
-// import PureCSS from "./PureCSS";
 import CardWhatIDo from "./CardWhatIDo";
 import CardTechnologies from "./CardTechnologies";
 
@@ -48,8 +47,6 @@ function Section2() {
         <Typography className={classes.title} gutterBottom variant="h4">
           About me
         </Typography>
-        {/* <Typography className={classes.text}>TODO: Description</Typography> */}
-        {/* <PureCSS /> */}
         <Grid container spacing={2}>
           <Grid className={classes.gridItem} item xs={12} md={7}>
             <CardWhatIDo />
@@ -57,12 +54,6 @@ function Section2() {
           <Grid className={classes.gridItem} item xs={12} md={5}>
             <CardTechnologies />
           </Grid>
-          {/* <Grid item xs={12} md={6}>
-            <CardDesign />
-          </Grid> */}
-          {/* <Grid item xs={12} md={4}>
-            <Card />
-          </Grid> */}
         </Grid>
       </Container>
     </div>
