@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -32,30 +32,43 @@ const useStyles = makeStyles({
 
 function Contact() {
   const classes = useStyles();
+  // Ready, Loading, Success, Error
+  const [loadingState, setLoadingState] = useState("Ready");
+  // Ready, Loading, Success, Error
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    setLoadingState("Loading");
+    // setLoadingState(loadingState === "Loading" ? "Ready" : "Loading");
 
-    emailjs
-      .sendForm(
-        "service_julervm",
-        "template_ta50vl9",
-        e.target,
-        "user_NLsJL6dc9TUARPhYsGhR7",
-      )
-      .then(
-        (result) => {
-          // TODO: Show feedback for successfully sent message
-          console.log(result.text);
-        },
-        (error) => {
-          // TODO: Show feedback for something going wrong. Tell sender to re-send and if still not working to contact via social media
-          console.log(error.text);
-        },
-      );
+    setTimeout(() => {
+      setLoadingState("Error");
+      setTimeout(() => {
+        setLoadingState("Ready");
+        // TODO: Reset fields
+      }, 2000);
+    }, 1000);
+    // emailjs
+    //   .sendForm(
+    //     "service_julervm",
+    //     "template_ta50vl9",
+    //     e.target,
+    //     "user_NLsJL6dc9TUARPhYsGhR7",
+    //   )
+    //   .then(
+    //     (result) => {
+    //       setLoadingState("Success");
+    //       // TODO: Reset fields
+    //       // TODO: Set a timeout for setLoadingState("Ready");
+    //     },
+    //     (error) => {
+    //       setLoadingState("Error");
+    //     },
+    //   );
   };
 
   // TODO: Add captcha validation
+  // TODO: Add validation for fields
 
   return (
     <div className={classes.root}>
@@ -80,7 +93,11 @@ function Contact() {
               <TextInput label="Message" name="message" multiline rows={5} />
             </Grid>
             <Grid item xs={12} className={classes.buttonContainer}>
-              <SubmitButton>Send message</SubmitButton>
+              <SubmitButton
+                state={loadingState}
+                disabled={loadingState !== "Ready"}
+              />
+              {/* Tell sender to re-send and if still not working to contact via social media */}
             </Grid>
           </Grid>
         </form>

@@ -27,6 +27,9 @@ const theme = {
   white: "#fff",
   gray: "#d9d9d9",
   black: "#000",
+
+  success: "#5cb85c",
+  error: "#eb4034",
 };
 
 export default theme;
