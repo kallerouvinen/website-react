@@ -39,7 +39,7 @@ function Section4() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div id="section4" className={classes.root}>
       <Container className={classes.container} maxWidth="md">
         <Grid container>
           <Grid item xs={12} md={6}>

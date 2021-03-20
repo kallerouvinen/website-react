@@ -43,7 +43,7 @@ function Section2() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div id="section2" className={classes.root}>
       <Container className={classes.container} maxWidth="lg">
         <Typography className={classes.title} gutterBottom variant="h4">
           About me

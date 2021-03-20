@@ -28,7 +28,7 @@ const wobblyAnimation = (start: number, end: number) => {
   return anim;
 };
 
-const size = Math.min(500, 1.1 * window.innerWidth);
+const size = Math.max(Math.min(500, 1.1 * window.innerWidth), 400);
 
 const useStyles = makeStyles({
   root: {},
@@ -84,7 +84,9 @@ const useStyles = makeStyles({
     animationFillMode: "forwards",
   },
   navLinkContainer: {
-    padding: `${size / 4}px 0 0 ${size / 5}px`,
+    display: "flex",
+    flexDirection: "column",
+    padding: `${size / 7}px 0 0 ${size / 4}px`,
     textAlign: "center",
     "& > *": {
       margin: "8px 0",
@@ -96,8 +98,24 @@ const useStyles = makeStyles({
     opacity: 1,
     transition: "opacity 0.2s ease 0.3s",
   },
+  menuButton: {
+    border: "none",
+    cursor: "pointer",
+    transition: "0.2s all",
+    backgroundColor: "transparent",
+    WebkitTapHighlightColor: "transparent",
+    "&:hover": {
+      transform: "scale(1.08)",
+      "& > *": {
+        color: "#fff",
+      },
+    },
+    "&:focus": {
+      outline: "none",
+    },
+  },
   navLink: {
-    color: "#fff",
+    color: "#cdd5fe",
     fontSize: 28,
   },
 });
@@ -117,6 +135,18 @@ function Menu() {
     setIsOpen(!isOpen);
   };
 
+  const scrollToSection = (number: number) => {
+    document
+      .getElementById(`section${number}`)
+      ?.scrollIntoView({ behavior: "smooth" });
+    toggleMenu();
+  };
+
+  const scrollToSection1 = () => scrollToSection(1);
+  const scrollToSection2 = () => scrollToSection(2);
+  const scrollToSection3 = () => scrollToSection(3);
+  const scrollToSection4 = () => scrollToSection(4);
+
   return (
     <>
       <div
@@ -129,10 +159,18 @@ function Menu() {
             isOpen && classes.navLinkContainerOpen
           }`}
         >
-          {/* TODO: Actual links */}
-          <Typography className={classes.navLink}>HOME</Typography>
-          <Typography className={classes.navLink}>MY WORK</Typography>
-          <Typography className={classes.navLink}>CONTACT</Typography>
+          <button className={classes.menuButton} onClick={scrollToSection1}>
+            <Typography className={classes.navLink}>Home</Typography>
+          </button>
+          <button className={classes.menuButton} onClick={scrollToSection2}>
+            <Typography className={classes.navLink}>About me</Typography>
+          </button>
+          <button className={classes.menuButton} onClick={scrollToSection3}>
+            <Typography className={classes.navLink}>My work</Typography>
+          </button>
+          <button className={classes.menuButton} onClick={scrollToSection4}>
+            <Typography className={classes.navLink}>Contact</Typography>
+          </button>
         </div>
       </div>
       <div className={classes.buttonContainer}>

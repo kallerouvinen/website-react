@@ -40,7 +40,7 @@ function Section3() {
   };
 
   return (
-    <div className={classes.section3}>
+    <div id="section3" className={classes.section3}>
       <Container className={classes.container} maxWidth="lg">
         {/* TODO: Add virtualization for performance */}
         {/* TODO: Add autoplay */}

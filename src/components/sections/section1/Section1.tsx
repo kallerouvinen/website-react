@@ -63,7 +63,7 @@ function Section1() {
   // TODO: Add multiple scaled images depending on screen size
 
   return (
-    <div className={classes.sectionContainer}>
+    <div id="section1" className={classes.sectionContainer}>
       <Container className={classes.container} maxWidth="xl">
         <Grid container justify={gridJustify} className={classes.gridContainer}>
           <div className={classes.imageContainer}>
