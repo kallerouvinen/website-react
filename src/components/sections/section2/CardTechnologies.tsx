@@ -1,21 +1,25 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Code from "@material-ui/icons/Code";
-import HTMLIcon from "mdi-material-ui/LanguageHtml5";
+import Divider from "@material-ui/core/Divider";
+// import Code from "@material-ui/icons/Code";
+import CPPIcon from "mdi-material-ui/LanguageCpp";
 import CSSIcon from "mdi-material-ui/LanguageCss3";
-import JSIcon from "mdi-material-ui/LanguageJavascript";
-import TSIcon from "mdi-material-ui/LanguageTypescript";
-import ReactIcon from "mdi-material-ui/React";
+import GitIcon from "mdi-material-ui/Git";
 import GraphQLIcon from "mdi-material-ui/Graphql";
+import HTMLIcon from "mdi-material-ui/LanguageHtml5";
+import JSIcon from "mdi-material-ui/LanguageJavascript";
+import ReactIcon from "mdi-material-ui/React";
+import TSIcon from "mdi-material-ui/LanguageTypescript";
+import UnrealIcon from "mdi-material-ui/Unreal";
 import TechChip from "./TechChip";
 
 const useStyles = makeStyles({
   container: {
     display: "flex",
+    flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
-    padding: "24px",
+    padding: 24,
     backgroundColor: "#fff",
     borderRadius: 8,
     border: "1px solid lightgray",
@@ -24,15 +28,15 @@ const useStyles = makeStyles({
     fontSize: 48,
     color: "gray",
   },
-  label: {
+  title: {
     textAlign: "center",
-    margin: 12,
+    marginBottom: 16,
   },
   chipContainer: {
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
-    margin: "0 10%",
+    margin: "16px 32px 32px 32px",
     "& > *": {
       margin: 2,
     },
@@ -42,21 +46,9 @@ const useStyles = makeStyles({
 function CardDevelopment() {
   const classes = useStyles();
 
-  /* 
-    TODO:
-    Frontend: Redux
-    Package managers: NPM, Yarn
-    Version control: Git
-  */
-
   return (
     <div className={classes.container}>
-      <Code className={classes.icon} />
-      <h3 className={classes.label}>Development</h3>
-      <p className={classes.label}>
-        I create dynamic, responsive and fast user interfaces
-      </p>
-      <h3 className={classes.label}>Technologies I use</h3>
+      <h2 className={classes.title}>Technologies I have used professionally</h2>
       <div className={classes.chipContainer}>
         <TechChip icon={<HTMLIcon />} label="HTML5" />
         <TechChip icon={<CSSIcon />} label="CSS3" />
@@ -64,8 +56,18 @@ function CardDevelopment() {
         <TechChip icon={<TSIcon />} label="TypeScript" />
         <TechChip icon={<ReactIcon />} label="React.js" />
         <TechChip icon={<ReactIcon />} label="React Native" />
+        <TechChip label="Redux" />
+        <TechChip icon={<GitIcon />} label="Git" />
         <TechChip label="RESTAPI" />
+      </div>
+      <Divider variant="middle" />
+      <h2 className={classes.title}>
+        Technologies I have used on my free time
+      </h2>
+      <div className={classes.chipContainer}>
         <TechChip icon={<GraphQLIcon />} label="GraphQL" />
+        <TechChip icon={<UnrealIcon />} label="Unreal Engine" />
+        <TechChip icon={<CPPIcon />} label="C++" />
       </div>
     </div>
   );

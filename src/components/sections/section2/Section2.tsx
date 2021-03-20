@@ -5,8 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 // import PureCSS from "./PureCSS";
-import CardDesign from "./CardDesign";
-import CardDevelopment from "./CardDevelopment";
+import CardWhatIDo from "./CardWhatIDo";
+import CardTechnologies from "./CardTechnologies";
 
 const useStyles = makeStyles({
   root: {
@@ -29,9 +29,13 @@ const useStyles = makeStyles({
   title: {
     color: "#fff",
     fontWeight: 500,
+    marginBottom: 32,
   },
   text: {
     color: "#fff",
+  },
+  gridItem: {
+    display: "flex",
   },
 });
 
@@ -42,17 +46,20 @@ function Section2() {
     <div className={classes.root}>
       <Container className={classes.container} maxWidth="lg">
         <Typography className={classes.title} gutterBottom variant="h4">
-          What I do
+          About me
         </Typography>
         {/* <Typography className={classes.text}>TODO: Description</Typography> */}
         {/* <PureCSS /> */}
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <CardDevelopment />
+          <Grid className={classes.gridItem} item xs={12} md={7}>
+            <CardWhatIDo />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid className={classes.gridItem} item xs={12} md={5}>
+            <CardTechnologies />
+          </Grid>
+          {/* <Grid item xs={12} md={6}>
             <CardDesign />
-          </Grid>
+          </Grid> */}
           {/* <Grid item xs={12} md={4}>
             <Card />
           </Grid> */}
