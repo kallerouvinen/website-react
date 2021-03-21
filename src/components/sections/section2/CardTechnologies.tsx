@@ -15,30 +15,26 @@ import TechChip from "./TechChip";
 const useStyles = makeStyles({
   container: {
     display: "flex",
-    flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    padding: 24,
-    backgroundColor: "#fff",
-    borderRadius: 8,
-    border: "1px solid lightgray",
-  },
-  icon: {
-    fontSize: 48,
-    color: "gray",
   },
   title: {
-    textAlign: "center",
-    marginBottom: 16,
+    margin: 12,
+    fontSize: 32,
+    color: "#fff",
   },
   chipContainer: {
     display: "flex",
-    justifyContent: "center",
     flexWrap: "wrap",
-    margin: "16px 32px 32px 32px",
+    margin: 12,
     "& > *": {
-      margin: 2,
+      margin: 4,
     },
+  },
+  divider: {
+    marginTop: 16,
+    marginBottom: 16,
+    backgroundColor: "#fff",
   },
 });
 
@@ -47,7 +43,7 @@ function CardDevelopment() {
 
   return (
     <div className={classes.container}>
-      <h2 className={classes.title}>Technologies I have used professionally</h2>
+      <h1 className={classes.title}>Technologies I have used professionally</h1>
       <div className={classes.chipContainer}>
         <TechChip icon={<HTMLIcon />} label="HTML5" />
         <TechChip icon={<CSSIcon />} label="CSS3" />
@@ -59,10 +55,10 @@ function CardDevelopment() {
         <TechChip icon={<GitIcon />} label="Git" />
         <TechChip label="RESTAPI" />
       </div>
-      <Divider variant="middle" />
-      <h2 className={classes.title}>
+      <Divider className={classes.divider} variant="middle" />
+      <h1 className={classes.title}>
         Technologies I have used on my free time
-      </h2>
+      </h1>
       <div className={classes.chipContainer}>
         <TechChip icon={<GraphQLIcon />} label="GraphQL" />
         <TechChip icon={<UnrealIcon />} label="Unreal Engine" />

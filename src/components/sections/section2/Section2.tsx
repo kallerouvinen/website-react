@@ -2,19 +2,15 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 
 import CardWhatIDo from "./CardWhatIDo";
 import CardTechnologies from "./CardTechnologies";
 
 const useStyles = makeStyles({
   root: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    // TODO: Get backgroundColor from theme
     backgroundColor: "#fc466b",
-    padding: "96px 0 192px 0",
+    padding: "48px 0 144px 0",
     borderTop: "5px solid #fff",
     clipPath: "polygon(0 0, 0 calc(100% - 96px), 100% 100%, 100% 0)",
   },
@@ -23,7 +19,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding: 24,
+    padding: "96px 24px",
   },
   title: {
     color: "#fff",
@@ -44,14 +40,11 @@ function Section2() {
   return (
     <div id="section2" className={classes.root}>
       <Container className={classes.container} maxWidth="lg">
-        <Typography className={classes.title} gutterBottom variant="h4">
-          About me
-        </Typography>
         <Grid container spacing={2}>
-          <Grid className={classes.gridItem} item xs={12} md={7}>
+          <Grid className={classes.gridItem} item xs={12} md={6}>
             <CardWhatIDo />
           </Grid>
-          <Grid className={classes.gridItem} item xs={12} md={5}>
+          <Grid className={classes.gridItem} item xs={12} md={6}>
             <CardTechnologies />
           </Grid>
         </Grid>

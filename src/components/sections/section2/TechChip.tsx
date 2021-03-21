@@ -5,27 +5,26 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   container: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     padding: 6,
-    backgroundColor: "#282c34",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    border: "1px solid #fff",
     borderRadius: 8,
   },
   icon: {
-    fontSize: 16,
+    fontSize: 18,
     paddingRight: 4,
-    // TODO: Move to props
+    // TODO: Move to theme
     color: "#61dafb",
   },
   label: {
-    fontSize: 12,
+    fontSize: 14,
+    fontWeight: 600,
     margin: 0,
     color: "#fff",
   },
 });
 
 interface Props {
-  color?: string;
   icon?: any; // TODO: Type
   label?: string;
 }
