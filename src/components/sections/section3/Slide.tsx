@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 
 import { Button } from "components";
 import Laptop from "./Laptop";
@@ -42,6 +41,9 @@ const useStyles = makeStyles({
     },
     textAlign: "center",
   },
+  description: {
+    fontSize: 18,
+  },
 });
 
 interface Props {
@@ -67,23 +69,14 @@ function Slide(props: Props) {
         </div>
       </Grid>
       <Grid item xs={12} md={6} className={classes.textContainer}>
-        <Typography variant="h5">{title}</Typography>
-        <Typography>{description}</Typography>
-        {livePath && livePath !== "COMING_SOON" && (
+        <h1>{title}</h1>
+        <p className={classes.description}>{description}</p>
+        {livePath && livePath !== "NOT_AVAILABLE" && (
           <a href={livePath} target="_blank" rel="noreferrer">
             <Button>Visit Website</Button>
           </a>
         )}
-        {livePath === "COMING_SOON" && (
-          <Button
-            disabled
-            onClick={() => {
-              console.log("TODO");
-            }}
-          >
-            No live demo
-          </Button>
-        )}
+        {livePath === "NOT_AVAILABLE" && <Button disabled>No live demo</Button>}
       </Grid>
     </Grid>
   );

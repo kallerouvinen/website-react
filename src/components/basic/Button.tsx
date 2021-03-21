@@ -6,7 +6,9 @@ interface ButtonProps {
 }
 
 const StyledButton = styled.button<ButtonProps>`
-  padding: 12px 48px;
+  height: 48px;
+  width: 192px;
+  margin: 16px 0;
   border: none;
   border-radius: 48px;
   cursor: pointer;
@@ -25,7 +27,7 @@ const StyledButton = styled.button<ButtonProps>`
 const Label = styled.span`
   font-size: 18px;
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
@@ -37,7 +39,7 @@ function Button(props: Props) {
   const { children = "", color = "color1", onClick } = props;
 
   return (
-    <StyledButton color={color} onClick={onClick} type="button">
+    <StyledButton color={color} onClick={onClick}>
       <Label>{children}</Label>
     </StyledButton>
   );
