@@ -65,10 +65,9 @@ const StyledSubmit = styled.input`
 const StyledLabel = styled.label<LabelProps>`
   position: absolute;
   transition: 0.3s all cubic-bezier(0.83, 0, 0.17, 1);
-  font-family: roboto;
   font-size: 18px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   transform: translateY(${({ position }) => position});
 `;
 

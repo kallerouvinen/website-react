@@ -23,11 +23,9 @@ const StyledButton = styled.button<ButtonProps>`
 `;
 
 const Label = styled.span`
-  transition: 0.2s all;
-  font-family: roboto;
   font-size: 18px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
