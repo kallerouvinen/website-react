@@ -78,7 +78,7 @@ interface Props extends React.HTMLProps<HTMLButtonElement> {
 
 function SubmitButton(props: Props) {
   // TODO: Get the color directly from theme
-  const { color = "color5", disabled = false, state = "Ready" } = props;
+  const { color = "color4", disabled = false, state = "Ready" } = props;
   // TODO: Feedback when not all fields are filled (probably error prop)
 
   return (

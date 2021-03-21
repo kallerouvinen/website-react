@@ -30,7 +30,7 @@ const useStyles = makeStyles({
   },
   second: {
     fontSize: "21vw",
-    color: "#6e58d7",
+    color: "#7e56cb",
     fontWeight: 700,
     textTransform: "uppercase",
     "@media (min-width:800px)": {
@@ -45,7 +45,7 @@ const useStyles = makeStyles({
   },
   third: {
     fontSize: "11vw",
-    color: "#9e52b3",
+    color: "#bd4e9b",
     fontWeight: 700,
     textTransform: "uppercase",
     "@media (min-width:800px)": {
@@ -60,7 +60,7 @@ const useStyles = makeStyles({
   },
   fourth: {
     fontSize: "12vw",
-    color: "#cd4c8f",
+    color: "#fc466b",
     fontWeight: 700,
     textTransform: "uppercase",
     "@media (min-width:800px)": {
@@ -87,10 +87,10 @@ function TextPanel() {
         <Typography className={classes.second}> Kalle,</Typography>
       </FadeIn>
       <FadeIn shouldAnimate delay={0} direction="right">
-        <Typography className={classes.third}>A Software</Typography>
+        <Typography className={classes.third}>a software</Typography>
       </FadeIn>
       <FadeIn shouldAnimate delay={0} direction="down">
-        <Typography className={classes.fourth}>Developer</Typography>
+        <Typography className={classes.fourth}>developer</Typography>
       </FadeIn>
     </div>
   );
