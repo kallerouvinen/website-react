@@ -33,13 +33,12 @@ interface Props {
   children?: ReactNode;
   delay?: number;
   direction?: "up" | "down" | "left" | "right";
-  shouldAnimate?: boolean;
 }
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function FadeIn(props: Props) {
-  const { delay = 0, direction = "up", shouldAnimate = false } = props;
+  const { delay = 0, direction = "up" } = props;
   const [animatedIn, setAnimatedIn] = useState(false);
   const classes = useStyles();
 
@@ -49,8 +48,8 @@ function FadeIn(props: Props) {
   };
 
   useEffect(() => {
-    animate(shouldAnimate, delay);
-  }, [shouldAnimate, delay]);
+    animate(true, delay);
+  }, [delay]);
 
   return (
     <div

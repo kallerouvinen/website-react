@@ -80,16 +80,16 @@ function TextPanel() {
 
   return (
     <div className={classes.root}>
-      <FadeIn shouldAnimate delay={0} direction="up">
+      <FadeIn delay={0} direction="up">
         <Typography className={classes.first}>Hi, I'm</Typography>
       </FadeIn>
-      <FadeIn shouldAnimate delay={0} direction="left">
+      <FadeIn delay={0} direction="left">
         <Typography className={classes.second}> Kalle,</Typography>
       </FadeIn>
-      <FadeIn shouldAnimate delay={0} direction="right">
+      <FadeIn delay={0} direction="right">
         <Typography className={classes.third}>a software</Typography>
       </FadeIn>
-      <FadeIn shouldAnimate delay={0} direction="down">
+      <FadeIn delay={0} direction="down">
         <Typography className={classes.fourth}>developer</Typography>
       </FadeIn>
     </div>

@@ -67,7 +67,7 @@ function Section1() {
       <Container className={classes.container} maxWidth="xl">
         <Grid container justify={gridJustify} className={classes.gridContainer}>
           <div className={classes.imageContainer}>
-            <FadeIn shouldAnimate delay={0} direction="down">
+            <FadeIn delay={0} direction="down">
               <img className={classes.image} src={image} alt="" />
             </FadeIn>
           </div>
@@ -79,7 +79,7 @@ function Section1() {
 
       {/* TODO: Scroll indicator should be a button? */}
       <div className={classes.scrollIndicator}>
-        <FadeIn shouldAnimate delay={1000} direction="down">
+        <FadeIn delay={1000} direction="down">
           <ScrollIndicator />
         </FadeIn>
       </div>
