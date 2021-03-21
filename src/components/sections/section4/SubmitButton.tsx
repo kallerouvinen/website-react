@@ -26,10 +26,12 @@ const Container = styled.div<ButtonProps>`
   align-items: center;
   justify-content: center;
   height: 48px;
-  width: 192px;
+  width: 160px;
+  margin: 16px 0;
 
   transition: 0.2s all;
   border-radius: 48px;
+  box-shadow: 0px 3px 16px 5px rgba(0, 0, 0, 0.1);
   background-color: ${({ theme, color, state }) =>
     state === "Success"
       ? theme.success
@@ -71,13 +73,14 @@ const StyledLabel = styled.label<LabelProps>`
 `;
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
-  color?: string; // TODO: Should be key of colors
   disabled?: boolean;
   state?: string;
 }
 
 function SubmitButton(props: Props) {
-  const { color = "color1", disabled = false, state = "Ready" } = props;
+  // TODO: Get the color directly from theme
+  const { color = "color5", disabled = false, state = "Ready" } = props;
+  // TODO: Feedback when not all fields are filled (probably error prop)
 
   return (
     <Container color={color} state={state} disabled={disabled}>
@@ -85,7 +88,7 @@ function SubmitButton(props: Props) {
         position={state === "Ready" ? "0px" : "-50px"}
         htmlFor="submit"
       >
-        Send message
+        Send
       </StyledLabel>
       <StyledLabel
         position={
