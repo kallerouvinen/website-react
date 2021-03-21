@@ -20,6 +20,11 @@ const useStyles = makeStyles({
     margin: "16px 0",
     borderRadius: 3,
     opacity: 0.5,
+    "@media (min-width:450px)": {
+      width: 320,
+      height: 4,
+      margin: "16px 0",
+    },
     "@media (min-width:600px)": {
       width: 420,
       height: 5,
@@ -44,6 +49,11 @@ const useStyles = makeStyles({
   first: {
     color: "#3f5efb",
     fontSize: 45,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:450px)": {
+      fontSize: 64,
+    },
     "@media (min-width:600px)": {
       fontSize: 85,
     },
@@ -60,6 +70,11 @@ const useStyles = makeStyles({
   second: {
     color: "#6e58d7",
     fontSize: 31,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:450px)": {
+      fontSize: 44,
+    },
     "@media (min-width:600px)": {
       fontSize: 58,
     },
@@ -76,6 +91,11 @@ const useStyles = makeStyles({
   third: {
     color: "#9e52b3",
     fontSize: 26,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:450px)": {
+      fontSize: 37,
+    },
     "@media (min-width:600px)": {
       fontSize: 49,
     },
@@ -92,6 +112,11 @@ const useStyles = makeStyles({
   fourth: {
     color: "#cd4c8f",
     fontSize: 28,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:450px)": {
+      fontSize: 40,
+    },
     "@media (min-width:600px)": {
       fontSize: 53,
     },
@@ -108,6 +133,11 @@ const useStyles = makeStyles({
   fifth: {
     color: "#fc466b",
     fontSize: 48,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:450px)": {
+      fontSize: 69,
+    },
     "@media (min-width:600px)": {
       fontSize: 92,
     },
@@ -129,22 +159,22 @@ function TextPanel() {
   return (
     <div className={classes.root}>
       <FadeIn shouldAnimate delay={0} direction="up">
-        <Typography className={classes.first}>HI, I'M KALLE</Typography>
+        <Typography className={classes.first}>Hi, I'm Kalle</Typography>
       </FadeIn>
       <FadeIn shouldAnimate delay={0} direction="left">
-        <Typography className={classes.second}>A WEB DEVELOPER</Typography>
+        <Typography className={classes.second}>A Web Developer</Typography>
       </FadeIn>
       <FadeIn shouldAnimate delay={0} direction="right">
         <div className={classes.divider} />
       </FadeIn>
       <FadeIn shouldAnimate delay={0} direction="left">
-        <Typography className={classes.third}>BRING ME YOUR IDEAS</Typography>
+        <Typography className={classes.third}>Bring Me Your Ideas</Typography>
       </FadeIn>
       <FadeIn shouldAnimate delay={0} direction="right">
-        <Typography className={classes.fourth}>AND I'LL TURN THEM</Typography>
+        <Typography className={classes.fourth}>And I'll Turn Them</Typography>
       </FadeIn>
       <FadeIn shouldAnimate delay={0} direction="down">
-        <Typography className={classes.fifth}>INTO MAGIC</Typography>
+        <Typography className={classes.fifth}>Into Magic</Typography>
       </FadeIn>
     </div>
   );
