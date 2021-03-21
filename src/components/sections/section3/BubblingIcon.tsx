@@ -11,17 +11,18 @@ const useStyles = makeStyles({
   },
 
   "@keyframes float": {
-    "0%": { transform: "translateY(220px)", opacity: 0 },
+    "0%": { opacity: 0 },
     "30%": { opacity: 1 },
     "70%": { opacity: 1 },
-    "100%": { transform: "translateY(10px)", opacity: 0 },
+    "100%": { opacity: 0 },
   },
 });
 
 interface Props {
   animationDuration?: string;
   size?: "small" | "medium" | "large";
-  xOffset?: number;
+  left?: number;
+  top?: number;
 }
 
 function BubblingIcon(props: Props) {
@@ -29,7 +30,8 @@ function BubblingIcon(props: Props) {
   const {
     animationDuration = "5s",
     size = "medium",
-    xOffset: left = 0,
+    left = 0,
+    top = 0,
   } = props;
 
   const fontSize = size === "small" ? 24 : size === "medium" ? 48 : 72;
@@ -37,7 +39,7 @@ function BubblingIcon(props: Props) {
   return (
     <Help
       className={classes.root}
-      style={{ animationDuration, left, fontSize }}
+      style={{ animationDuration, left, top, fontSize }}
     />
   );
 }

@@ -1,10 +1,11 @@
- // TODO: Add content for demos
+// TODO: Add content for demos
 
 export const demos = [
   {
     id: 1,
     title: "Makoisat.com",
-    description: "Platform for finding diet-friendly restaurants. Design + front-end implementation by yours truly. Not localized yet, so available only in Finnish for now.",
+    description:
+      "Platform for finding diet-friendly restaurants. Design + front-end implementation by yours truly. Not localized yet, so available only in Finnish for now.",
     demos: {
       laptop: "makoisat-preview-laptop.gif",
       mobile: "makoisat-preview-mobile.gif",
@@ -27,8 +28,8 @@ export const demos = [
     description:
       "Contact me with your ideas and let's see if we can build something awesome together.",
     demos: {
-      laptop: "",
-      mobile: "",
+      laptop: "somethingelse-preview-laptop.gif",
+      mobile: "somethingelse-preview-mobile.gif",
     },
   },
 ];
