@@ -21,8 +21,6 @@ function Mystery(props: Props) {
   const classes = useStyles();
   const { mode = "laptop" } = props;
 
-  // TODO: Make properly responsive instead of having different modes
-
   return (
     <div className={classes.root}>
       {mode === "laptop" ? (

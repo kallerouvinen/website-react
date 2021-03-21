@@ -28,11 +28,9 @@ const useStyles = makeStyles({
     },
   },
   text: {
-    // TODO: Darken
     color: "#fff",
   },
   icon: {
-    // TODO: Darken
     color: "#fff",
   },
 });
