@@ -15,7 +15,6 @@
 #### Section 3
 
 - Second project
-- Third slide should have "Your project?" content
 - Carousel arrows should be visible in mobile too
 
 ##### Applications
