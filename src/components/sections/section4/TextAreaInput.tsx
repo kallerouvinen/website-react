@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   inputContainer: {
@@ -11,7 +10,7 @@ const useStyles = makeStyles({
   label: {
     padding: 8,
     color: "#fff",
-    fontWeight: 500,
+    fontWeight: 600,
   },
   textArea: {
     flex: 1,
@@ -34,12 +33,19 @@ interface Props extends React.HTMLProps<HTMLTextAreaElement> {
 
 function TextInput(props: Props) {
   const classes = useStyles();
-  const { label, rows = 1, ...otherProps } = props;
+  const { label, name, rows = 1, ...otherProps } = props;
 
   return (
     <div className={classes.inputContainer}>
-      <Typography className={classes.label}>{label}</Typography>
-      <textarea {...otherProps} className={classes.textArea} rows={rows} />
+      <label className={classes.label} htmlFor={name}>
+        {label}
+      </label>
+      <textarea
+        {...otherProps}
+        className={classes.textArea}
+        name={name}
+        rows={rows}
+      />
     </div>
   );
 }

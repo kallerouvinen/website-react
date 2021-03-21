@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   inputContainer: {
@@ -11,7 +10,7 @@ const useStyles = makeStyles({
   label: {
     padding: 8,
     color: "#fff",
-    fontWeight: 500,
+    fontWeight: 600,
   },
   input: {
     flex: 1,
@@ -32,12 +31,19 @@ interface Props extends React.HTMLProps<HTMLInputElement> {
 
 function TextInput(props: Props) {
   const classes = useStyles();
-  const { label, ...otherProps } = props;
+  const { label, name, ...otherProps } = props;
 
   return (
     <div className={classes.inputContainer}>
-      <Typography className={classes.label}>{label}</Typography>
-      <input {...otherProps} className={classes.input} type="text" />
+      <label className={classes.label} htmlFor={name}>
+        {label}
+      </label>
+      <input
+        {...otherProps}
+        className={classes.input}
+        name={name}
+        type="text"
+      />
     </div>
   );
 }
