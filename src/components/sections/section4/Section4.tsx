@@ -85,8 +85,8 @@ function Section4() {
   };
 
   return (
-    <div id="section4" className={classes.root}>
-      <Container className={classes.container} maxWidth="md">
+    <div className={classes.root}>
+      <Container id="section4" className={classes.container} maxWidth="md">
         <h1 className={classes.title}>Say hello</h1>
 
         <Formik
