@@ -117,11 +117,11 @@ const MenuContainer = styled.div<MenuContainerProps>`
   animation: ${({ isOpen, shouldAnimate }) =>
     isOpen
       ? css`
-          ${openMenu} 500ms
+          ${openMenu} 400ms
         `
       : shouldAnimate
       ? css`
-          ${closeMenu} 500ms
+          ${closeMenu} 300ms
         `
       : css``};
   animation-fill-mode: ${({ isOpen }) => (isOpen ? "forwards" : "none")};
