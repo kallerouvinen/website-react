@@ -5,12 +5,15 @@
 #### To consider
 - Make scroll indicator in section 1 clickable?
 
-#### Section 2
-- Rethink content
-
-#### Section 3
-
-- Second project
+#### TODO
+- Fix menu
+- Rethink content of section 2
+- Second project for section 3
+- Add captcha validation for contact form
+- Typing
+- Possibly move components to their own files in section 4
+- Fix readme
+- Remove resize detector
 
 ##### Applications
 
@@ -27,17 +30,6 @@
   - Investments
     - Investments chart
 - Projection of savings?
-
-#### Section 4
-
-- Add captcha validation
-- Typing
-- Possibly move components to their own files
-
-### Other
-
-- Fix readme
-- Fix menu
 
 ### Color theme
 
