@@ -4,12 +4,13 @@
 
 #### To consider
 - Make scroll indicator in section 1 clickable?
+- Captcha validation for contact form?
 
 #### TODO
 - Rethink content of section 2
 - Second project for section 3
-- Add captcha validation for contact form
 - Typing
+
 - Possibly move components to their own files in section 4
 - Fix readme
 - Remove resize detector
