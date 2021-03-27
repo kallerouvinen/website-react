@@ -36,21 +36,27 @@ const useStyles = makeStyles({
   },
   errorText: {
     color: "#fff",
+    maxWidth: "50vw",
   },
 });
 
 function Section4() {
   const classes = useStyles();
   const [loadingState, setLoadingState] = useState("Ready");
-  // Ready, Loading, Success, Error
+  const [sendMessageFailed, setSendMessageFailed] = useState(false);
 
   const handleFormSubmit = (values: any, { resetForm }: any) => {
     console.log("values", values);
 
     setLoadingState("Loading");
+    if (sendMessageFailed) {
+      setSendMessageFailed(false);
+    }
 
     setTimeout(() => {
       setLoadingState("Error");
+      // setLoadingState("Success");
+      setSendMessageFailed(true);
       resetForm();
       setTimeout(() => {
         setLoadingState("Ready");
@@ -73,6 +79,7 @@ function Section4() {
     //     },
     //     (error) => {
     //       setLoadingState("Error");
+    //       setSendMessageFailed(true);
     //     },
     //   );
   };
@@ -150,6 +157,8 @@ function Section4() {
                       ? "Fill all the fields"
                       : errors.email === "Invalid email"
                       ? "Invalid email address"
+                      : sendMessageFailed
+                      ? "Something went wrong. Please try again or contact me via any of my social media accounts"
                       : ""}
                   </p>
                 </Grid>

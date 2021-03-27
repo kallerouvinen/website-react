@@ -6,7 +6,6 @@
 
 - Add hover-effect for scroll indicator
 - Add click-action for scroll indicator
-- Possibly rethink the texts
 
 #### Section 2
 
@@ -35,7 +34,6 @@
 
 #### Section 4
 
-- On failed, tell user to try re-sending and if still not working to contact via social media
 - Add captcha validation
 - Typing
 - Possibly move components to their own files
