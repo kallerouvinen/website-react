@@ -19,3 +19,7 @@ html,
   flex: 1;
   flex-direction: column;
 }
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}

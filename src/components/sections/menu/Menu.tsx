@@ -48,7 +48,6 @@ const useStyles = makeStyles({
     cursor: "pointer",
     transition: "0.3s all",
     backgroundColor: "#3f5efb",
-    WebkitTapHighlightColor: "transparent",
     "& > *": {
       color: "#fff",
       fontSize: 32,
@@ -102,7 +101,6 @@ const useStyles = makeStyles({
     cursor: "pointer",
     transition: "0.2s all",
     backgroundColor: "transparent",
-    WebkitTapHighlightColor: "transparent",
     "&:hover": {
       transform: "scale(1.08)",
       "& > *": {

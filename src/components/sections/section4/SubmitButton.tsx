@@ -58,7 +58,6 @@ const StyledSubmit = styled.input`
   border: none;
   cursor: pointer;
   background-color: transparent;
-  --webkit-tap-highlight-color: transparent;
   z-index: 1;
 `;
 

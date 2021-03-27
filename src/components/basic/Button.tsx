@@ -14,7 +14,6 @@ const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
   transition: 0.2s all;
   background-color: ${({ theme, color }) => theme[color].main};
-  --webkit-tap-highlight-color: transparent;
   &:hover {
     background-color: ${({ theme, color }) => theme[color].dark};
     transform: scale(1.08);
