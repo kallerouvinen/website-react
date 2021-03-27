@@ -6,7 +6,6 @@
 - Make scroll indicator in section 1 clickable?
 
 #### TODO
-- Fix menu
 - Rethink content of section 2
 - Second project for section 3
 - Add captcha validation for contact form
