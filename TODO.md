@@ -10,6 +10,7 @@
 #### Section 2
 
 - Maybe emojis?
+- Rethink content
 
 #### Section 3
 
@@ -41,6 +42,7 @@
 ### Other
 
 - Fix readme
+- Fix menu
 
 ### Color theme
 
