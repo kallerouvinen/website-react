@@ -13,112 +13,64 @@ const useStyles = makeStyles({
     alignItems: "center",
     minWidth: 310,
   },
-  divider: {
-    backgroundColor: "#8655c5",
-    width: 225,
-    height: 4,
-    margin: "16px 0",
-    borderRadius: 3,
-    opacity: 0.5,
-    "@media (min-width:600px)": {
-      width: 420,
-      height: 5,
-      margin: "24px 0",
-    },
-    "@media (min-width:960px)": {
-      width: 300,
-      height: 4,
-      margin: "16px 0",
-    },
-    "@media (min-width:1280px)": {
-      width: 420,
-      height: 5,
-      margin: "24px 0",
-    },
-    "@media (min-width:1920px)": {
-      width: 500,
-      height: 6,
-      margin: "32px 0",
-    },
-  },
   first: {
+    fontSize: "26vw",
     color: "#3f5efb",
-    fontSize: 45,
-    "@media (min-width:600px)": {
-      fontSize: 85,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:800px)": {
+      fontSize: 208,
     },
     "@media (min-width:960px)": {
-      fontSize: 62,
+      fontSize: "13vw",
     },
     "@media (min-width:1280px)": {
-      fontSize: 85,
-    },
-    "@media (min-width:1920px)": {
-      fontSize: 100,
+      fontSize: 166,
     },
   },
   second: {
-    color: "#6e58d7",
-    fontSize: 31,
-    "@media (min-width:600px)": {
-      fontSize: 58,
+    fontSize: "21vw",
+    color: "#7e56cb",
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:800px)": {
+      fontSize: 168,
     },
     "@media (min-width:960px)": {
-      fontSize: 42,
+      fontSize: "10.5vw",
     },
     "@media (min-width:1280px)": {
-      fontSize: 58,
-    },
-    "@media (min-width:1920px)": {
-      fontSize: 69,
+      fontSize: 134,
     },
   },
   third: {
-    color: "#9e52b3",
-    fontSize: 26,
-    "@media (min-width:600px)": {
-      fontSize: 49,
+    fontSize: "11vw",
+    color: "#bd4e9b",
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:800px)": {
+      fontSize: 88,
     },
     "@media (min-width:960px)": {
-      fontSize: 35,
+      fontSize: "5.5vw",
     },
     "@media (min-width:1280px)": {
-      fontSize: 49,
-    },
-    "@media (min-width:1920px)": {
-      fontSize: 57.5,
+      fontSize: 70,
     },
   },
   fourth: {
-    color: "#cd4c8f",
-    fontSize: 28,
-    "@media (min-width:600px)": {
-      fontSize: 53,
-    },
-    "@media (min-width:960px)": {
-      fontSize: 38,
-    },
-    "@media (min-width:1280px)": {
-      fontSize: 53,
-    },
-    "@media (min-width:1920px)": {
-      fontSize: 62,
-    },
-  },
-  fifth: {
+    fontSize: "12vw",
     color: "#fc466b",
-    fontSize: 48,
-    "@media (min-width:600px)": {
-      fontSize: 92,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    "@media (min-width:800px)": {
+      fontSize: 96,
     },
     "@media (min-width:960px)": {
-      fontSize: 65,
+      fontSize: "6vw",
     },
     "@media (min-width:1280px)": {
-      fontSize: 92,
-    },
-    "@media (min-width:1920px)": {
-      fontSize: 107,
+      fontSize: 77,
     },
   },
 });
@@ -128,23 +80,17 @@ function TextPanel() {
 
   return (
     <div className={classes.root}>
-      <FadeIn shouldAnimate delay={0} direction="up">
-        <Typography className={classes.first}>HI, I'M KALLE</Typography>
+      <FadeIn delay={0} direction="up">
+        <Typography className={classes.first}>Hi, I'm</Typography>
       </FadeIn>
-      <FadeIn shouldAnimate delay={0} direction="left">
-        <Typography className={classes.second}>A WEB DEVELOPER</Typography>
+      <FadeIn delay={0} direction="left">
+        <Typography className={classes.second}> Kalle,</Typography>
       </FadeIn>
-      <FadeIn shouldAnimate delay={0} direction="right">
-        <div className={classes.divider} />
+      <FadeIn delay={0} direction="right">
+        <Typography className={classes.third}>a software</Typography>
       </FadeIn>
-      <FadeIn shouldAnimate delay={0} direction="left">
-        <Typography className={classes.third}>BRING ME YOUR IDEAS</Typography>
-      </FadeIn>
-      <FadeIn shouldAnimate delay={0} direction="right">
-        <Typography className={classes.fourth}>AND I'LL TURN THEM</Typography>
-      </FadeIn>
-      <FadeIn shouldAnimate delay={0} direction="down">
-        <Typography className={classes.fifth}>INTO MAGIC</Typography>
+      <FadeIn delay={0} direction="down">
+        <Typography className={classes.fourth}>developer</Typography>
       </FadeIn>
     </div>
   );

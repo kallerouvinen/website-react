@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 
 import MenuIcon from "./MenuIcon";
 
@@ -113,8 +112,6 @@ const useStyles = makeStyles({
     "&:focus": {
       outline: "none",
     },
-  },
-  navLink: {
     color: "#cdd5fe",
     fontSize: 28,
   },
@@ -160,16 +157,16 @@ function Menu() {
           }`}
         >
           <button className={classes.menuButton} onClick={scrollToSection1}>
-            <Typography className={classes.navLink}>Home</Typography>
+            Home
           </button>
           <button className={classes.menuButton} onClick={scrollToSection2}>
-            <Typography className={classes.navLink}>About me</Typography>
+            About me
           </button>
           <button className={classes.menuButton} onClick={scrollToSection3}>
-            <Typography className={classes.navLink}>My work</Typography>
+            My work
           </button>
           <button className={classes.menuButton} onClick={scrollToSection4}>
-            <Typography className={classes.navLink}>Contact</Typography>
+            Contact
           </button>
         </div>
       </div>

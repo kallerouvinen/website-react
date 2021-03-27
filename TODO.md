@@ -6,7 +6,6 @@
 
 - Add hover-effect for scroll indicator
 - Add click-action for scroll indicator
-- Possibly rethink the texts
 
 #### Section 2
 
@@ -15,7 +14,6 @@
 #### Section 3
 
 - Second project
-- Third slide should have "Your project?" content
 - Carousel arrows should be visible in mobile too
 
 ##### Applications
@@ -36,7 +34,6 @@
 
 #### Section 4
 
-- On failed, tell user to try re-sending and if still not working to contact via social media
 - Add captcha validation
 - Typing
 - Possibly move components to their own files
