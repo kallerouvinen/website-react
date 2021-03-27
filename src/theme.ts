@@ -3,6 +3,7 @@ const theme = {
     light: "#5a75fc",
     main: "#3f5efb",
     dark: "#284bfb",
+    disabled: "#a5b4fd",
   },
   color2: {
     light: "#8f6bd1",

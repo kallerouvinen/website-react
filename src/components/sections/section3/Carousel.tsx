@@ -35,32 +35,63 @@ const Overlay = styled.div`
   );
 `;
 
-const BrowseButton = styled.button`
+interface ButtonProps {
+  disabled: boolean;
+}
+
+const BrowseButton = styled.button<ButtonProps>`
+  display: flex;
+  align-items: center;
   position: absolute;
-  height: 48px;
-  width: 48px;
+  height: 80px;
+  width: 40px;
   border: none;
-  border-radius: 48px;
-  cursor: pointer;
+  padding: 0;
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
   transition: 0.2s all;
-  background-color: ${({ theme }) => theme.color1.main};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.color1.disabled : theme.color1.main};
   color: ${({ theme }) => theme.white};
-  --webkit-tap-highlight-color: transparent;
-  opacity: 0;
+  opacity: 1;
+  @media (min-width: 960px) {
+    opacity: 0;
+    width: 48px;
+    height: 48px;
+  }
   &:hover {
-    background-color: ${({ theme }) => theme.color1.dark};
+    background-color: ${({ theme, disabled }) =>
+      !disabled && theme.color1.dark};
   }
   &:focus {
     outline: none;
   }
-`;
-
-const ButtonNext = styled(BrowseButton)`
-  right: 16px;
+  > * {
+    font-size: 32px;
+  }
 `;
 
 const ButtonPrev = styled(BrowseButton)`
-  left: 16px;
+  left: 0px;
+  justify-content: flex-start;
+  border-top-right-radius: 48px;
+  border-bottom-right-radius: 48px;
+  @media (min-width: 960px) {
+    justify-content: center;
+    left: 16px;
+    border-radius: 48px;
+  }
+`;
+
+const ButtonNext = styled(BrowseButton)`
+  right: 0px;
+  justify-content: flex-end;
+  border-top-left-radius: 48px;
+  border-bottom-left-radius: 48px;
+  @media (min-width: 960px) {
+    justify-content: center;
+    right: 16px;
+    border-radius: 48px;
+  }
 `;
 
 const styles = {
@@ -102,14 +133,15 @@ function Carousel(props: Props) {
       <Hidden mdDown>
         <Overlay />
       </Hidden>
-      <Hidden smDown>
-        <ButtonPrev onClick={onPrevClick}>
-          <ChevronLeft />
-        </ButtonPrev>
-        <ButtonNext onClick={onNextClick}>
-          <ChevronRight />
-        </ButtonNext>
-      </Hidden>
+      <ButtonPrev onClick={onPrevClick} disabled={selected <= 0}>
+        <ChevronLeft />
+      </ButtonPrev>
+      <ButtonNext
+        onClick={onNextClick}
+        disabled={selected >= children.length - 1}
+      >
+        <ChevronRight />
+      </ButtonNext>
       <Stepper activeStep={selected} steps={children.length} />
     </Container>
   );

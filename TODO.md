@@ -2,20 +2,15 @@
 
 ### Code
 
-#### Section 1
-
-- Add hover-effect for scroll indicator
-- Add click-action for scroll indicator
+#### To consider
+- Make scroll indicator in section 1 clickable?
 
 #### Section 2
-
-- Maybe emojis?
 - Rethink content
 
 #### Section 3
 
 - Second project
-- Carousel arrows should be visible in mobile too
 
 ##### Applications
 
