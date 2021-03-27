@@ -6,10 +6,17 @@ import BubblingIcon from "./BubblingIcon";
 const useStyles = makeStyles({
   root: {
     display: "flex",
-    flex: 1,
     flexDirection: "column",
-    backgroundImage: "linear-gradient(20deg, #ff8080, #ffc680)",
+    backgroundImage: "linear-gradient(20deg, #3f5efb, #fc466b)",
     overflow: "hidden",
+  },
+  laptop: {
+    width: 768,
+    height: 432,
+  },
+  mobile: {
+    width: 200,
+    height: 400,
   },
 });
 
@@ -22,7 +29,11 @@ function Mystery(props: Props) {
   const { mode = "laptop" } = props;
 
   return (
-    <div className={classes.root}>
+    <div
+      className={`${classes.root} ${
+        mode === "laptop" ? classes.laptop : classes.mobile
+      }`}
+    >
       {mode === "laptop" ? (
         <>
           <BubblingIcon
@@ -79,26 +90,26 @@ function Mystery(props: Props) {
           <BubblingIcon
             animationDuration="2s"
             size="small"
-            left={10}
-            top={60}
+            left={30}
+            top={120}
           />
           <BubblingIcon
             animationDuration="2.5s"
             size="medium"
-            left={30}
-            top={150}
+            left={50}
+            top={270}
           />
           <BubblingIcon
             animationDuration="3s"
             size="small"
-            left={70}
-            top={100}
+            left={105}
+            top={190}
           />
           <BubblingIcon
             animationDuration="3.5s"
             size="medium"
-            left={90}
-            top={20}
+            left={125}
+            top={60}
           />
         </>
       )}
