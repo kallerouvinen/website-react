@@ -64,6 +64,8 @@ const MenuLink = styled.button`
   cursor: pointer;
   transition: 0.2s all;
   background-color: transparent;
+  width: 150px;
+  padding: 0;
   &:hover {
     transform: scale(1.08);
     & > * {
@@ -83,12 +85,12 @@ interface MenuLinkContainerProps {
 
 const MenuLinkContainer = styled.div<MenuLinkContainerProps>`
   display: flex;
-  position: fixed;
   flex-direction: column;
-  top: 48px;
-  right: calc(45vw - 75px);
+  align-items: flex-end;
+  padding-top: 48px;
+  padding-right: calc(45vw - 75px);
   @media (min-width: 400px) {
-    right: 105px;
+    padding-right: 105px;
   }
   text-align: center;
   & > * {
