@@ -42,9 +42,9 @@ function CardWhatIDo() {
       <Divider className={classes.divider} variant="middle" />
       <h1 className={classes.title}>What I don't do</h1>
       <p className={classes.description}>
-        I would fail to draw any popular sorting algorithm on a whiteboard or
-        tell you anything about NP-completeness. I also do google the difference
-        between slice() and splice() whenever I need to split an array.
+        I would fail to draw any popular sorting algorithm on a whiteboard off
+        the top of my head. I also can't recall the difference between slice()
+        and splice() whenever I need to split an array.
       </p>
       <p className={classes.description}>Also, I don't drink coffee.</p>
     </div>

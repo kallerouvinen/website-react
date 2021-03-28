@@ -16,6 +16,7 @@ const useStyles = makeStyles({
   first: {
     fontSize: "26vw",
     color: "#3f5efb",
+    lineHeight: 1.2,
     fontWeight: 700,
     textTransform: "uppercase",
     "@media (min-width:800px)": {
@@ -32,6 +33,7 @@ const useStyles = makeStyles({
     fontSize: "21vw",
     color: "#7e56cb",
     fontWeight: 700,
+    lineHeight: 1.2,
     textTransform: "uppercase",
     "@media (min-width:800px)": {
       fontSize: 168,

@@ -7,7 +7,7 @@
 - Captcha validation for contact form?
 
 #### TODO
-- Rethink content of section 2
+- Replace webp-images with jpg
 - Typing
 
 - Second project for section 3
