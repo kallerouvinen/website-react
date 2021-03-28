@@ -42,31 +42,29 @@ interface ButtonProps {
 const BrowseButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
+  justify-content: center;
   position: absolute;
   height: 64px;
-  width: 32px;
+  width: 48px;
   border: none;
   padding: 0;
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
   transition: 0.2s all;
-  background-color: ${({ theme, disabled }) =>
-    disabled ? theme.color1.disabled : theme.color1.main};
-  color: ${({ theme }) => theme.white};
+  background-color: transparent;
+  color: ${({ theme, disabled }) =>
+    disabled ? "transparent" : theme.color1.main};
   opacity: 1;
   > * {
-    font-size: 28px;
+    font-size: 36px;
   }
   @media (min-width: 960px) {
     opacity: 0;
-    width: 48px;
     height: 48px;
-    > * {
-      font-size: 32px;
-    }
+    border-radius: 48px;
   }
   &:hover {
     background-color: ${({ theme, disabled }) =>
-      !disabled && theme.color1.dark};
+      !disabled && theme.color1.veryLight};
   }
   &:focus {
     outline: none;
@@ -75,25 +73,19 @@ const BrowseButton = styled.button<ButtonProps>`
 
 const ButtonPrev = styled(BrowseButton)`
   left: 0px;
-  justify-content: flex-start;
   border-top-right-radius: 48px;
   border-bottom-right-radius: 48px;
   @media (min-width: 960px) {
-    justify-content: center;
-    left: 16px;
-    border-radius: 48px;
+    left: 8px;
   }
 `;
 
 const ButtonNext = styled(BrowseButton)`
   right: 0px;
-  justify-content: flex-end;
   border-top-left-radius: 48px;
   border-bottom-left-radius: 48px;
   @media (min-width: 960px) {
-    justify-content: center;
-    right: 16px;
-    border-radius: 48px;
+    right: 8px;
   }
 `;
 
