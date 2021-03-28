@@ -35,7 +35,11 @@ const ButtonContainer = styled.div`
   right: 20px;
 `;
 
-const ToggleMenuButton = styled.button`
+interface ToggleMenuButtonProps {
+  isOpen: boolean;
+}
+
+const ToggleMenuButton = styled.button<ToggleMenuButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,6 +51,8 @@ const ToggleMenuButton = styled.button`
   cursor: pointer;
   transition: 0.3s all;
   background-color: #3f5efb;
+  box-shadow: ${({ isOpen }) =>
+    !isOpen && css`0px 3px 16px 5px rgba(0, 0, 0, 0.1)`};
   & > * {
     color: #fff;
     font-size: 32px;
@@ -77,6 +83,7 @@ const MenuLink = styled.button`
   }
   color: #cdd5fe;
   font-size: 32px;
+  text-transform: uppercase;
 `;
 
 interface MenuLinkContainerProps {
@@ -115,6 +122,7 @@ const MenuContainer = styled.div<MenuContainerProps>`
   background-color: #3f5efb;
   border-bottom-left-radius: ${size - 25}px;
   overflow: hidden;
+  box-shadow: -3px 3px 16px 5px rgba(0, 0, 0, 0.1);
 
   animation: ${({ isOpen, shouldAnimate }) =>
     isOpen
@@ -166,13 +174,13 @@ function Menu() {
       <MenuContainer isOpen={isOpen} shouldAnimate={enableAnimations.current}>
         <MenuLinkContainer isOpen={isOpen}>
           <MenuLink onClick={scrollToSection1}>Home</MenuLink>
-          <MenuLink onClick={scrollToSection2}>About me</MenuLink>
+          <MenuLink onClick={scrollToSection2}>About</MenuLink>
           <MenuLink onClick={scrollToSection3}>My work</MenuLink>
           <MenuLink onClick={scrollToSection4}>Contact</MenuLink>
         </MenuLinkContainer>
       </MenuContainer>
       <ButtonContainer>
-        <ToggleMenuButton onClick={toggleMenu}>
+        <ToggleMenuButton onClick={toggleMenu} isOpen={isOpen}>
           <MenuIcon isOpen={isOpen} />
         </ToggleMenuButton>
       </ButtonContainer>
