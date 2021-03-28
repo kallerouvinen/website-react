@@ -76,8 +76,6 @@ function Section1() {
           </Grid>
         </Grid>
       </Container>
-
-      {/* TODO: Scroll indicator should be a button? */}
       <div className={classes.scrollIndicator}>
         <FadeIn delay={1000} direction="down">
           <ScrollIndicator />
