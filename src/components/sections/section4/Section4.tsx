@@ -29,6 +29,11 @@ const useStyles = makeStyles({
     fontSize: 44,
     color: "#fff",
   },
+  description: {
+    marginBottom: 32,
+    fontSize: 18,
+    color: "#fff",
+  },
   submitContainer: {
     display: "flex",
     flexDirection: "row",
@@ -88,7 +93,10 @@ function Section4() {
     <div className={classes.root}>
       <Container id="section4" className={classes.container} maxWidth="md">
         <h1 className={classes.title}>Say hello</h1>
-
+        <p className={classes.description}>
+          You can contact me using this form or via any of my social media.
+          Links can be found below.
+        </p>
         <Formik
           initialValues={{
             name: "",
@@ -158,7 +166,7 @@ function Section4() {
                       : errors.email === "Invalid email"
                       ? "Invalid email address"
                       : sendMessageFailed
-                      ? "Something went wrong. Please try again or contact me via any of my social media accounts"
+                      ? "Something went wrong. Please try again or contact me via any of my social media"
                       : ""}
                   </p>
                 </Grid>

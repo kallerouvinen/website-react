@@ -3,7 +3,7 @@ export const demos = [
     id: 1,
     title: "Makoisat.com",
     description:
-      "Platform for finding diet-friendly restaurants. Design + front-end implementation by yours truly. Not localized yet, so available only in Finnish for now.",
+      "Platform for finding diet-friendly restaurants. Design + front-end implementation by yours truly. Currently available only in Finnish.",
     demos: {
       laptop: "makoisat-preview-laptop.gif",
       mobile: "makoisat-preview-mobile.gif",

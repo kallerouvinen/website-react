@@ -35,7 +35,9 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding: 24,
+    "@media (min-width:960px)": {
+      padding: 24,
+    },
     "& > *": {
       margin: "12px 48px",
     },

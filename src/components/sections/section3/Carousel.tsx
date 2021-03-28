@@ -43,8 +43,8 @@ const BrowseButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   position: absolute;
-  height: 80px;
-  width: 40px;
+  height: 64px;
+  width: 32px;
   border: none;
   padding: 0;
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
@@ -53,10 +53,16 @@ const BrowseButton = styled.button<ButtonProps>`
     disabled ? theme.color1.disabled : theme.color1.main};
   color: ${({ theme }) => theme.white};
   opacity: 1;
+  > * {
+    font-size: 28px;
+  }
   @media (min-width: 960px) {
     opacity: 0;
     width: 48px;
     height: 48px;
+    > * {
+      font-size: 32px;
+    }
   }
   &:hover {
     background-color: ${({ theme, disabled }) =>
@@ -64,9 +70,6 @@ const BrowseButton = styled.button<ButtonProps>`
   }
   &:focus {
     outline: none;
-  }
-  > * {
-    font-size: 32px;
   }
 `;
 

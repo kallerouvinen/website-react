@@ -8,28 +8,12 @@
 
 #### TODO
 - Rethink content of section 2
-- Second project for section 3
 - Typing
 
+- Second project for section 3
 - Possibly move components to their own files in section 4
 - Fix readme
 - Remove resize detector
-
-##### Applications
-
-- Rework into savings app
-- Tabs
-  - Savings
-    - Informs user about saved money amount
-    - User can allocate to different savings goals by pressing and holding a button
-    - Add microanimations for buttons
-    - Add "New goal"-button
-    - Add "Confirm allocation" -button
-  - Expenses
-    - Monthly spending pie chart
-  - Investments
-    - Investments chart
-- Projection of savings?
 
 ### Color theme
 

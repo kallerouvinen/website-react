@@ -16,6 +16,11 @@ const useStyles = makeStyles({
   },
   container: {
     padding: 0,
+    textAlign: "center",
+  },
+  title: {
+    margin: 12,
+    fontSize: 44,
   },
 });
 
@@ -42,8 +47,7 @@ function Section3() {
   return (
     <div id="section3" className={classes.section3}>
       <Container className={classes.container} maxWidth="lg">
-        {/* TODO: Add virtualization for performance */}
-        {/* TODO: Add autoplay */}
+        <h1 className={classes.title}>My work</h1>
         <Carousel
           onChangeIndex={handleChangeIndex}
           onNextClick={incrementSelected}
