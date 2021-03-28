@@ -13,18 +13,8 @@ export const demos = [
     livePath: "https://www.makoisat.com",
   },
   {
-    id: 2,
-    title: "TODO: Title",
-    description: "TODO: Description",
-    demos: {
-      laptop: "",
-      mobile: "",
-    },
-    livePath: "NOT_AVAILABLE",
-  },
-  {
     id: 3,
-    title: "Something else?",
+    title: "Your project?",
     description:
       "Contact me with your ideas and let's see if we can build something awesome together.",
     demos: {
