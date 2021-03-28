@@ -1,5 +1,3 @@
-// TODO: Add content for demos
-
 export const demos = [
   {
     id: 1,
