@@ -4,7 +4,6 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import image from "assets/image900.webp";
 import { FadeIn } from "components";
 import ScrollIndicator from "./ScrollIndicator";
 import TextPanel from "./TextPanel";
@@ -68,7 +67,11 @@ function Section1() {
         <Grid container justify={gridJustify} className={classes.gridContainer}>
           <div className={classes.imageContainer}>
             <FadeIn delay={0} direction="down">
-              <img className={classes.image} src={image} alt="" />
+              <img
+                className={classes.image}
+                src={`${process.env.PUBLIC_URL}/assets/image900.webp`}
+                alt=""
+              />
             </FadeIn>
           </div>
           <Grid className={classes.gridItem} item md={6}>
