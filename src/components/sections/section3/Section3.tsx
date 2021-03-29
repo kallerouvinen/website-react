@@ -15,7 +15,7 @@ const Root = styled.div`
 `;
 
 const Container = styled(MUIContainer)`
-  padding: 0;
+  padding: 0 !important;
   text-align: center;
 `;
 
