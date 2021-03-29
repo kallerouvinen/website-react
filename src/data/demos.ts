@@ -16,8 +16,8 @@ export const demos = [
     description:
       "Contact me with your ideas and let's see if we can build something awesome together.",
     demos: {
-      laptop: "somethingelse-preview-laptop.mp4",
-      mobile: "somethingelse-preview-mobile.mp4",
+      laptop: "yourproject-preview-laptop.mp4",
+      mobile: "yourproject-preview-mobile.mp4",
     },
   },
 ];
