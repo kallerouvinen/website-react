@@ -43,29 +43,32 @@ function Footer() {
           </Grid>
           <Grid item xs={12} md={6}>
             <a
+              aria-label="link-to-instagram"
               href="https://instagram.com/kallerouvinen"
               target="_blank"
               rel="noreferrer noopener"
             >
-              <SocialMediaButton>
+              <SocialMediaButton aria-label="link-to-instagram">
                 <Instagram />
               </SocialMediaButton>
             </a>
             <a
+              aria-label="link-to-linkedin"
               href="https://linkedin.com/in/kalle-rouvinen-794b4215b"
               target="_blank"
               rel="noreferrer noopener"
             >
-              <SocialMediaButton>
+              <SocialMediaButton aria-label="link-to-linkedin">
                 <LinkedIn />
               </SocialMediaButton>
             </a>
             <a
+              aria-label="link-to-github"
               href="https://github.com/kallerouvinen"
               target="_blank"
               rel="noreferrer noopener"
             >
-              <SocialMediaButton>
+              <SocialMediaButton aria-label="link-to-github">
                 <GitHub />
               </SocialMediaButton>
             </a>

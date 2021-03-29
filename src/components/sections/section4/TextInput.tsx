@@ -36,7 +36,7 @@ function TextInput(props: Props) {
   return (
     <InputContainer>
       <Label htmlFor={name}>{label}</Label>
-      <Input {...otherProps} name={name} type="text" />
+      <Input {...otherProps} id={name} name={name} type="text" />
     </InputContainer>
   );
 }

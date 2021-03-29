@@ -128,10 +128,15 @@ function Carousel(props: Props) {
       <Hidden mdDown>
         <Overlay />
       </Hidden>
-      <ButtonPrev onClick={onPrevClick} disabled={selected <= 0}>
+      <ButtonPrev
+        aria-label="previous-project"
+        onClick={onPrevClick}
+        disabled={selected <= 0}
+      >
         <ChevronLeft />
       </ButtonPrev>
       <ButtonNext
+        aria-label="next-project"
         onClick={onNextClick}
         disabled={selected >= children.length - 1}
       >

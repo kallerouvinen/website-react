@@ -38,7 +38,7 @@ function TextAreaInput(props: Props) {
   return (
     <InputContainer>
       <Label htmlFor={name}>{label}</Label>
-      <TextArea {...otherProps} name={name} rows={rows} />
+      <TextArea {...otherProps} id={name} name={name} rows={rows} />
     </InputContainer>
   );
 }

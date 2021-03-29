@@ -180,7 +180,11 @@ function Menu() {
         </MenuLinkContainer>
       </MenuContainer>
       <ButtonContainer>
-        <ToggleMenuButton onClick={toggleMenu} isOpen={isOpen}>
+        <ToggleMenuButton
+          aria-label="toggle-menu"
+          onClick={toggleMenu}
+          isOpen={isOpen}
+        >
           <MenuIcon isOpen={isOpen} />
         </ToggleMenuButton>
       </ButtonContainer>
