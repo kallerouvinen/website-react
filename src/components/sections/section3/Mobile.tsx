@@ -66,7 +66,7 @@ function Mobile(props: Props) {
   return (
     <Bezel>
       <Screen>
-        <video autoPlay loop muted playsInline>
+        <video width="100%" height="100%" autoPlay loop muted playsInline>
           <source
             src={`${process.env.PUBLIC_URL}/assets/${component}`}
             type="video/mp4"
