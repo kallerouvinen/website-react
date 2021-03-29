@@ -154,6 +154,13 @@ function Menu() {
   }, []);
 
   const toggleMenu = () => {
+    window.onscroll = isOpen
+      ? null
+      : () => {
+          window.onscroll = null;
+          setIsOpen(false);
+        };
+
     setIsOpen(!isOpen);
   };
 

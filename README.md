@@ -28,5 +28,3 @@ npx serve -s build
 - Research performance difference with and without React.lazy in App.tsx
 - Other lighthouse optimizations
 - Enable contact form
-- Close menu on click outside
-- Add webm-video sources
