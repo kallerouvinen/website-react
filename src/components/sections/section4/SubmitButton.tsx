@@ -26,7 +26,6 @@ const Container = styled.div<ButtonProps>`
   justify-content: center;
   height: 48px;
   width: 160px;
-  margin: 16px 0;
 
   transition: 0.2s all;
   border-radius: 48px;

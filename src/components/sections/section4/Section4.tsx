@@ -42,6 +42,10 @@ const ErrorText = styled.p`
   max-width: 50vw;
 `;
 
+const Captcha = styled.div`
+  padding: 8px;
+`;
+
 const SubmitContainer = styled(Grid)`
   display: flex;
   flex-direction: row;
@@ -51,10 +55,9 @@ const SubmitContainer = styled(Grid)`
 function Section4() {
   const [loadingState, setLoadingState] = useState("Ready");
   const [sendMessageFailed, setSendMessageFailed] = useState(false);
+  const [captchaSuccessful, setCaptchaSuccessful] = useState(false);
 
   const handleFormSubmit = (values: any, { resetForm }: any) => {
-    console.log("values", values);
-
     setLoadingState("Loading");
     if (sendMessageFailed) {
       setSendMessageFailed(false);
@@ -89,6 +92,10 @@ function Section4() {
     //       setSendMessageFailed(true);
     //     },
     //   );
+  };
+
+  const handleCaptchaSuccess = () => {
+    setCaptchaSuccessful(true);
   };
 
   return (
@@ -155,6 +162,11 @@ function Section4() {
                     value={values.message}
                   />
                 </Grid>
+                <Captcha
+                  className="g-recaptcha"
+                  data-sitekey="6Lc4IpQaAAAAAAe-vaTYTq-t302gUQhAOr-b9FwE"
+                  data-callback={handleCaptchaSuccess}
+                />
                 <SubmitContainer item xs={12}>
                   <SubmitButton
                     state={loadingState}
@@ -169,6 +181,8 @@ function Section4() {
                       ? "Invalid email address"
                       : sendMessageFailed
                       ? "Something went wrong. Please try again or contact me via any of my social media"
+                      : !captchaSuccessful
+                      ? "Captcha failed"
                       : ""}
                   </ErrorText>
                 </SubmitContainer>
