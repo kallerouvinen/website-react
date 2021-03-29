@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "emailjs-com";
 import { Formik } from "formik";
 import styled from "styled-components";
 import MUIContainer from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import Recaptcha from "react-recaptcha";
 
 import SubmitButton from "./SubmitButton";
 import TextAreaInput from "./TextAreaInput";
@@ -42,8 +44,9 @@ const ErrorText = styled.p`
   max-width: 50vw;
 `;
 
-const Captcha = styled.div`
+const RecaptchaContainer = styled.div`
   padding: 8px;
+  height: 80px;
 `;
 
 const SubmitContainer = styled(Grid)`
@@ -55,47 +58,37 @@ const SubmitContainer = styled(Grid)`
 function Section4() {
   const [loadingState, setLoadingState] = useState("Ready");
   const [sendMessageFailed, setSendMessageFailed] = useState(false);
-  const [captchaSuccessful, setCaptchaSuccessful] = useState(false);
+  const recaptchaRef = useRef<Recaptcha>(null);
 
   const handleFormSubmit = (values: any, { resetForm }: any) => {
     setLoadingState("Loading");
-    if (sendMessageFailed) {
-      setSendMessageFailed(false);
-    }
+    setSendMessageFailed(false);
 
-    setTimeout(() => {
-      setLoadingState("Error");
-      // setLoadingState("Success");
-      setSendMessageFailed(true);
-      resetForm();
-      setTimeout(() => {
-        setLoadingState("Ready");
-      }, 2000);
-    }, 1000);
-    // emailjs
-    //   .send(
-    //     "service_julervm",
-    //     "template_ta50vl9",
-    //     values,
-    //     "user_NLsJL6dc9TUARPhYsGhR7",
-    //   )
-    //   .then(
-    //     (result) => {
-    //       setLoadingState("Success");
-    //       resetForm();
-    //       setTimeout(() => {
-    //         setLoadingState("Ready");
-    //       }, 2000);
-    //     },
-    //     (error) => {
-    //       setLoadingState("Error");
-    //       setSendMessageFailed(true);
-    //     },
-    //   );
-  };
-
-  const handleCaptchaSuccess = () => {
-    setCaptchaSuccessful(true);
+    emailjs
+      .send(
+        "service_julervm",
+        "template_ta50vl9",
+        values,
+        "user_NLsJL6dc9TUARPhYsGhR7",
+      )
+      .then(
+        (result) => {
+          setLoadingState("Success");
+          resetForm();
+          setTimeout(() => {
+            setLoadingState("Ready");
+            recaptchaRef.current?.reset();
+          }, 2000);
+        },
+        (error) => {
+          setLoadingState("Error");
+          setSendMessageFailed(true);
+          setTimeout(() => {
+            setLoadingState("Ready");
+          }, 2000);
+          recaptchaRef.current?.reset();
+        },
+      );
   };
 
   return (
@@ -111,6 +104,7 @@ function Section4() {
             name: "",
             email: "",
             message: "",
+            recaptcha: "",
           }}
           validateOnBlur={false}
           validateOnChange={false}
@@ -129,13 +123,27 @@ function Section4() {
             if (!values.message) {
               errors.message = "Required";
             }
+            if (!values.recaptcha) {
+              errors.recaptcha = true;
+            }
 
             return errors;
           }}
           onSubmit={handleFormSubmit}
         >
-          {({ values, errors, handleChange, handleSubmit }) => (
-            <form className="contact-form" onSubmit={handleSubmit}>
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleSubmit,
+            setFieldValue,
+          }) => (
+            <form
+              autoComplete="off"
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextInput
@@ -162,11 +170,16 @@ function Section4() {
                     value={values.message}
                   />
                 </Grid>
-                <Captcha
-                  className="g-recaptcha"
-                  data-sitekey="6Lc4IpQaAAAAAAe-vaTYTq-t302gUQhAOr-b9FwE"
-                  data-callback={handleCaptchaSuccess}
-                />
+                <RecaptchaContainer>
+                  <Recaptcha
+                    ref={recaptchaRef}
+                    sitekey="6Lc4IpQaAAAAAAe-vaTYTq-t302gUQhAOr-b9FwE"
+                    render="explicit"
+                    verifyCallback={(response) => {
+                      setFieldValue("recaptcha", response);
+                    }}
+                  />
+                </RecaptchaContainer>
                 <SubmitContainer item xs={12}>
                   <SubmitButton
                     state={loadingState}
@@ -181,7 +194,7 @@ function Section4() {
                       ? "Invalid email address"
                       : sendMessageFailed
                       ? "Something went wrong. Please try again or contact me via any of my social media"
-                      : !captchaSuccessful
+                      : errors.recaptcha && touched.recaptcha
                       ? "Captcha failed"
                       : ""}
                   </ErrorText>

@@ -56,6 +56,7 @@ const StyledSubmit = styled.input`
   flex: 1;
   height: 100%;
   border: none;
+  outline: none;
   cursor: pointer;
   background-color: transparent;
   z-index: 1;
