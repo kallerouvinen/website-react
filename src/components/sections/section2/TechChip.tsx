@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const Label = styled.p`
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
   color: #fff;
 `;

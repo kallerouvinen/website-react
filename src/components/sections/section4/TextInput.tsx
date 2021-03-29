@@ -10,7 +10,7 @@ const InputContainer = styled.div`
 const Label = styled.label`
   padding: 8px;
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 const Input = styled.input`
