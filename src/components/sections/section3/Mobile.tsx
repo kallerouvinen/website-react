@@ -67,10 +67,12 @@ function Mobile(props: Props) {
   return (
     <div className={classes.bezel}>
       <div className={classes.screen}>
-        {component && typeof component === "string" && (
-          <img src={`${process.env.PUBLIC_URL}/assets/${component}`} alt="" />
-        )}
-        {component && typeof component === "object" && component}
+        <video autoPlay loop muted playsInline>
+          <source
+            src={`${process.env.PUBLIC_URL}/assets/${component}`}
+            type="video/mp4"
+          />
+        </video>
         <div className={classes.clickBlocker} onClick={stopPropagation} />
       </div>
     </div>

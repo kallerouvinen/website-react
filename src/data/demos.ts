@@ -5,8 +5,8 @@ export const demos = [
     description:
       "Platform for finding diet-friendly restaurants. Design + front-end implementation by yours truly. Currently available only in Finnish.",
     demos: {
-      laptop: "makoisat-preview-laptop.gif",
-      mobile: "makoisat-preview-mobile.gif",
+      laptop: "makoisat-preview-laptop.mp4",
+      mobile: "makoisat-preview-mobile.mp4",
     },
     livePath: "https://www.makoisat.com",
   },
@@ -16,8 +16,8 @@ export const demos = [
     description:
       "Contact me with your ideas and let's see if we can build something awesome together.",
     demos: {
-      laptop: "somethingelse-preview-laptop.gif",
-      mobile: "somethingelse-preview-mobile.gif",
+      laptop: "somethingelse-preview-laptop.mp4",
+      mobile: "somethingelse-preview-mobile.mp4",
     },
   },
 ];
