@@ -1,100 +1,105 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+import styled from "styled-components";
 
 import { FadeIn } from "components";
 
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    minWidth: 310,
-  },
-  first: {
-    fontSize: "26vw",
-    color: "#3f5efb",
-    lineHeight: 1.2,
-    fontWeight: 700,
-    textTransform: "uppercase",
-    "@media (min-width:800px)": {
-      fontSize: 208,
-    },
-    "@media (min-width:960px)": {
-      fontSize: "13vw",
-    },
-    "@media (min-width:1280px)": {
-      fontSize: 166,
-    },
-  },
-  second: {
-    fontSize: "21vw",
-    color: "#7e56cb",
-    fontWeight: 700,
-    lineHeight: 1.2,
-    textTransform: "uppercase",
-    "@media (min-width:800px)": {
-      fontSize: 168,
-    },
-    "@media (min-width:960px)": {
-      fontSize: "10.5vw",
-    },
-    "@media (min-width:1280px)": {
-      fontSize: 134,
-    },
-  },
-  third: {
-    fontSize: "11vw",
-    color: "#bd4e9b",
-    fontWeight: 700,
-    textTransform: "uppercase",
-    "@media (min-width:800px)": {
-      fontSize: 88,
-    },
-    "@media (min-width:960px)": {
-      fontSize: "5.5vw",
-    },
-    "@media (min-width:1280px)": {
-      fontSize: 70,
-    },
-  },
-  fourth: {
-    fontSize: "12vw",
-    color: "#fc466b",
-    fontWeight: 700,
-    textTransform: "uppercase",
-    "@media (min-width:800px)": {
-      fontSize: 96,
-    },
-    "@media (min-width:960px)": {
-      fontSize: "6vw",
-    },
-    "@media (min-width:1280px)": {
-      fontSize: 77,
-    },
-  },
-});
+const Container = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 310px;
+`;
+
+const First = styled.span`
+  font-family: "Roboto";
+  font-size: 26vw;
+  color: #3f5efb;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  @media (min-width: 800px) {
+    font-size: 208px;
+  }
+  @media (min-width: 960px) {
+    font-size: 14.77vw;
+  }
+  @media (min-width: 1280px) {
+    font-size: 189px;
+  }
+`;
+
+const Second = styled.span`
+  font-family: "Roboto";
+  font-size: 22.875vw;
+  color: #7e56cb;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  @media (min-width: 800px) {
+    font-size: 183px;
+  }
+  @media (min-width: 960px) {
+    font-size: 12.97vw;
+  }
+  @media (min-width: 1280px) {
+    font-size: 166px;
+  }
+`;
+
+const Third = styled.span`
+  font-family: "Roboto";
+  font-size: 11.63vw;
+  color: #bd4e9b;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+  @media (min-width: 800px) {
+    font-size: 93px;
+  }
+  @media (min-width: 960px) {
+    font-size: 6.56vw;
+  }
+  @media (min-width: 1280px) {
+    font-size: 84px;
+  }
+`;
+
+const Fourth = styled.span`
+  font-family: "Roboto";
+  font-size: 13.38vw;
+  color: #fc466b;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+  @media (min-width: 800px) {
+    font-size: 107px;
+  }
+  @media (min-width: 960px) {
+    font-size: 7.5vw;
+  }
+  @media (min-width: 1280px) {
+    font-size: 96px;
+  }
+`;
 
 function TextPanel() {
-  const classes = useStyles();
-
   return (
-    <div className={classes.root}>
+    <Container>
       <FadeIn delay={0} direction="up">
-        <Typography className={classes.first}>Hi, I'm</Typography>
+        <First>Hi, I'm</First>
       </FadeIn>
       <FadeIn delay={0} direction="left">
-        <Typography className={classes.second}> Kalle,</Typography>
+        <Second>Kalle,</Second>
       </FadeIn>
       <FadeIn delay={0} direction="right">
-        <Typography className={classes.third}>a software</Typography>
+        <Third>a software</Third>
       </FadeIn>
       <FadeIn delay={0} direction="down">
-        <Typography className={classes.fourth}>developer</Typography>
+        <Fourth>developer</Fourth>
       </FadeIn>
-    </div>
+    </Container>
   );
 }
 

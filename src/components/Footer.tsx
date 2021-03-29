@@ -3,7 +3,6 @@ import styled from "styled-components";
 import MUIContainer from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import GitHub from "@material-ui/icons/GitHub";
 import Instagram from "@material-ui/icons/Instagram";
 import LinkedIn from "@material-ui/icons/LinkedIn";
@@ -24,7 +23,7 @@ const GridContainer = styled(Grid)`
   align-items: center;
 `;
 
-const Text = styled(Typography)`
+const Text = styled.p`
   color: #fff;
 `;
 
