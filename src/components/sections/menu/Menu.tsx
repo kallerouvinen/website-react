@@ -168,7 +168,7 @@ function Menu() {
     document
       .getElementById(`section${number}`)
       ?.scrollIntoView({ behavior: "smooth" });
-    toggleMenu();
+    setIsOpen(false);
   };
 
   const scrollToSection1 = () => scrollToSection(1);
