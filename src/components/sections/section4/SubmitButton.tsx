@@ -39,10 +39,12 @@ const Container = styled.div<ButtonProps>`
       : theme.color4.main};
   ${({ disabled, theme }) =>
     !disabled &&
-    `&:hover {
-      background-color: ${theme.color4.dark};
-      transform: scale(1.08);
-    }`}
+    css`
+      &:hover {
+        background-color: ${theme.color4.dark};
+        transform: scale(1.08);
+      }
+    `}
   overflow: hidden;
   ${({ state }) =>
     state === "Error" &&

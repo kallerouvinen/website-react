@@ -1,31 +1,30 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import styled from "styled-components";
+import MUIContainer from "@material-ui/core/Container";
 
 import { demos } from "data";
 import Carousel from "./Carousel";
 import Slide from "./Slide";
 
-const useStyles = makeStyles({
-  section3: {
-    display: "flex",
-    position: "relative",
-    flexDirection: "column",
-    padding: "96px 0",
-    justifyContent: "center",
-  },
-  container: {
-    padding: 0,
-    textAlign: "center",
-  },
-  title: {
-    margin: 12,
-    fontSize: 44,
-  },
-});
+const Root = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 0;
+`;
+
+const Container = styled(MUIContainer)`
+  padding: 0;
+  text-align: center;
+`;
+
+const Title = styled.h1`
+  margin: 12px;
+  font-size: 44px;
+`;
 
 function Section3() {
-  const classes = useStyles();
   const [selected, setSelected] = useState(0);
 
   const decrementSelected = () => {
@@ -45,9 +44,9 @@ function Section3() {
   };
 
   return (
-    <div id="section3" className={classes.section3}>
-      <Container className={classes.container} maxWidth="lg">
-        <h1 className={classes.title}>My work</h1>
+    <Root id="section3">
+      <Container maxWidth="lg">
+        <Title>My work</Title>
         <Carousel
           onChangeIndex={handleChangeIndex}
           onNextClick={incrementSelected}
@@ -65,7 +64,7 @@ function Section3() {
           ))}
         </Carousel>
       </Container>
-    </div>
+    </Root>
   );
 }
 

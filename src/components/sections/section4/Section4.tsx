@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import styled from "styled-components";
+import MUIContainer from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
 import SubmitButton from "./SubmitButton";
@@ -13,40 +13,42 @@ function validateEmail(email: string) {
   return regEx.test(email);
 }
 
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "192px 0 96px 0",
-    backgroundColor: "#6e58d7",
-    clipPath: "polygon(0 0, 100% 96px, 100% 100%, 0 100%)",
-  },
-  container: {
-    flexDirection: "column",
-  },
-  title: {
-    fontSize: 44,
-    color: "#fff",
-  },
-  description: {
-    marginBottom: 32,
-    fontSize: 18,
-    color: "#fff",
-  },
-  submitContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  errorText: {
-    color: "#fff",
-    maxWidth: "50vw",
-  },
-});
+const Root = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 192px 0 96px 0;
+  background-color: #6e58d7;
+  clip-path: polygon(0 0, 100% 96px, 100% 100%, 0 100%);
+`;
+
+const Container = styled(MUIContainer)`
+  flex-direction: column;
+`;
+
+const Title = styled.h1`
+  font-size: 44px;
+  color: #fff;
+`;
+
+const Paragraph = styled.p`
+  margin-bottom: 32px;
+  font-size: 18px;
+  color: #fff;
+`;
+
+const ErrorText = styled.p`
+  color: #fff;
+  max-width: 50vw;
+`;
+
+const SubmitContainer = styled(Grid)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 function Section4() {
-  const classes = useStyles();
   const [loadingState, setLoadingState] = useState("Ready");
   const [sendMessageFailed, setSendMessageFailed] = useState(false);
 
@@ -90,13 +92,13 @@ function Section4() {
   };
 
   return (
-    <div className={classes.root}>
-      <Container id="section4" className={classes.container} maxWidth="md">
-        <h1 className={classes.title}>Say hello</h1>
-        <p className={classes.description}>
+    <Root>
+      <Container id="section4" maxWidth="md">
+        <Title>Say hello</Title>
+        <Paragraph>
           You can contact me using this form or via any of my social media.
           Links can be found below.
-        </p>
+        </Paragraph>
         <Formik
           initialValues={{
             name: "",
@@ -153,12 +155,12 @@ function Section4() {
                     value={values.message}
                   />
                 </Grid>
-                <Grid item xs={12} className={classes.submitContainer}>
+                <SubmitContainer item xs={12}>
                   <SubmitButton
                     state={loadingState}
                     disabled={loadingState !== "Ready"}
                   />
-                  <p className={classes.errorText}>
+                  <ErrorText>
                     {errors.name === "Required" ||
                     errors.email === "Required" ||
                     errors.message === "Required"
@@ -168,14 +170,14 @@ function Section4() {
                       : sendMessageFailed
                       ? "Something went wrong. Please try again or contact me via any of my social media"
                       : ""}
-                  </p>
-                </Grid>
+                  </ErrorText>
+                </SubmitContainer>
               </Grid>
             </form>
           )}
         </Formik>
       </Container>
-    </div>
+    </Root>
   );
 }
 

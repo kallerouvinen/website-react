@@ -1,53 +1,46 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles({
-  inputContainer: {
-    display: "flex",
-    flex: 1,
-    flexDirection: "column",
-  },
-  label: {
-    padding: 8,
-    color: "#fff",
-    fontWeight: 600,
-  },
-  textArea: {
-    flex: 1,
-    padding: 16,
-    font: "inherit",
-    borderRadius: 8,
-    border: "none",
-    boxShadow: "0px 3px 16px 5px rgba(0, 0, 0, 0.1)",
-    "&:focus": {
-      outline: "none",
-    },
-    resize: "none",
-  },
-});
+const InputContainer = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+`;
+
+const Label = styled.label`
+  padding: 8px;
+  color: #fff;
+  font-weight: 600;
+`;
+
+const TextArea = styled.textarea`
+  flex: 1;
+  padding: 16px;
+  font: inherit;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0px 3px 16px 5px rgba(0, 0, 0, 0.1);
+  resize: none;
+  &:focus {
+    outline: none;
+  }
+`;
 
 interface Props extends React.HTMLProps<HTMLTextAreaElement> {
   label: string;
   rows?: number;
+  as?: undefined; // This is for handling type differences between styled components input and extended input props
 }
 
-function TextInput(props: Props) {
-  const classes = useStyles();
+function TextAreaInput(props: Props) {
   const { label, name, rows = 1, ...otherProps } = props;
 
   return (
-    <div className={classes.inputContainer}>
-      <label className={classes.label} htmlFor={name}>
-        {label}
-      </label>
-      <textarea
-        {...otherProps}
-        className={classes.textArea}
-        name={name}
-        rows={rows}
-      />
-    </div>
+    <InputContainer>
+      <Label htmlFor={name}>{label}</Label>
+      <TextArea {...otherProps} name={name} rows={rows} />
+    </InputContainer>
   );
 }
 
-export default TextInput;
+export default TextAreaInput;

@@ -1,49 +1,39 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-// import ReactIcon from "mdi-material-ui/React";
+import styled from "styled-components";
 
-const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    padding: 6,
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    border: "1px solid #fff",
-    borderRadius: 8,
-  },
-  icon: {
-    fontSize: 18,
-    paddingRight: 4,
-    // TODO: Move to theme
-    color: "#61dafb",
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: 600,
-    margin: 0,
-    color: "#fff",
-  },
-});
+const Container = styled.div`
+  display: flex;
+  padding: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+  border-radius: 8px;
+  > svg {
+    font-size: 18px;
+    padding-right: 4px;
+    color: #61dafb; // TODO: Move to theme
+  }
+`;
+
+const Label = styled.p`
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #fff;
+`;
 
 interface Props {
-  icon?: any; // TODO: Type
+  icon?: React.ReactNode;
   label?: string;
 }
 
 function ReactChip(props: Props) {
-  const classes = useStyles();
-  const { icon, label } = props;
-
-  const techIcon = icon
-    ? React.cloneElement(icon, {
-        className: classes.icon,
-      })
-    : null;
+  const { icon = null, label } = props;
 
   return (
-    <div className={classes.container}>
-      {techIcon}
-      <p className={classes.label}>{label}</p>
-    </div>
+    <Container>
+      {icon}
+      <Label>{label}</Label>
+    </Container>
   );
 }
 

@@ -1,53 +1,47 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Divider from "@material-ui/core/Divider";
+import styled from "styled-components";
 
-const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  title: {
-    margin: 12,
-    fontSize: 44,
-    color: "#fff",
-  },
-  description: {
-    margin: 12,
-    fontSize: 18,
-    color: "#fff",
-  },
-  divider: {
-    marginTop: 16,
-    marginBottom: 16,
-    backgroundColor: "#fff",
-  },
-});
+import { Divider } from "components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Title = styled.h1`
+  margin: 12px;
+  font-size: 44px;
+  color: #fff;
+`;
+
+const Paragraph = styled.p`
+  margin: 12px;
+  font-size: 18px;
+  color: #fff;
+`;
 
 function CardWhatIDo() {
-  const classes = useStyles();
-
   return (
-    <div className={classes.container}>
-      <h1 className={classes.title}>What I do</h1>
-      <p className={classes.description}>
+    <Container>
+      <Title>What I do</Title>
+      <Paragraph>
         I create dynamic, responsive and fast user interfaces with years of
         experience in building apps using <b>React</b> and <b>React Native</b>.
-      </p>
-      <p className={classes.description}>
+      </Paragraph>
+      <Paragraph>
         On my free time I have dabbled with game programming using{" "}
         <b>Unreal Engine</b>. I also enjoy travelling to new places.
-      </p>
-      <Divider className={classes.divider} variant="middle" />
-      <h1 className={classes.title}>What I don't do</h1>
-      <p className={classes.description}>
+      </Paragraph>
+      <Divider />
+      <Title>What I don't do</Title>
+      <Paragraph>
         I would fail to draw any popular sorting algorithm on a whiteboard off
         the top of my head. I also can't recall the difference between slice()
         and splice() whenever I need to split an array.
-      </p>
-      <p className={classes.description}>Also, I don't drink coffee.</p>
-    </div>
+      </Paragraph>
+      <Paragraph>Also, I don't drink coffee.</Paragraph>
+    </Container>
   );
 }
 

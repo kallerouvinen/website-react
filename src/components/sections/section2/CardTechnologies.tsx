@@ -1,6 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Divider from "@material-ui/core/Divider";
+import styled from "styled-components";
 import CPPIcon from "mdi-material-ui/LanguageCpp";
 import CSSIcon from "mdi-material-ui/LanguageCss3";
 import GitIcon from "mdi-material-ui/Git";
@@ -12,39 +11,34 @@ import TSIcon from "mdi-material-ui/LanguageTypescript";
 import UnrealIcon from "mdi-material-ui/Unreal";
 import TechChip from "./TechChip";
 
-const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  title: {
-    margin: 12,
-    fontSize: 32,
-    color: "#fff",
-  },
-  chipContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    margin: 12,
-    "& > *": {
-      margin: 4,
-    },
-  },
-  divider: {
-    marginTop: 16,
-    marginBottom: 16,
-    backgroundColor: "#fff",
-  },
-});
+import { Divider } from "components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Title = styled.h1`
+  margin: 12px;
+  font-size: 32px;
+  color: #fff;
+`;
+
+const ChipContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 12px;
+  & > * {
+    margin: 4px;
+  }
+`;
 
 function CardDevelopment() {
-  const classes = useStyles();
-
   return (
-    <div className={classes.container}>
-      <h1 className={classes.title}>Technologies I have used professionally</h1>
-      <div className={classes.chipContainer}>
+    <Container>
+      <Title>Technologies I have used professionally</Title>
+      <ChipContainer>
         <TechChip icon={<HTMLIcon />} label="HTML5" />
         <TechChip icon={<CSSIcon />} label="CSS3" />
         <TechChip icon={<JSIcon />} label="JavaScript" />
@@ -54,17 +48,15 @@ function CardDevelopment() {
         <TechChip label="Redux" />
         <TechChip icon={<GitIcon />} label="Git" />
         <TechChip label="RESTAPI" />
-      </div>
-      <Divider className={classes.divider} variant="middle" />
-      <h1 className={classes.title}>
-        Technologies I have used on my free time
-      </h1>
-      <div className={classes.chipContainer}>
+      </ChipContainer>
+      <Divider />
+      <Title>Technologies I have used on my free time</Title>
+      <ChipContainer>
         <TechChip icon={<GraphQLIcon />} label="GraphQL" />
         <TechChip icon={<UnrealIcon />} label="Unreal Engine" />
         <TechChip icon={<CPPIcon />} label="C++" />
-      </div>
-    </div>
+      </ChipContainer>
+    </Container>
   );
 }
 
