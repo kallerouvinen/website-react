@@ -23,3 +23,8 @@ Once that's done, you can run your production build locally:
 ```
 npx serve -s build
 ```
+
+## TODO
+- Serve jpg or png alongside webp
+- Research performance difference with and without React.lazy in App.tsx
+- Other lighthouse optimizations
