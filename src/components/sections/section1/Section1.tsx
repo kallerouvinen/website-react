@@ -70,10 +70,13 @@ function Section1() {
         <GridContainer container justify={gridJustify}>
           <ImageContainer>
             <FadeIn delay={0} direction="down">
-              <Image
-                src={`${process.env.PUBLIC_URL}/assets/image900.webp`}
-                alt=""
-              />
+              <picture>
+                <source
+                  srcSet={`${process.env.PUBLIC_URL}/assets/image900.webp`}
+                  type="image/webp"
+                />
+                <Image src={`${process.env.PUBLIC_URL}/assets/image900.jpg`} />
+              </picture>
             </FadeIn>
           </ImageContainer>
           <GridItem item md={6}>
