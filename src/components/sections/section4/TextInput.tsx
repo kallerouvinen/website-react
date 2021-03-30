@@ -36,7 +36,13 @@ function TextInput(props: Props) {
   return (
     <InputContainer>
       <Label htmlFor={name}>{label}</Label>
-      <Input {...otherProps} id={name} name={name} type="text" />
+      <Input
+        {...otherProps}
+        id={name}
+        name={name}
+        type="search" // Ugly hack that currently seems to be the only way for blocking annoying autocompletes in mobile browsers. This isn't good solution and causes stuff like confusingly rendering a search button instead of some generic submit on mobile keyboards, but it still seems to be the lesser evil
+        autoComplete="off"
+      />
     </InputContainer>
   );
 }
