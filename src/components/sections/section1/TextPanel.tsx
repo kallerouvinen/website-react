@@ -10,10 +10,13 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   min-width: 310px;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 `;
 
 const First = styled.span`
-  font-family: "Roboto";
+  font-family: inherit;
   font-size: 22.5vw;
   color: #3f5efb;
   font-weight: 700;
@@ -31,7 +34,7 @@ const First = styled.span`
 `;
 
 const Second = styled.span`
-  font-family: "Roboto";
+  font-family: inherit;
   font-size: 19.75vw;
   color: #7e56cb;
   font-weight: 700;
@@ -49,7 +52,7 @@ const Second = styled.span`
 `;
 
 const Third = styled.span`
-  font-family: "Roboto";
+  font-family: inherit;
   font-size: 10vw;
   color: #bd4e9b;
   font-weight: 700;
@@ -67,7 +70,7 @@ const Third = styled.span`
 `;
 
 const Fourth = styled.span`
-  font-family: "Roboto";
+  font-family: inherit;
   font-size: 11.5vw;
   color: #fc466b;
   font-weight: 700;
