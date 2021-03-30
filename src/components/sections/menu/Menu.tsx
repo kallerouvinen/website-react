@@ -82,7 +82,7 @@ const MenuLink = styled.button`
     outline: none;
   }
   color: #cdd5fe;
-  font-size: 32px;
+  font-size: 28px;
   text-transform: uppercase;
 `;
 
@@ -94,7 +94,7 @@ const MenuLinkContainer = styled.div<MenuLinkContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding-top: 48px;
+  padding-top: 64px;
   padding-right: calc(45vw - 75px);
   @media (min-width: 400px) {
     padding-right: 105px;
