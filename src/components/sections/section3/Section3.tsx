@@ -11,16 +11,28 @@ const Root = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: center;
-  padding: 96px 0;
+  padding: 24px 0;
+  @media (min-width: 600px) {
+    padding: 24px 0;
+  }
+  @media (min-width: 960px) {
+    padding: 36px 0;
+  }
+  @media (min-width: 1280px) {
+    padding: 48px 0;
+  }
+  @media (min-width: 1920px) {
+    padding: 72px 0;
+  }
 `;
 
 const Container = styled(MUIContainer)`
-  padding: 0 !important;
+  padding: 24px 0 !important;
   text-align: center;
 `;
 
 const Title = styled.h1`
-  margin: 12px;
+  margin: 0px;
   font-size: 44px;
 `;
 
@@ -44,8 +56,8 @@ function Section3() {
   };
 
   return (
-    <Root id="section3">
-      <Container maxWidth="lg">
+    <Root>
+      <Container id="section3" maxWidth="lg">
         <Title>My work</Title>
         <Carousel
           onChangeIndex={handleChangeIndex}

@@ -19,18 +19,45 @@ const Root = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 192px 0 96px 0;
   background-color: #6e58d7;
-  clip-path: polygon(0 0, 100% 96px, 100% 100%, 0 100%);
+  padding: 96px 0 24px 0;
+  @media (min-width: 600px) {
+    padding: 96px 0 24px 0;
+  }
+  @media (min-width: 960px) {
+    padding: 120px 0 36px 0;
+  }
+  @media (min-width: 1280px) {
+    padding: 144px 0 48px 0;
+  }
+  @media (min-width: 1920px) {
+    padding: 192px 0 72px 0;
+  }
+
+  clip-path: polygon(0 0, 100% 48px, 100% 100%, 0 100%);
+  @media (min-width: 600px) {
+    clip-path: polygon(0 0, 100% 48px, 100% 100%, 0 100%);
+  }
+  @media (min-width: 960px) {
+    clip-path: polygon(0 0, 100% 60px, 100% 100%, 0 100%);
+  }
+  @media (min-width: 1280px) {
+    clip-path: polygon(0 0, 100% 72px, 100% 100%, 0 100%);
+  }
+  @media (min-width: 1920px) {
+    clip-path: polygon(0 0, 100% 96px, 100% 100%, 0 100%);
+  }
 `;
 
 const Container = styled(MUIContainer)`
   flex-direction: column;
+  padding: 24px;
 `;
 
 const Title = styled.h1`
   font-size: 44px;
   color: #fff;
+  margin: 0;
 `;
 
 const Paragraph = styled.p`

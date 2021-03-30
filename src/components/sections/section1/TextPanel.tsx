@@ -14,73 +14,73 @@ const Container = styled.div`
 
 const First = styled.span`
   font-family: "Roboto";
-  font-size: 26vw;
+  font-size: 22.5vw;
   color: #3f5efb;
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
   @media (min-width: 800px) {
-    font-size: 208px;
+    font-size: 180px;
   }
   @media (min-width: 960px) {
-    font-size: 14.77vw;
+    font-size: 12.5vw;
   }
   @media (min-width: 1280px) {
-    font-size: 189px;
+    font-size: 160px;
   }
 `;
 
 const Second = styled.span`
   font-family: "Roboto";
-  font-size: 22.875vw;
+  font-size: 19.75vw;
   color: #7e56cb;
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
   @media (min-width: 800px) {
-    font-size: 183px;
+    font-size: 158px;
   }
   @media (min-width: 960px) {
-    font-size: 12.97vw;
+    font-size: 11.02vw;
   }
   @media (min-width: 1280px) {
-    font-size: 166px;
+    font-size: 141px;
   }
 `;
 
 const Third = styled.span`
   font-family: "Roboto";
-  font-size: 11.63vw;
+  font-size: 10vw;
   color: #bd4e9b;
   font-weight: 700;
   line-height: 1.3;
   text-transform: uppercase;
   @media (min-width: 800px) {
-    font-size: 93px;
+    font-size: 80px;
   }
   @media (min-width: 960px) {
-    font-size: 6.56vw;
+    font-size: 5.63vw;
   }
   @media (min-width: 1280px) {
-    font-size: 84px;
+    font-size: 72px;
   }
 `;
 
 const Fourth = styled.span`
   font-family: "Roboto";
-  font-size: 13.38vw;
+  font-size: 11.5vw;
   color: #fc466b;
   font-weight: 700;
   line-height: 1.3;
   text-transform: uppercase;
   @media (min-width: 800px) {
-    font-size: 107px;
+    font-size: 92px;
   }
   @media (min-width: 960px) {
-    font-size: 7.5vw;
+    font-size: 6.48vw;
   }
   @media (min-width: 1280px) {
-    font-size: 96px;
+    font-size: 83px;
   }
 `;
 
