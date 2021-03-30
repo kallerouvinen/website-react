@@ -23,6 +23,12 @@ const DemoContainer = styled(Grid)`
     height: 280px;
   }
   @media (min-width: 960px) {
+    height: 420px;
+  }
+  @media (min-width: 1280px) {
+    height: 480px;
+  }
+  @media (min-width: 1920px) {
     height: 560px;
   }
 `;
