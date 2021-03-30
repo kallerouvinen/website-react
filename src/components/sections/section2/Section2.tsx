@@ -9,7 +9,7 @@ import CardTechnologies from "./CardTechnologies";
 const Root = styled.div`
   // TODO: Get backgroundColor from theme
   background-color: #fc466b;
-  border-top: 5px solid #fff;
+  border-top: 3px solid #fff;
   padding: 24px 0 96px 0;
   @media (min-width: 600px) {
     padding: 24px 0 96px 0;
