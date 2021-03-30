@@ -178,6 +178,8 @@ function Section4() {
                     name="name"
                     onChange={handleChange}
                     value={values.name}
+                    type="text"
+                    autoComplete="off"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -186,6 +188,8 @@ function Section4() {
                     name="email"
                     onChange={handleChange}
                     value={values.email}
+                    type="text"
+                    autoComplete="off"
                   />
                 </Grid>
                 <Grid item xs={12}>

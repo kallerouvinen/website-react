@@ -36,13 +36,7 @@ function TextInput(props: Props) {
   return (
     <InputContainer>
       <Label htmlFor={name}>{label}</Label>
-      <Input
-        {...otherProps}
-        id={name}
-        name={name}
-        type="text"
-        autoComplete="off"
-      />
+      <Input {...otherProps} id={name} name={name} />
     </InputContainer>
   );
 }
