@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { Formik } from "formik";
+import ReCAPTCHA from "react-google-recaptcha";
 import styled from "styled-components";
 import MUIContainer from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Recaptcha from "react-recaptcha";
 
 import SubmitButton from "./SubmitButton";
 import TextAreaInput from "./TextAreaInput";
@@ -72,8 +72,11 @@ const ErrorText = styled.p`
 `;
 
 const RecaptchaContainer = styled.div`
-  padding: 8px;
-  height: 80px;
+  width: 302px;
+  height: 76px;
+  margin: 16px 8px;
+  border-radius: 8px;
+  overflow: hidden;
 `;
 
 const SubmitContainer = styled(Grid)`
@@ -85,37 +88,45 @@ const SubmitContainer = styled(Grid)`
 function Section4() {
   const [loadingState, setLoadingState] = useState("Ready");
   const [sendMessageFailed, setSendMessageFailed] = useState(false);
-  const recaptchaRef = useRef<Recaptcha>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleFormSubmit = (values: any, { resetForm }: any) => {
     setLoadingState("Loading");
     setSendMessageFailed(false);
 
-    emailjs
-      .send(
-        "service_julervm",
-        "template_ta50vl9",
-        values,
-        "user_NLsJL6dc9TUARPhYsGhR7",
-      )
-      .then(
-        (result) => {
-          setLoadingState("Success");
-          resetForm();
-          setTimeout(() => {
-            setLoadingState("Ready");
-            recaptchaRef.current?.reset();
-          }, 2000);
-        },
-        (error) => {
-          setLoadingState("Error");
-          setSendMessageFailed(true);
-          setTimeout(() => {
-            setLoadingState("Ready");
-          }, 2000);
-          recaptchaRef.current?.reset();
-        },
-      );
+    setTimeout(() => {
+      setLoadingState("Success");
+      resetForm();
+      setTimeout(() => {
+        setLoadingState("Ready");
+        recaptchaRef.current?.reset();
+      }, 2000);
+    }, 1000);
+    // emailjs
+    //   .send(
+    //     "service_julervm",
+    //     "template_ta50vl9",
+    //     values,
+    //     "user_NLsJL6dc9TUARPhYsGhR7",
+    //   )
+    //   .then(
+    //     (result) => {
+    //       setLoadingState("Success");
+    //       resetForm();
+    //       setTimeout(() => {
+    //         setLoadingState("Ready");
+    //         recaptchaRef.current?.reset();
+    //       }, 2000);
+    //     },
+    //     (error) => {
+    //       setLoadingState("Error");
+    //       setSendMessageFailed(true);
+    //       setTimeout(() => {
+    //         setLoadingState("Ready");
+    //       }, 2000);
+    //       recaptchaRef.current?.reset();
+    //     },
+    //   );
   };
 
   return (
@@ -202,11 +213,11 @@ function Section4() {
                   />
                 </Grid>
                 <RecaptchaContainer>
-                  <Recaptcha
+                  <ReCAPTCHA
                     ref={recaptchaRef}
-                    sitekey="6Lc4IpQaAAAAAAe-vaTYTq-t302gUQhAOr-b9FwE"
-                    render="explicit"
-                    verifyCallback={(response) => {
+                    // sitekey="6Lc4IpQaAAAAAAe-vaTYTq-t302gUQhAOr-b9FwE"
+                    sitekey="6LdFOZQaAAAAAIIO2KjbjhrP1ITWWWjoDS-SK8XA"
+                    onChange={(response) => {
                       setFieldValue("recaptcha", response);
                     }}
                   />
