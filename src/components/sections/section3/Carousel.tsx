@@ -51,7 +51,7 @@ const BrowseButton = styled.button<ButtonProps>`
   color: ${({ theme, disabled }) =>
     disabled ? "transparent" : theme.color1.main};
   > * {
-    font-size: 36px;
+    font-size: 48px !important;
   }
   @media (min-width: 960px) {
     height: 48px;
