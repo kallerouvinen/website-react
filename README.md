@@ -23,7 +23,3 @@ Once that's done, you can run your production build locally:
 ```
 npx serve -s build
 ```
-
-## TODO
-- Lighthouse optimizations
-- Remove contact form suggestions
