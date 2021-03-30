@@ -62,8 +62,6 @@ function Section1() {
   const mdUp = useMediaQuery("(min-width:960px)");
   const gridJustify = mdUp ? "flex-end" : "center";
 
-  // TODO: Add multiple scaled images depending on screen size
-
   return (
     <Root id="section1">
       <Container maxWidth="xl">

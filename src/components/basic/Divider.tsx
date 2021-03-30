@@ -6,6 +6,4 @@ const Divider = styled.div`
   margin: 16px;
 `;
 
-// TODO: Add different variant options
-
 export default Divider;
