@@ -94,39 +94,31 @@ function Section4() {
     setLoadingState("Loading");
     setSendMessageFailed(false);
 
-    setTimeout(() => {
-      setLoadingState("Success");
-      resetForm();
-      setTimeout(() => {
-        setLoadingState("Ready");
-        recaptchaRef.current?.reset();
-      }, 2000);
-    }, 1000);
-    // emailjs
-    //   .send(
-    //     "service_julervm",
-    //     "template_ta50vl9",
-    //     values,
-    //     "user_NLsJL6dc9TUARPhYsGhR7",
-    //   )
-    //   .then(
-    //     (result) => {
-    //       setLoadingState("Success");
-    //       resetForm();
-    //       setTimeout(() => {
-    //         setLoadingState("Ready");
-    //         recaptchaRef.current?.reset();
-    //       }, 2000);
-    //     },
-    //     (error) => {
-    //       setLoadingState("Error");
-    //       setSendMessageFailed(true);
-    //       setTimeout(() => {
-    //         setLoadingState("Ready");
-    //       }, 2000);
-    //       recaptchaRef.current?.reset();
-    //     },
-    //   );
+    emailjs
+      .send(
+        "service_julervm",
+        "template_ta50vl9",
+        values,
+        "user_NLsJL6dc9TUARPhYsGhR7",
+      )
+      .then(
+        (result) => {
+          setLoadingState("Success");
+          resetForm();
+          setTimeout(() => {
+            setLoadingState("Ready");
+            recaptchaRef.current?.reset();
+          }, 2000);
+        },
+        (error) => {
+          setLoadingState("Error");
+          setSendMessageFailed(true);
+          setTimeout(() => {
+            setLoadingState("Ready");
+          }, 2000);
+          recaptchaRef.current?.reset();
+        },
+      );
   };
 
   return (
@@ -215,8 +207,7 @@ function Section4() {
                 <RecaptchaContainer>
                   <ReCAPTCHA
                     ref={recaptchaRef}
-                    // sitekey="6Lc4IpQaAAAAAAe-vaTYTq-t302gUQhAOr-b9FwE"
-                    sitekey="6LdFOZQaAAAAAIIO2KjbjhrP1ITWWWjoDS-SK8XA"
+                    sitekey="6Lc4IpQaAAAAAAe-vaTYTq-t302gUQhAOr-b9FwE"
                     onChange={(response) => {
                       setFieldValue("recaptcha", response);
                     }}
