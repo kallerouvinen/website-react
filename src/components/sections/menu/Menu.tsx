@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import MenuIcon from "./MenuIcon";
@@ -146,6 +146,8 @@ const closeMenu = keyframes`
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const enableAnimations = useRef(false);
+  const menuEl = useRef<HTMLDivElement>(null);
+  const toggleButtonEl = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -153,15 +155,30 @@ function Menu() {
     }, 5);
   }, []);
 
-  const toggleMenu = () => {
-    window.onscroll = isOpen
-      ? null
-      : () => {
-          window.onscroll = null;
-          setIsOpen(false);
-        };
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (
+      !menuEl.current?.contains(event.target as Node) &&
+      !toggleButtonEl.current?.contains(event.target as Node)
+    ) {
+      closeMenu();
+    }
+  }, []);
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [handleClickOutside]);
+
+  const closeMenu = () => {
+    window.onscroll = null;
+    setIsOpen(false);
+  };
+
+  const toggleMenu = () => {
     setIsOpen(!isOpen);
+    window.onscroll = isOpen ? null : closeMenu;
   };
 
   const scrollToSection = (number: number) => {
@@ -178,7 +195,11 @@ function Menu() {
 
   return (
     <>
-      <MenuContainer isOpen={isOpen} shouldAnimate={enableAnimations.current}>
+      <MenuContainer
+        ref={menuEl}
+        isOpen={isOpen}
+        shouldAnimate={enableAnimations.current}
+      >
         <MenuLinkContainer isOpen={isOpen}>
           <MenuLink onClick={scrollToSection1}>Home</MenuLink>
           <MenuLink onClick={scrollToSection2}>About</MenuLink>
@@ -188,6 +209,7 @@ function Menu() {
       </MenuContainer>
       <ButtonContainer>
         <ToggleMenuButton
+          ref={toggleButtonEl}
           aria-label="toggle-menu"
           onClick={toggleMenu}
           isOpen={isOpen}
