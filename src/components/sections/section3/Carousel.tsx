@@ -14,9 +14,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  &:hover > button {
-    opacity: 1;
-  }
 `;
 
 const Overlay = styled.div`
@@ -53,12 +50,10 @@ const BrowseButton = styled.button<ButtonProps>`
   background-color: transparent;
   color: ${({ theme, disabled }) =>
     disabled ? "transparent" : theme.color1.main};
-  opacity: 1;
   > * {
     font-size: 36px;
   }
   @media (min-width: 960px) {
-    opacity: 0;
     height: 48px;
     border-radius: 48px;
   }
