@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
-import { Formik } from "formik";
+import { Formik, FormikErrors, FormikHelpers } from "formik";
 import ReCAPTCHA from "react-google-recaptcha";
 import styled from "styled-components";
 import MUIContainer from "@material-ui/core/Container";
@@ -85,12 +85,22 @@ const SubmitContainer = styled(Grid)`
   justify-content: space-between;
 `;
 
+interface FormValues {
+  name: string;
+  email: string;
+  message: string;
+  recaptcha: string;
+}
+
 function Section4() {
   const [loadingState, setLoadingState] = useState("Ready");
   const [sendMessageFailed, setSendMessageFailed] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  const handleFormSubmit = (values: any, { resetForm }: any) => {
+  const handleFormSubmit = (
+    values: FormValues,
+    { resetForm }: FormikHelpers<FormValues>,
+  ) => {
     setLoadingState("Loading");
     setSendMessageFailed(false);
 
@@ -121,6 +131,13 @@ function Section4() {
       );
   };
 
+  const initialValues: FormValues = {
+    name: "",
+    email: "",
+    message: "",
+    recaptcha: "",
+  };
+
   return (
     <Root>
       <Container id="section4" maxWidth="md">
@@ -130,16 +147,11 @@ function Section4() {
           Links can be found below.
         </Paragraph>
         <Formik
-          initialValues={{
-            name: "",
-            email: "",
-            message: "",
-            recaptcha: "",
-          }}
+          initialValues={initialValues}
           validateOnBlur={false}
           validateOnChange={false}
           validate={(values) => {
-            const errors: any = {};
+            const errors: FormikErrors<FormValues> = {};
 
             if (!values.name) {
               errors.name = "Required";
@@ -154,7 +166,7 @@ function Section4() {
               errors.message = "Required";
             }
             if (!values.recaptcha) {
-              errors.recaptcha = true;
+              errors.recaptcha = "Captcha failed";
             }
 
             return errors;
