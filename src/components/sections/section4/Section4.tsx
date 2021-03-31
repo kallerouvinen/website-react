@@ -65,15 +65,25 @@ const Paragraph = styled.p`
   color: #fff;
 `;
 
-const ErrorText = styled.p`
+const ReCaptchaText = styled.p`
+  font-size: 12px;
+  margin: 0px 8px 16px 8px;
   color: #fff;
-  max-width: 50vw;
+  > a {
+    text-decoration: none;
+    color: #bad8f8;
+  }
 `;
 
 const SubmitContainer = styled(Grid)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+const ErrorText = styled.p`
+  color: #fff;
+  max-width: 50vw;
 `;
 
 interface FormValues {
@@ -133,7 +143,6 @@ function Section4() {
           ref={captchaRef}
           sitekey="6LdYdpYaAAAAAA1ulTSNguWnvkKyEt4acRbCVUOR"
           size="invisible"
-          badge="bottomright"
         />
       );
     } else {
@@ -148,107 +157,126 @@ function Section4() {
   };
 
   return (
-    <>
-      <Root>
-        <Container id="section4" maxWidth="md">
-          <Title>Say hello</Title>
-          <Paragraph>
-            You can contact me using this form or via any of my social media.
-            Links can be found below.
-          </Paragraph>
-          <Formik
-            initialValues={initialValues}
-            validateOnBlur={false}
-            validateOnChange={false}
-            validate={(values) => {
-              const errors: FormikErrors<FormValues> = {};
+    <Root>
+      <Container id="section4" maxWidth="md">
+        <Title>Say hello</Title>
+        <Paragraph>
+          You can contact me using this form or via any of my social media.
+          Links can be found below.
+        </Paragraph>
+        <Formik
+          initialValues={initialValues}
+          validateOnBlur={false}
+          validateOnChange={false}
+          validate={(values) => {
+            const errors: FormikErrors<FormValues> = {};
 
-              if (!values.name) {
-                errors.name = "Required";
-              }
-              if (!validateEmail(values.email)) {
-                errors.email = "Invalid email";
-              }
-              if (!values.email) {
-                errors.email = "Required";
-              }
-              if (!values.message) {
-                errors.message = "Required";
-              }
+            if (!values.name) {
+              errors.name = "Required";
+            }
+            if (!validateEmail(values.email)) {
+              errors.email = "Invalid email";
+            }
+            if (!values.email) {
+              errors.email = "Required";
+            }
+            if (!values.message) {
+              errors.message = "Required";
+            }
 
-              return errors;
-            }}
-            onSubmit={handleFormSubmit}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleSubmit,
-              setFieldValue,
-            }) => (
-              <form
-                autoComplete="off"
-                className="contact-form"
-                onSubmit={handleSubmit}
-              >
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
-                    <TextInput
-                      label="Name"
-                      name="name"
-                      onChange={handleChange}
-                      value={values.name}
-                      type="text"
-                      autoComplete="off"
-                      onFocus={loadCaptcha}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextInput
-                      label="Email"
-                      name="email"
-                      onChange={handleChange}
-                      value={values.email}
-                      type="text"
-                      autoComplete="off"
-                      onFocus={loadCaptcha}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextAreaInput
-                      label="Message"
-                      name="message"
-                      onChange={handleChange}
-                      rows={5}
-                      value={values.message}
-                      onFocus={loadCaptcha}
-                    />
-                  </Grid>
-                  <SubmitContainer item xs={12}>
-                    <SubmitButton
-                      state={loadingState}
-                      disabled={loadingState !== "Ready"}
-                    />
-                    <ErrorText>
-                      {errors.name === "Required" ||
-                      errors.email === "Required" ||
-                      errors.message === "Required"
-                        ? "Fill all the fields"
-                        : errors.email === "Invalid email"
-                        ? "Invalid email address"
-                        : errorMessage}
-                    </ErrorText>
-                  </SubmitContainer>
+            return errors;
+          }}
+          onSubmit={handleFormSubmit}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleSubmit,
+            setFieldValue,
+          }) => (
+            <form
+              autoComplete="off"
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextInput
+                    label="Name"
+                    name="name"
+                    onChange={handleChange}
+                    value={values.name}
+                    type="text"
+                    autoComplete="off"
+                    onFocus={loadCaptcha}
+                  />
                 </Grid>
-              </form>
-            )}
-          </Formik>
-        </Container>
-      </Root>
-      {renderCaptcha()}
-    </>
+                <Grid item xs={12} sm={6}>
+                  <TextInput
+                    label="Email"
+                    name="email"
+                    onChange={handleChange}
+                    value={values.email}
+                    type="text"
+                    autoComplete="off"
+                    onFocus={loadCaptcha}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextAreaInput
+                    label="Message"
+                    name="message"
+                    onChange={handleChange}
+                    rows={5}
+                    value={values.message}
+                    onFocus={loadCaptcha}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <ReCaptchaText>
+                    This site is protected by reCAPTCHA and the Google{" "}
+                    <a
+                      href="https://policies.google.com/privacy"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      Privacy Policy
+                    </a>{" "}
+                    and{" "}
+                    <a
+                      href="https://policies.google.com/terms"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      Terms of Service
+                    </a>{" "}
+                    apply.
+                  </ReCaptchaText>
+                </Grid>
+                <SubmitContainer item xs={12}>
+                  <SubmitButton
+                    state={loadingState}
+                    disabled={loadingState !== "Ready"}
+                  />
+                  <ErrorText>
+                    {errors.name === "Required" ||
+                    errors.email === "Required" ||
+                    errors.message === "Required"
+                      ? "Fill all the fields"
+                      : errors.email === "Invalid email"
+                      ? "Invalid email address"
+                      : errorMessage}
+                  </ErrorText>
+                </SubmitContainer>
+                {renderCaptcha()}
+              </Grid>
+            </form>
+          )}
+        </Formik>
+      </Container>
+    </Root>
   );
 }
 
