@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { Formik, FormikErrors, FormikHelpers } from "formik";
-import ReCAPTCHA from "react-google-recaptcha";
 import styled from "styled-components";
 import MUIContainer from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -71,14 +70,6 @@ const ErrorText = styled.p`
   max-width: 50vw;
 `;
 
-const RecaptchaContainer = styled.div`
-  width: 302px;
-  height: 76px;
-  margin: 16px 8px;
-  border-radius: 8px;
-  overflow: hidden;
-`;
-
 const SubmitContainer = styled(Grid)`
   display: flex;
   flex-direction: row;
@@ -89,167 +80,175 @@ interface FormValues {
   name: string;
   email: string;
   message: string;
-  recaptcha: string;
 }
 
 function Section4() {
   const [loadingState, setLoadingState] = useState("Ready");
-  const [sendMessageFailed, setSendMessageFailed] = useState(false);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [shouldRenderCaptcha, setShouldRenderCaptcha] = useState(false);
+  const captchaRef = useRef<any>(null);
 
-  const handleFormSubmit = (
+  const handleFormSubmit = async (
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>,
   ) => {
-    setLoadingState("Loading");
-    setSendMessageFailed(false);
+    try {
+      await captchaRef.current?.executeAsync();
+      setLoadingState("Loading");
+      setErrorMessage("");
 
-    emailjs
-      .send(
+      await emailjs.send(
         "service_julervm",
         "template_ta50vl9",
         values,
         "user_NLsJL6dc9TUARPhYsGhR7",
-      )
-      .then(
-        (result) => {
-          setLoadingState("Success");
-          resetForm();
-          setTimeout(() => {
-            setLoadingState("Ready");
-            recaptchaRef.current?.reset();
-          }, 2000);
-        },
-        (error) => {
-          setLoadingState("Error");
-          setSendMessageFailed(true);
-          setTimeout(() => {
-            setLoadingState("Ready");
-          }, 2000);
-          recaptchaRef.current?.reset();
-        },
       );
+      setLoadingState("Success");
+      resetForm();
+      setTimeout(() => {
+        setLoadingState("Ready");
+      }, 2000);
+    } catch (e) {
+      setLoadingState("Error");
+      setErrorMessage(
+        "Something went wrong. Please try again or contact me via social media",
+      );
+      setTimeout(() => {
+        setLoadingState("Ready");
+      }, 2000);
+    }
   };
 
   const initialValues: FormValues = {
     name: "",
     email: "",
     message: "",
-    recaptcha: "",
+  };
+
+  const renderCaptcha = () => {
+    if (shouldRenderCaptcha) {
+      const ReCAPTCHA = require("react-google-recaptcha").default;
+      return (
+        <ReCAPTCHA
+          ref={captchaRef}
+          sitekey="6LdYdpYaAAAAAA1ulTSNguWnvkKyEt4acRbCVUOR"
+          size="invisible"
+          badge="bottomright"
+        />
+      );
+    } else {
+      return null;
+    }
+  };
+
+  const loadCaptcha = () => {
+    if (!shouldRenderCaptcha) {
+      setShouldRenderCaptcha(true);
+    }
   };
 
   return (
-    <Root>
-      <Container id="section4" maxWidth="md">
-        <Title>Say hello</Title>
-        <Paragraph>
-          You can contact me using this form or via any of my social media.
-          Links can be found below.
-        </Paragraph>
-        <Formik
-          initialValues={initialValues}
-          validateOnBlur={false}
-          validateOnChange={false}
-          validate={(values) => {
-            const errors: FormikErrors<FormValues> = {};
+    <>
+      <Root>
+        <Container id="section4" maxWidth="md">
+          <Title>Say hello</Title>
+          <Paragraph>
+            You can contact me using this form or via any of my social media.
+            Links can be found below.
+          </Paragraph>
+          <Formik
+            initialValues={initialValues}
+            validateOnBlur={false}
+            validateOnChange={false}
+            validate={(values) => {
+              const errors: FormikErrors<FormValues> = {};
 
-            if (!values.name) {
-              errors.name = "Required";
-            }
-            if (!validateEmail(values.email)) {
-              errors.email = "Invalid email";
-            }
-            if (!values.email) {
-              errors.email = "Required";
-            }
-            if (!values.message) {
-              errors.message = "Required";
-            }
-            if (!values.recaptcha) {
-              errors.recaptcha = "Captcha failed";
-            }
+              if (!values.name) {
+                errors.name = "Required";
+              }
+              if (!validateEmail(values.email)) {
+                errors.email = "Invalid email";
+              }
+              if (!values.email) {
+                errors.email = "Required";
+              }
+              if (!values.message) {
+                errors.message = "Required";
+              }
 
-            return errors;
-          }}
-          onSubmit={handleFormSubmit}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleSubmit,
-            setFieldValue,
-          }) => (
-            <form
-              autoComplete="off"
-              className="contact-form"
-              onSubmit={handleSubmit}
-            >
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextInput
-                    label="Name"
-                    name="name"
-                    onChange={handleChange}
-                    value={values.name}
-                    type="text"
-                    autoComplete="off"
-                  />
+              return errors;
+            }}
+            onSubmit={handleFormSubmit}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleSubmit,
+              setFieldValue,
+            }) => (
+              <form
+                autoComplete="off"
+                className="contact-form"
+                onSubmit={handleSubmit}
+              >
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextInput
+                      label="Name"
+                      name="name"
+                      onChange={handleChange}
+                      value={values.name}
+                      type="text"
+                      autoComplete="off"
+                      onFocus={loadCaptcha}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextInput
+                      label="Email"
+                      name="email"
+                      onChange={handleChange}
+                      value={values.email}
+                      type="text"
+                      autoComplete="off"
+                      onFocus={loadCaptcha}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextAreaInput
+                      label="Message"
+                      name="message"
+                      onChange={handleChange}
+                      rows={5}
+                      value={values.message}
+                      onFocus={loadCaptcha}
+                    />
+                  </Grid>
+                  <SubmitContainer item xs={12}>
+                    <SubmitButton
+                      state={loadingState}
+                      disabled={loadingState !== "Ready"}
+                    />
+                    <ErrorText>
+                      {errors.name === "Required" ||
+                      errors.email === "Required" ||
+                      errors.message === "Required"
+                        ? "Fill all the fields"
+                        : errors.email === "Invalid email"
+                        ? "Invalid email address"
+                        : errorMessage}
+                    </ErrorText>
+                  </SubmitContainer>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextInput
-                    label="Email"
-                    name="email"
-                    onChange={handleChange}
-                    value={values.email}
-                    type="text"
-                    autoComplete="off"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextAreaInput
-                    label="Message"
-                    name="message"
-                    onChange={handleChange}
-                    rows={5}
-                    value={values.message}
-                  />
-                </Grid>
-                <RecaptchaContainer>
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey="6Lc4IpQaAAAAAAe-vaTYTq-t302gUQhAOr-b9FwE"
-                    onChange={(response) => {
-                      setFieldValue("recaptcha", response);
-                    }}
-                  />
-                </RecaptchaContainer>
-                <SubmitContainer item xs={12}>
-                  <SubmitButton
-                    state={loadingState}
-                    disabled={loadingState !== "Ready"}
-                  />
-                  <ErrorText>
-                    {errors.name === "Required" ||
-                    errors.email === "Required" ||
-                    errors.message === "Required"
-                      ? "Fill all the fields"
-                      : errors.email === "Invalid email"
-                      ? "Invalid email address"
-                      : sendMessageFailed
-                      ? "Something went wrong. Please try again or contact me via any of my social media"
-                      : errors.recaptcha && touched.recaptcha
-                      ? "Captcha failed"
-                      : ""}
-                  </ErrorText>
-                </SubmitContainer>
-              </Grid>
-            </form>
-          )}
-        </Formik>
-      </Container>
-    </Root>
+              </form>
+            )}
+          </Formik>
+        </Container>
+      </Root>
+      {renderCaptcha()}
+    </>
   );
 }
 
