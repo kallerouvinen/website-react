@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -43,12 +43,6 @@ const MonitorInner = styled.div`
   flex: 1;
   width: 100%;
   background-color: #fff;
-`;
-
-const ClickBlocker = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
 `;
 
 const Keyboard = styled.div`
@@ -115,10 +109,6 @@ interface Props {
 function Laptop(props: Props) {
   const { component = null } = props;
 
-  const stopPropagation = (e: MouseEvent) => {
-    e.stopPropagation();
-  };
-
   return (
     <Container>
       <MonitorOuter>
@@ -129,7 +119,6 @@ function Laptop(props: Props) {
               type="video/mp4"
             />
           </video>
-          <ClickBlocker onClick={stopPropagation} />
         </MonitorInner>
       </MonitorOuter>
       <Keyboard>

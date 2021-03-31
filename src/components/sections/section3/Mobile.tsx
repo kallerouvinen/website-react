@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Bezel = styled.div`
@@ -46,22 +46,12 @@ const Screen = styled.div`
   overflow: hidden;
 `;
 
-const ClickBlocker = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`;
-
 interface Props {
   component?: React.ReactNode;
 }
 
 function Mobile(props: Props) {
   const { component = null } = props;
-
-  const stopPropagation = (e: MouseEvent) => {
-    e.stopPropagation();
-  };
 
   return (
     <Bezel>
@@ -72,7 +62,6 @@ function Mobile(props: Props) {
             type="video/mp4"
           />
         </video>
-        <ClickBlocker onClick={stopPropagation} />
       </Screen>
     </Bezel>
   );
