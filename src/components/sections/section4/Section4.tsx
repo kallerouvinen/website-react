@@ -108,10 +108,10 @@ function Section4() {
       setErrorMessage("");
 
       await emailjs.send(
-        "service_julervm",
-        "template_ta50vl9",
+        process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
         values,
-        "user_NLsJL6dc9TUARPhYsGhR7",
+        process.env.REACT_APP_EMAILJS_USER_ID as string,
       );
       setLoadingState("Success");
       resetForm();
@@ -141,7 +141,7 @@ function Section4() {
       return (
         <ReCAPTCHA
           ref={captchaRef}
-          sitekey="6LdYdpYaAAAAAA1ulTSNguWnvkKyEt4acRbCVUOR"
+          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
           size="invisible"
         />
       );
