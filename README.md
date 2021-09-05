@@ -26,18 +26,4 @@ npx serve -s build
 
 ## Env-files
 
-Required keys for EmailJS and reCAPTCHA are imported from env-files. Remember to include these as they are not committed to repository. These files should contain the following keys and values for them:
-
-.env
-```
-REACT_APP_EMAILJS_SERVICE_ID
-REACT_APP_EMAILJS_TEMPLATE_ID
-REACT_APP_EMAILJS_USER_ID
-REACT_APP_RECAPTCHA_SITE_KEY
-```
-
-.env.development (these override the above on development)
-```
-REACT_APP_EMAILJS_TEMPLATE_ID
-REACT_APP_RECAPTCHA_SITE_KEY
-```
+Required public keys for EmailJS and reCAPTCHA are imported from .env-files. Usually .env-files are not committed to version control, but I made an exception here as I  don't want to check the public keys again from admin consoles.
