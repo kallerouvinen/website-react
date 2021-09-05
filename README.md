@@ -6,17 +6,17 @@ Portfolio website for my developer stuff
 
 Run the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ```
-yarn start
+npm start
 ```
 
 Launch the test runner in the interactive watch mode:
 ```
-yarn test
+npm run test
 ```
 
 Build the app for production to the `build` folder:
 ```
-yarn build
+npm run build
 ```
 
 Once that's done, you can run your production build locally:
