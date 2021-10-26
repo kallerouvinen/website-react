@@ -1,5 +1,5 @@
 /// <reference types="styled-components/cssprop" />
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -8,11 +8,11 @@ import theme from "./theme";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById("root"),
 );
 

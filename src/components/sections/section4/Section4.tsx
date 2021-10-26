@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { Formik, FormikErrors, FormikHelpers } from "formik";
 import styled from "styled-components";

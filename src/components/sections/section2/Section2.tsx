@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import MUIContainer from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";

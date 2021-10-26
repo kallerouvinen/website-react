@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { css } from "styled-components";
 
 const inBezier = "cubic-bezier(0.55, 0.05, 0.67, 0.2)";

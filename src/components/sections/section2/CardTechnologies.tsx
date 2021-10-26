@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import CPPIcon from "mdi-material-ui/LanguageCpp";
 import CSSIcon from "mdi-material-ui/LanguageCss3";
