@@ -1,4 +1,4 @@
-import React from "react";
+import { HTMLProps, ReactNode } from "react";
 import styled from "styled-components";
 
 interface ButtonProps {
@@ -29,8 +29,8 @@ const Label = styled.span`
   font-weight: 500;
 `;
 
-interface Props extends React.HTMLProps<HTMLButtonElement> {
-  children?: React.ReactNode;
+interface Props extends HTMLProps<HTMLButtonElement> {
+  children?: ReactNode;
   color?: string; // TODO: Should be key of colors
 }
 
