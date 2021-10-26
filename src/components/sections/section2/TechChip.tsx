@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -22,11 +22,11 @@ const Label = styled.p`
 `;
 
 interface Props {
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   label?: string;
 }
 
-function ReactChip(props: Props) {
+function TechChip(props: Props) {
   const { icon = null, label } = props;
 
   return (
@@ -37,4 +37,4 @@ function ReactChip(props: Props) {
   );
 }
 
-export default ReactChip;
+export default TechChip;

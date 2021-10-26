@@ -1,4 +1,4 @@
-import React from "react";
+import { HTMLProps } from "react";
 import styled from "styled-components";
 
 const InputContainer = styled.div`
@@ -25,7 +25,7 @@ const Input = styled.input`
   }
 `;
 
-interface Props extends React.HTMLProps<HTMLInputElement> {
+interface Props extends HTMLProps<HTMLInputElement> {
   label: string;
   as?: undefined; // This is for handling type differences between styled components input and extended input props
 }

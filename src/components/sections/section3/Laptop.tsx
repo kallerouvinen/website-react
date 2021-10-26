@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -103,7 +103,7 @@ const Bottom = styled.div`
 `;
 
 interface Props {
-  component?: React.ReactNode;
+  component?: ReactNode;
 }
 
 function Laptop(props: Props) {

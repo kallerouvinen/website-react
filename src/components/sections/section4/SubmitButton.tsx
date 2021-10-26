@@ -1,4 +1,4 @@
-import React from "react";
+import { HTMLProps } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 interface ButtonProps {
@@ -71,7 +71,7 @@ const StyledLabel = styled.label<LabelProps>`
   transform: translateY(${({ position }) => position});
 `;
 
-interface Props extends React.HTMLProps<HTMLButtonElement> {
+interface Props extends HTMLProps<HTMLButtonElement> {
   disabled?: boolean;
   state?: string;
 }

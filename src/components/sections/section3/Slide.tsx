@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
@@ -60,8 +60,8 @@ interface Props {
   description?: string;
   title?: string;
   demos: {
-    laptop?: React.ReactNode;
-    mobile?: React.ReactNode;
+    laptop?: ReactNode;
+    mobile?: ReactNode;
   };
   livePath?: string;
 }

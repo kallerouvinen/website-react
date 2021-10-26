@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 const Bezel = styled.div`
@@ -47,7 +47,7 @@ const Screen = styled.div`
 `;
 
 interface Props {
-  component?: React.ReactNode;
+  component?: ReactNode;
 }
 
 function Mobile(props: Props) {
