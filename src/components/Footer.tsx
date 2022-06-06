@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import MUIContainer from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import GitHub from "@material-ui/icons/GitHub";
-import Instagram from "@material-ui/icons/Instagram";
-import LinkedIn from "@material-ui/icons/LinkedIn";
+
+import { ReactComponent as GitHub } from "assets/icons/github.svg";
+import { ReactComponent as Instagram } from "assets/icons/instagram.svg";
+import { ReactComponent as LinkedIn } from "assets/icons/linkedin.svg";
 
 import SocialMediaButton from "./basic/SocialMediaButton";
 
