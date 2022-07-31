@@ -7,5 +7,3 @@
   - Hidden
   - IconButton
   - useMediaQuery
-  - icons
-    - icons
