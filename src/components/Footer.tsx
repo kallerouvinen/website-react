@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import MUIContainer from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 
 import { ReactComponent as GitHub } from "assets/icons/github.svg";
 import { ReactComponent as Instagram } from "assets/icons/instagram.svg";
 import { ReactComponent as LinkedIn } from "assets/icons/linkedin.svg";
 
 import SocialMediaLink from "./basic/SocialMediaLink";
+import GridItem from "components/basic/GridItem";
 
 const StyledFooter = styled.footer`
   background-color: #3d28a4;
@@ -18,10 +18,11 @@ const Container = styled(MUIContainer)`
   padding: 8px 48px;
 `;
 
-const GridContainer = styled(Grid)`
-  padding: 16px 0;
-  text-align: center;
-  align-items: center;
+const GridContainer = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "copyright links";
 `;
 
 const Text = styled.p`
@@ -32,21 +33,11 @@ function Footer() {
   return (
     <StyledFooter>
       <Container maxWidth="md">
-        <GridContainer container spacing={2}>
-          <Grid item xs={12} md={6}>
+        <GridContainer>
+          <GridItem name="copyright">
             <Text>© 2021 Kalle Rouvinen. All rights reserved.</Text>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            // TODO: Styling
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-end",
-            }}
-          >
+          </GridItem>
+          <GridItem name="links" direction="row" centered>
             <SocialMediaLink
               ariaLabel="link-to-instagram"
               href="https://instagram.com/kallerouvinen"
@@ -62,7 +53,7 @@ function Footer() {
               href="https://github.com/kallerouvinen"
               icon={<GitHub />}
             />
-          </Grid>
+          </GridItem>
         </GridContainer>
       </Container>
     </StyledFooter>

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import MUIContainer from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 
 import CardWhatIDo from "./CardWhatIDo";
 import CardTechnologies from "./CardTechnologies";
+import GridItem from "components/basic/GridItem";
 
 const Root = styled.div`
   // TODO: Get backgroundColor from theme
@@ -46,22 +46,29 @@ const Container = styled(MUIContainer)`
   padding: 24px;
 `;
 
-const GridItem = styled(Grid)`
-  display: flex;
+const GridContainer = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "about-me" "technologies";
+  @media (min-width: 900px) {
+    grid-template-areas: "about-me technologies";
+  }
 `;
 
 function Section2() {
   return (
     <Root>
       <Container id="section2" maxWidth="lg">
-        <Grid container spacing={2}>
-          <GridItem item xs={12} md={6}>
+        <GridContainer>
+          {/* TODO: Styling */}
+          <GridItem name="about-me">
             <CardWhatIDo />
           </GridItem>
-          <GridItem item xs={12} md={6}>
+          <GridItem name="technologies">
             <CardTechnologies />
           </GridItem>
-        </Grid>
+        </GridContainer>
       </Container>
     </Root>
   );

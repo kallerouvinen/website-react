@@ -1,18 +1,13 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
-import Grid from "@mui/material/Grid";
 
 import { PrimaryButton } from "components";
+import GridItem from "components/basic/GridItem";
 import Laptop from "./Laptop";
 import Mobile from "./Mobile";
 
-const GridContainer = styled(Grid)`
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-`;
-
-const DemoContainer = styled(Grid)`
+// TODO: Styling
+const DemoContainer = styled(GridItem)`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -33,7 +28,8 @@ const DemoContainer = styled(Grid)`
   }
 `;
 
-const TextContainer = styled(Grid)`
+// TODO: Styling
+const TextContainer = styled(GridItem)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,6 +52,19 @@ const Paragraph = styled.p`
   font-size: 18px;
 `;
 
+const GridContainer = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "demo" "info";
+  @media (min-width: 900px) {
+    grid-template-areas: "demo info";
+  }
+
+  /* TODO: Is this needed? */
+  // overflow: hidden;
+`;
+
 interface Props {
   description?: string;
   title?: string;
@@ -70,14 +79,14 @@ function Slide(props: Props) {
   const { demos, description = "", livePath, title = "" } = props;
 
   return (
-    <GridContainer container>
-      <DemoContainer item xs={12} md={6}>
+    <GridContainer>
+      <GridItem name="demo">
         <Laptop component={demos.laptop} />
         <MobileContainer>
           <Mobile component={demos.mobile} />
         </MobileContainer>
-      </DemoContainer>
-      <TextContainer item xs={12} md={6}>
+      </GridItem>
+      <GridItem name="info">
         <h1>{title}</h1>
         <Paragraph>{description}</Paragraph>
         {livePath && livePath !== "NOT_AVAILABLE" && (
@@ -85,10 +94,11 @@ function Slide(props: Props) {
             <PrimaryButton>Visit Website</PrimaryButton>
           </a>
         )}
+        {/* TODO: Change this to !livePath && */}
         {livePath === "NOT_AVAILABLE" && (
           <PrimaryButton disabled>No live demo</PrimaryButton>
         )}
-      </TextContainer>
+      </GridItem>
     </GridContainer>
   );
 }
