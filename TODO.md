@@ -4,4 +4,3 @@
 - Remove material-ui. The following components are used
   - Container
   - Grid
-  - Hidden

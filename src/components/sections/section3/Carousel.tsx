@@ -1,11 +1,11 @@
 import SwipeableViews from "react-swipeable-views";
 import styled from "styled-components";
-import Hidden from "@mui/material/Hidden";
 
 import { ReactComponent as ChevronLeft } from "assets/icons/chevron-left.svg";
 import { ReactComponent as ChevronRight } from "assets/icons/chevron-right.svg";
 
 import { Stepper } from "components";
+import { useMediaQuery } from "hooks";
 
 const Container = styled.div`
   position: relative;
@@ -101,14 +101,14 @@ interface Props {
   selected: number;
 }
 
-function Carousel(props: Props) {
-  const {
-    children,
-    onChangeIndex = () => {},
-    onNextClick = () => {},
-    onPrevClick = () => {},
-    selected,
-  } = props;
+function Carousel({
+  children,
+  onChangeIndex = () => {},
+  onNextClick = () => {},
+  onPrevClick = () => {},
+  selected,
+}: Props) {
+  const desktop = useMediaQuery("(min-width: 900px)");
 
   return (
     <Container>
@@ -120,9 +120,7 @@ function Carousel(props: Props) {
       >
         {children}
       </SwipeableViews>
-      <Hidden mdDown>
-        <Overlay />
-      </Hidden>
+      {desktop && <Overlay />}
       <ButtonPrev
         aria-label="previous-project"
         onClick={onPrevClick}
