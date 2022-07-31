@@ -8,5 +8,4 @@
   - IconButton
   - useMediaQuery
   - icons
-    - mdi-material-ui
     - icons

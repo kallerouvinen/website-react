@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import CPPIcon from "mdi-material-ui/LanguageCpp";
-import CSSIcon from "mdi-material-ui/LanguageCss3";
-import GitIcon from "mdi-material-ui/Git";
-import GraphQLIcon from "mdi-material-ui/Graphql";
-import HTMLIcon from "mdi-material-ui/LanguageHtml5";
-import JSIcon from "mdi-material-ui/LanguageJavascript";
-import ReactIcon from "mdi-material-ui/React";
-import TSIcon from "mdi-material-ui/LanguageTypescript";
-import UnrealIcon from "mdi-material-ui/Unreal";
-import TechChip from "./TechChip";
 
+import { ReactComponent as CPPIcon } from "assets/icons/language-cpp.svg";
+import { ReactComponent as CSSIcon } from "assets/icons/language-css3.svg";
+import { ReactComponent as GitIcon } from "assets/icons/git.svg";
+import { ReactComponent as GraphQLIcon } from "assets/icons/graphql.svg";
+import { ReactComponent as HTMLIcon } from "assets/icons/language-html5.svg";
+import { ReactComponent as JSIcon } from "assets/icons/language-javascript.svg";
+import { ReactComponent as ReactIcon } from "assets/icons/react.svg";
+import { ReactComponent as TSIcon } from "assets/icons/language-typescript.svg";
+import { ReactComponent as UnrealIcon } from "assets/icons/unreal.svg";
 import { Divider } from "components";
+import TechChip from "./TechChip";
 
 const Container = styled.div`
   display: flex;
