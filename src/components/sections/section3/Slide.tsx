@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 import Grid from "@mui/material/Grid";
 
-import { Button } from "components";
+import { PrimaryButton } from "components";
 import Laptop from "./Laptop";
 import Mobile from "./Mobile";
 
@@ -82,10 +82,12 @@ function Slide(props: Props) {
         <Paragraph>{description}</Paragraph>
         {livePath && livePath !== "NOT_AVAILABLE" && (
           <a href={livePath} target="_blank" rel="noreferrer">
-            <Button>Visit Website</Button>
+            <PrimaryButton>Visit Website</PrimaryButton>
           </a>
         )}
-        {livePath === "NOT_AVAILABLE" && <Button disabled>No live demo</Button>}
+        {livePath === "NOT_AVAILABLE" && (
+          <PrimaryButton disabled>No live demo</PrimaryButton>
+        )}
       </TextContainer>
     </GridContainer>
   );
