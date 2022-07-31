@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
-import Grid from "@material-ui/core/Grid";
+import Grid from "@mui/material/Grid";
 
 import { Button } from "components";
 import Laptop from "./Laptop";

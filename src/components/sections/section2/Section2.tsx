@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import MUIContainer from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+import MUIContainer from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
 import CardWhatIDo from "./CardWhatIDo";
 import CardTechnologies from "./CardTechnologies";

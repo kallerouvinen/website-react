@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import MUIContainer from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import MUIContainer from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { FadeIn } from "components";
 import ScrollIndicator from "./ScrollIndicator";
@@ -64,7 +64,10 @@ function Section1() {
   return (
     <Root id="section1">
       <Container maxWidth="xl">
-        <GridContainer container justify={gridJustify}>
+        <GridContainer
+          container
+          sx={{ display: "flex", justifyContent: gridJustify }}
+        >
           <ImageContainer>
             <FadeIn delay={0} direction="down">
               <picture>

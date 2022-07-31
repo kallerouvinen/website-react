@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import MUIContainer from "@material-ui/core/Container";
+import MUIContainer from "@mui/material/Container";
 
 import { demos } from "data";
 import Carousel from "./Carousel";

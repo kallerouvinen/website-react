@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { Formik, FormikErrors, FormikHelpers } from "formik";
 import styled from "styled-components";
-import MUIContainer from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+import MUIContainer from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
 import SubmitButton from "./SubmitButton";
 import TextAreaInput from "./TextAreaInput";
