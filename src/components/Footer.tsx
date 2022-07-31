@@ -37,7 +37,12 @@ function Footer() {
           <GridItem name="copyright">
             <Text>© 2021 Kalle Rouvinen. All rights reserved.</Text>
           </GridItem>
-          <GridItem name="links" direction="row" centered>
+          <GridItem
+            name="links"
+            direction="row"
+            justify="center"
+            align="center"
+          >
             <SocialMediaLink
               ariaLabel="link-to-instagram"
               href="https://instagram.com/kallerouvinen"

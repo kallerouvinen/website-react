@@ -6,7 +6,6 @@ import GridItem from "components/basic/GridItem";
 import Laptop from "./Laptop";
 import Mobile from "./Mobile";
 
-// TODO: Styling
 const DemoContainer = styled(GridItem)`
   display: flex;
   position: relative;
@@ -28,7 +27,6 @@ const DemoContainer = styled(GridItem)`
   }
 `;
 
-// TODO: Styling
 const TextContainer = styled(GridItem)`
   display: flex;
   flex-direction: column;
@@ -54,15 +52,14 @@ const Paragraph = styled.p`
 
 const GridContainer = styled.div`
   display: grid;
-  gap: 16px;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "demo" "info";
+  grid-template-areas:
+    "demo demo"
+    "info info";
   @media (min-width: 900px) {
     grid-template-areas: "demo info";
   }
-
-  /* TODO: Is this needed? */
-  // overflow: hidden;
+  overflow: hidden;
 `;
 
 interface Props {
@@ -80,13 +77,13 @@ function Slide(props: Props) {
 
   return (
     <GridContainer>
-      <GridItem name="demo">
+      <DemoContainer name="demo">
         <Laptop component={demos.laptop} />
         <MobileContainer>
           <Mobile component={demos.mobile} />
         </MobileContainer>
-      </GridItem>
-      <GridItem name="info">
+      </DemoContainer>
+      <TextContainer name="info">
         <h1>{title}</h1>
         <Paragraph>{description}</Paragraph>
         {livePath && livePath !== "NOT_AVAILABLE" && (
@@ -98,7 +95,7 @@ function Slide(props: Props) {
         {livePath === "NOT_AVAILABLE" && (
           <PrimaryButton disabled>No live demo</PrimaryButton>
         )}
-      </GridItem>
+      </TextContainer>
     </GridContainer>
   );
 }

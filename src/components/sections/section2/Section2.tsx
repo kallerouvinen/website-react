@@ -50,7 +50,9 @@ const GridContainer = styled.div`
   display: grid;
   gap: 16px;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "about-me" "technologies";
+  grid-template-areas:
+    "about-me about-me"
+    "technologies technologies";
   @media (min-width: 900px) {
     grid-template-areas: "about-me technologies";
   }

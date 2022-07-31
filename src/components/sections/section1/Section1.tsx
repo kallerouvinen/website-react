@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import MUIContainer from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 
 import { FadeIn } from "components";
-import { useMediaQuery } from "hooks";
+import GridItem from "components/basic/GridItem";
 import ScrollIndicator from "./ScrollIndicator";
 import TextPanel from "./TextPanel";
 
@@ -19,17 +18,32 @@ const Container = styled(MUIContainer)`
   display: flex;
 `;
 
-const GridContainer = styled(Grid)`
+const GridContainer = styled.div`
+  display: grid;
   height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "image image"
+    "text text";
+  align-items: start;
+  @media (min-width: 960px) {
+    grid-template-areas: "image text";
+    align-items: center;
+  }
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled(GridItem)`
+  align-items: center;
+  width: 100%;
   position: absolute;
   bottom: 0;
+  left: 0;
   margin-left: auto;
   margin-right: auto;
   opacity: 0.1;
+
   @media (min-width: 960px) {
+    width: initial;
     left: calc(25% - 30vh);
     opacity: 1;
   }
@@ -43,14 +57,6 @@ const Image = styled.img`
   }
 `;
 
-const GridItem = styled(Grid)`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 60px;
-`;
-
 const ScrollIndicatorContainer = styled.div`
   position: absolute;
   bottom: 20px;
@@ -58,17 +64,11 @@ const ScrollIndicatorContainer = styled.div`
 `;
 
 function Section1() {
-  const desktop = useMediaQuery("(min-width: 960px)");
-  const gridJustify = desktop ? "flex-end" : "center";
-
   return (
     <Root id="section1">
       <Container maxWidth="xl">
-        <GridContainer
-          container
-          sx={{ display: "flex", justifyContent: gridJustify }}
-        >
-          <ImageContainer>
+        <GridContainer>
+          <ImageContainer name="image" justify="flex-end">
             <FadeIn delay={0} direction="down">
               <picture>
                 <source
@@ -82,7 +82,7 @@ function Section1() {
               </picture>
             </FadeIn>
           </ImageContainer>
-          <GridItem item md={6}>
+          <GridItem name="text">
             <TextPanel />
           </GridItem>
         </GridContainer>

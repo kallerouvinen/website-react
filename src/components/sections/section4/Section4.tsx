@@ -3,11 +3,11 @@ import emailjs from "emailjs-com";
 import { Formik, FormikErrors, FormikHelpers } from "formik";
 import styled from "styled-components";
 import MUIContainer from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 
 import SubmitButton from "./SubmitButton";
 import TextAreaInput from "./TextAreaInput";
 import TextInput from "./TextInput";
+import GridItem from "components/basic/GridItem";
 
 function validateEmail(email: string) {
   const regEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -53,6 +53,25 @@ const Container = styled(MUIContainer)`
   padding: 24px;
 `;
 
+const GridContainer = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "name name"
+    "email email"
+    "message message"
+    "recaptcha recaptcha"
+    "submit submit";
+  @media (min-width: 900px) {
+    grid-template-areas:
+      "name email"
+      "message message"
+      "recaptcha recaptcha"
+      "submit submit";
+  }
+`;
+
 const Title = styled.h1`
   font-size: 44px;
   color: #fff;
@@ -73,12 +92,6 @@ const ReCaptchaText = styled.p`
     text-decoration: none;
     color: #bad8f8;
   }
-`;
-
-const SubmitContainer = styled(Grid)`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 `;
 
 const ErrorText = styled.p`
@@ -136,18 +149,18 @@ function Section4() {
   };
 
   const renderCaptcha = () => {
-    if (shouldRenderCaptcha) {
-      const ReCAPTCHA = require("react-google-recaptcha").default;
-      return (
-        <ReCAPTCHA
-          ref={captchaRef}
-          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-          size="invisible"
-        />
-      );
-    } else {
+    if (!shouldRenderCaptcha) {
       return null;
     }
+
+    const ReCAPTCHA = require("react-google-recaptcha").default;
+    return (
+      <ReCAPTCHA
+        ref={captchaRef}
+        sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+        size="invisible"
+      />
+    );
   };
 
   const loadCaptcha = () => {
@@ -188,21 +201,14 @@ function Section4() {
           }}
           onSubmit={handleFormSubmit}
         >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleSubmit,
-            setFieldValue,
-          }) => (
+          {({ values, errors, handleChange, handleSubmit }) => (
             <form
               autoComplete="off"
               className="contact-form"
               onSubmit={handleSubmit}
             >
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+              <GridContainer>
+                <GridItem name="name">
                   <TextInput
                     label="Name"
                     name="name"
@@ -212,8 +218,8 @@ function Section4() {
                     autoComplete="off"
                     onFocus={loadCaptcha}
                   />
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                </GridItem>
+                <GridItem name="email">
                   <TextInput
                     label="Email"
                     name="email"
@@ -223,8 +229,8 @@ function Section4() {
                     autoComplete="off"
                     onFocus={loadCaptcha}
                   />
-                </Grid>
-                <Grid item xs={12}>
+                </GridItem>
+                <GridItem name="message">
                   <TextAreaInput
                     label="Message"
                     name="message"
@@ -233,8 +239,8 @@ function Section4() {
                     value={values.message}
                     onFocus={loadCaptcha}
                   />
-                </Grid>
-                <Grid item xs={12}>
+                </GridItem>
+                <GridItem name="recaptcha">
                   <ReCaptchaText>
                     This site is protected by reCAPTCHA and the Google{" "}
                     <a
@@ -254,8 +260,13 @@ function Section4() {
                     </a>{" "}
                     apply.
                   </ReCaptchaText>
-                </Grid>
-                <SubmitContainer item xs={12}>
+                </GridItem>
+                <GridItem
+                  name="submit"
+                  direction="row"
+                  align="center"
+                  justify="space-between"
+                >
                   <SubmitButton
                     state={loadingState}
                     disabled={loadingState !== "Ready"}
@@ -269,9 +280,9 @@ function Section4() {
                       ? "Invalid email address"
                       : errorMessage}
                   </ErrorText>
-                </SubmitContainer>
+                </GridItem>
                 {renderCaptcha()}
-              </Grid>
+              </GridContainer>
             </form>
           )}
         </Formik>

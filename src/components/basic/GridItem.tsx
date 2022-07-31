@@ -1,31 +1,33 @@
 import styled, { css } from "styled-components";
 
 interface GridItemProps {
-  centered?: boolean;
-  name?: string;
+  name: string;
   direction?: "column" | "row";
+  // TODO: Typing
+  justify?: string;
+  align?: string;
 }
 
 const GridItem = styled.div<GridItemProps>`
   display: flex;
   flex: 1;
   flex-direction: ${({ direction }) => direction};
+  grid-area: ${({ name }) => name};
 
-  ${({ centered }) =>
-    centered &&
+  ${({ justify }) =>
+    justify &&
     css`
-      justify-content: center;
-      align-items: center;
-    `};
+      justify-content: ${justify};
+    `}
 
-  ${({ name }) =>
+  ${({ align }) =>
+    align &&
     css`
-      grid-area: ${name};
-    `};
+      align-items: ${align};
+    `}
 `;
 
 GridItem.defaultProps = {
-  centered: false,
   direction: "column",
 };
 
