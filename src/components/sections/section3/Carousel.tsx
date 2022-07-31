@@ -1,8 +1,9 @@
 import SwipeableViews from "react-swipeable-views";
 import styled from "styled-components";
 import Hidden from "@material-ui/core/Hidden";
-import ChevronLeft from "@material-ui/icons/ChevronLeft";
-import ChevronRight from "@material-ui/icons/ChevronRight";
+
+import { ReactComponent as ChevronLeft } from "assets/icons/chevron-left.svg";
+import { ReactComponent as ChevronRight } from "assets/icons/chevron-right.svg";
 
 import { Stepper } from "components";
 
