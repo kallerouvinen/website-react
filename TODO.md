@@ -6,4 +6,3 @@
   - Grid
   - Hidden
   - IconButton
-  - useMediaQuery

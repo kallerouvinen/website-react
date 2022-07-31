@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import MUIContainer from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { FadeIn } from "components";
+import { useMediaQuery } from "hooks";
 import ScrollIndicator from "./ScrollIndicator";
 import TextPanel from "./TextPanel";
 
@@ -58,8 +58,8 @@ const ScrollIndicatorContainer = styled.div`
 `;
 
 function Section1() {
-  const mdUp = useMediaQuery("(min-width:960px)");
-  const gridJustify = mdUp ? "flex-end" : "center";
+  const desktop = useMediaQuery("(min-width: 960px)");
+  const gridJustify = desktop ? "flex-end" : "center";
 
   return (
     <Root id="section1">
