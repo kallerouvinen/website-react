@@ -1,5 +1,6 @@
-import ButtonBase from "components/basic/ButtonBase";
 import styled from "styled-components";
+
+import ButtonBase from "@/components/basic/ButtonBase";
 
 const PrimaryButton = styled(ButtonBase)`
   height: 48px;

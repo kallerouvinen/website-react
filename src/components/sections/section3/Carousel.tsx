@@ -1,11 +1,10 @@
 import SwipeableViews from "react-swipeable-views";
 import styled from "styled-components";
 
-import { ReactComponent as ChevronLeft } from "assets/icons/chevron-left.svg";
-import { ReactComponent as ChevronRight } from "assets/icons/chevron-right.svg";
-
-import { Stepper } from "components";
-import { useMediaQuery } from "hooks";
+import { ReactComponent as ChevronLeft } from "@/assets/icons/chevron-left.svg";
+import { ReactComponent as ChevronRight } from "@/assets/icons/chevron-right.svg";
+import { Stepper } from "@/components";
+import { useMediaQuery } from "@/hooks";
 
 const Container = styled.div`
   position: relative;

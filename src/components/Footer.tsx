@@ -1,12 +1,11 @@
-import styled from "styled-components";
 import MUIContainer from "@mui/material/Container";
+import styled from "styled-components";
 
-import { ReactComponent as GitHub } from "assets/icons/github.svg";
-import { ReactComponent as Instagram } from "assets/icons/instagram.svg";
-import { ReactComponent as LinkedIn } from "assets/icons/linkedin.svg";
-
-import SocialMediaLink from "./basic/SocialMediaLink";
-import GridItem from "components/basic/GridItem";
+import { ReactComponent as GitHub } from "@/assets/icons/github.svg";
+import { ReactComponent as Instagram } from "@/assets/icons/instagram.svg";
+import { ReactComponent as LinkedIn } from "@/assets/icons/linkedin.svg";
+import GridItem from "@/components/basic/GridItem";
+import SocialMediaLink from "@/components/basic/SocialMediaLink";
 
 const StyledFooter = styled.footer`
   background-color: #3d28a4;

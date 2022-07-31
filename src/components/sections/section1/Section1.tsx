@@ -1,10 +1,10 @@
-import styled from "styled-components";
 import MUIContainer from "@mui/material/Container";
+import styled from "styled-components";
 
-import { FadeIn } from "components";
-import GridItem from "components/basic/GridItem";
-import ScrollIndicator from "./ScrollIndicator";
-import TextPanel from "./TextPanel";
+import { FadeIn } from "@/components";
+import GridItem from "@/components/basic/GridItem";
+import ScrollIndicator from "@/components/sections/section1/ScrollIndicator";
+import TextPanel from "@/components/sections/section1/TextPanel";
 
 const Root = styled.div`
   position: relative;

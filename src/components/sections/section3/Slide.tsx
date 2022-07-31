@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-import { PrimaryButton } from "components";
-import GridItem from "components/basic/GridItem";
-import Laptop from "./Laptop";
-import Mobile from "./Mobile";
+import { PrimaryButton } from "@/components";
+import GridItem from "@/components/basic/GridItem";
+import Laptop from "@/components/sections/section3/Laptop";
+import Mobile from "@/components/sections/section3/Mobile";
 
 const DemoContainer = styled(GridItem)`
   display: flex;

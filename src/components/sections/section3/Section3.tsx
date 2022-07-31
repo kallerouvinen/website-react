@@ -1,10 +1,10 @@
+import MUIContainer from "@mui/material/Container";
 import { useState } from "react";
 import styled from "styled-components";
-import MUIContainer from "@mui/material/Container";
 
-import { demos } from "data";
-import Carousel from "./Carousel";
-import Slide from "./Slide";
+import Carousel from "@/components/sections/section3/Carousel";
+import Slide from "@/components/sections/section3/Slide";
+import { demos } from "@/data";
 
 const Root = styled.div`
   display: flex;

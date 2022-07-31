@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { FadeIn } from "components";
+import { FadeIn } from "@/components";
 
 const Container = styled.div`
   display: flex;

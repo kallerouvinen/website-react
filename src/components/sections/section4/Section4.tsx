@@ -1,13 +1,13 @@
-import { useRef, useState } from "react";
+import MUIContainer from "@mui/material/Container";
 import emailjs from "emailjs-com";
 import { Formik, FormikErrors, FormikHelpers } from "formik";
+import { useRef, useState } from "react";
 import styled from "styled-components";
-import MUIContainer from "@mui/material/Container";
 
-import SubmitButton from "./SubmitButton";
-import TextAreaInput from "./TextAreaInput";
-import TextInput from "./TextInput";
-import GridItem from "components/basic/GridItem";
+import GridItem from "@/components/basic/GridItem";
+import SubmitButton from "@/components/sections/section4/SubmitButton";
+import TextAreaInput from "@/components/sections/section4/TextAreaInput";
+import TextInput from "@/components/sections/section4/TextInput";
 
 function validateEmail(email: string) {
   const regEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
