@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled, { css, keyframes, SimpleInterpolation } from "styled-components";
 
 import MenuIcon from "./MenuIcon";
 
@@ -16,9 +16,8 @@ const lerp = (a: number, b: number, p: number) => {
 };
 
 const wobblyAnimation = (start: number, end: number) => {
-  // TODO: Type
-  const anim: any = {};
-  for (let i = 0; i < 101; i++) {
+  const anim: SimpleInterpolation = {};
+  for (let i = 0; i <= 100; i++) {
     const t = i / 100;
     const p = springWobbly(t);
     const size = lerp(start, end, p);
@@ -51,8 +50,13 @@ const ToggleMenuButton = styled.button<ToggleMenuButtonProps>`
   cursor: pointer;
   transition: 0.3s all;
   background-color: #3f5efb;
-  box-shadow: ${({ isOpen }) =>
-    !isOpen && css`0px 3px 16px 5px rgba(0, 0, 0, 0.1)`};
+
+  ${({ isOpen }) =>
+    !isOpen &&
+    css`
+      box-shadow: 0px 3px 16px 5px rgba(0, 0, 0, 0.1);
+    `}
+
   & > * {
     color: #fff;
     font-size: 32px;
