@@ -6,7 +6,7 @@ import { ReactComponent as GitHub } from "assets/icons/github.svg";
 import { ReactComponent as Instagram } from "assets/icons/instagram.svg";
 import { ReactComponent as LinkedIn } from "assets/icons/linkedin.svg";
 
-import SocialMediaButton from "./basic/SocialMediaButton";
+import SocialMediaLink from "./basic/SocialMediaLink";
 
 const StyledFooter = styled.footer`
   background-color: #3d28a4;
@@ -36,18 +36,28 @@ function Footer() {
           <Grid item xs={12} md={6}>
             <Text>© 2021 Kalle Rouvinen. All rights reserved.</Text>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <SocialMediaButton
+          <Grid
+            item
+            xs={12}
+            md={6}
+            // TODO: Styling
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+            }}
+          >
+            <SocialMediaLink
               ariaLabel="link-to-instagram"
               href="https://instagram.com/kallerouvinen"
               icon={<Instagram />}
             />
-            <SocialMediaButton
+            <SocialMediaLink
               ariaLabel="link-to-linkedin"
               href="https://linkedin.com/in/kalle-rouvinen-794b4215b"
               icon={<LinkedIn />}
             />
-            <SocialMediaButton
+            <SocialMediaLink
               ariaLabel="link-to-github"
               href="https://github.com/kallerouvinen"
               icon={<GitHub />}
