@@ -53,7 +53,7 @@ function Footer() {
       <Container maxWidth={900} padding="8px 48px">
         <GridContainer>
           <Copyright name="copyright">
-            <Text>© 2021 Kalle Rouvinen. All rights reserved.</Text>
+            <Text>© 2022 Kalle Rouvinen. All rights reserved.</Text>
           </Copyright>
           <Links name="links">
             <SocialMediaLink
