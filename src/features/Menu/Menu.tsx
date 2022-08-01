@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled, { css, keyframes, SimpleInterpolation } from "styled-components";
 
+import ButtonBase from "@/components/ButtonBase";
 import MenuIcon from "@/features/Menu/MenuIcon";
 
 const springWobbly = (t: number) => {
@@ -39,26 +40,16 @@ interface ToggleMenuButtonProps {
   isOpen: boolean;
 }
 
-const ToggleMenuButton = styled.button<ToggleMenuButtonProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+const ToggleMenuButton = styled(ButtonBase)<ToggleMenuButtonProps>`
   width: 56px;
   height: 56px;
-  border-radius: 48px;
-  border: none;
-  cursor: pointer;
+  border-radius: 50%;
   transition: 0.3s all;
   background-color: #3f5efb;
 
   ${({ isOpen }) =>
     !isOpen && "box-shadow: 0px 3px 16px 5px rgba(0, 0, 0, 0.1);"}
 
-  & > * {
-    color: #fff;
-    font-size: 32px;
-  }
   &:hover {
     background-color: #284bfb;
   }
@@ -67,25 +58,20 @@ const ToggleMenuButton = styled.button<ToggleMenuButtonProps>`
   }
 `;
 
-const MenuLink = styled.button`
-  border: none;
-  cursor: pointer;
-  transition: 0.2s all;
-  background-color: transparent;
+const MenuLink = styled(ButtonBase)`
   width: 150px;
-  padding: 0;
+  margin: 12px 0;
+  color: #cdd5fe;
+  font-size: 28px;
+  text-transform: uppercase;
+  transition: 0.2s all;
   &:hover {
     transform: scale(1.08);
-    & > * {
-      color: #fff;
-    }
+    color: #fff;
   }
   &:focus {
     outline: none;
   }
-  color: #cdd5fe;
-  font-size: 28px;
-  text-transform: uppercase;
 `;
 
 interface MenuLinkContainerProps {
@@ -102,9 +88,6 @@ const MenuLinkContainer = styled.div<MenuLinkContainerProps>`
     padding-right: 105px;
   }
   text-align: center;
-  & > * {
-    margin: 12px 0;
-  }
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   transition: ${({ isOpen }) =>
     isOpen ? "opacity 0.2s ease 0.3s" : "opacity 0s"};
