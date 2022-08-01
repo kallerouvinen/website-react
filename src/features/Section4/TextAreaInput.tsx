@@ -1,4 +1,4 @@
-import { HTMLProps } from "react";
+import { InputHTMLAttributes } from "react";
 import styled from "styled-components";
 
 const InputContainer = styled.div`
@@ -26,19 +26,16 @@ const TextArea = styled.textarea`
   }
 `;
 
-interface Props extends HTMLProps<HTMLTextAreaElement> {
+interface TextAreaInputProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   rows?: number;
-  as?: undefined; // This is for handling type differences between styled components input and extended input props
 }
 
-function TextAreaInput(props: Props) {
-  const { label, name, rows = 1, ...otherProps } = props;
-
+function TextAreaInput({ label, name, rows = 1, ...rest }: TextAreaInputProps) {
   return (
     <InputContainer>
       <Label htmlFor={name}>{label}</Label>
-      <TextArea {...otherProps} id={name} name={name} rows={rows} />
+      <TextArea {...rest} id={name} name={name} rows={rows} />
     </InputContainer>
   );
 }

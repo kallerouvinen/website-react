@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Carousel from "@/components/Carousel";
 import Container from "@/components/Container";
-import { demos } from "@/data";
+import { projects } from "@/data";
 import Slide from "@/features/Section3/Slide";
 
 const Root = styled.div`
@@ -35,13 +35,13 @@ function Section3() {
       <Container id="section3" padding="24px 0" maxWidth={1200}>
         <Title>My work</Title>
         <Carousel>
-          {demos.map((item, index) => (
+          {projects.map((project, index) => (
             <Slide
-              demos={item.demos}
-              description={item.description}
+              demos={project.demos}
+              description={project.description}
               key={index}
-              livePath={item.livePath}
-              title={item.title}
+              livePath={project.livePath}
+              title={project.title}
             />
           ))}
         </Carousel>

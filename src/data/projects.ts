@@ -1,4 +1,6 @@
-export const demos = [
+import { Project } from "@/types";
+
+export const projects: Project[] = [
   {
     id: 1,
     title: "Makoisat.com",

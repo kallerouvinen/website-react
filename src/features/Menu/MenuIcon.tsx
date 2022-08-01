@@ -3,11 +3,11 @@ import styled from "styled-components";
 const inBezier = "cubic-bezier(0.55, 0.05, 0.67, 0.2)";
 const outBezier = "cubic-bezier(0.2, 0.6, 0.35, 1)";
 
-interface IconProps {
-  isOpen: boolean;
+interface MenuIconProps {
+  isOpen?: boolean;
 }
 
-const Icon = styled.span<IconProps>`
+const MenuIcon = styled.span<MenuIconProps>`
   position: absolute;
   display: block;
   width: 24px;
@@ -56,14 +56,8 @@ const Icon = styled.span<IconProps>`
     `}
 `;
 
-interface Props {
-  isOpen?: boolean;
-}
-
-function MenuIcon(props: Props) {
-  const { isOpen = false } = props;
-
-  return <Icon isOpen={isOpen} />;
-}
+MenuIcon.defaultProps = {
+  isOpen: false,
+};
 
 export default MenuIcon;

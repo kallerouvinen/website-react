@@ -23,16 +23,15 @@ const Container = styled.div<ContainerProps>`
       : "translateX(30px)"};
 `;
 
-interface Props {
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+interface FadeInProps {
   children?: ReactNode;
   delay?: number;
   direction?: "up" | "down" | "left" | "right";
 }
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-function FadeIn(props: Props) {
-  const { delay = 0, direction = "up" } = props;
+function FadeIn({ children, delay = 0, direction = "up" }: FadeInProps) {
   const [animatedIn, setAnimatedIn] = useState(false);
 
   const animate = async (value: boolean, delay: number) => {
@@ -46,7 +45,7 @@ function FadeIn(props: Props) {
 
   return (
     <Container animatedIn={animatedIn} direction={direction}>
-      {props.children}
+      {children}
     </Container>
   );
 }

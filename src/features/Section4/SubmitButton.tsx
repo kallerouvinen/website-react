@@ -1,4 +1,4 @@
-import { HTMLProps } from "react";
+import { ButtonHTMLAttributes } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 interface ButtonProps {
@@ -71,12 +71,11 @@ const StyledLabel = styled.label<LabelProps>`
   transform: translateY(${({ position }) => position});
 `;
 
-interface Props extends HTMLProps<HTMLButtonElement> {
-  disabled?: boolean;
+interface SubmitButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   state?: string;
 }
 
-function SubmitButton(props: Props) {
+function SubmitButton(props: SubmitButtonProps) {
   const { disabled = false, state = "Ready" } = props;
 
   return (

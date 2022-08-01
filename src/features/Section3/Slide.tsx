@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
 
 import GridItem from "@/components/GridItem";
@@ -6,6 +5,7 @@ import LinkBase from "@/components/LinkBase";
 import PrimaryButton from "@/components/PrimaryButton";
 import Laptop from "@/features/Section3/Laptop";
 import Mobile from "@/features/Section3/Mobile";
+import { Project } from "@/types";
 
 const DemoContainer = styled(GridItem)`
   display: flex;
@@ -63,17 +63,9 @@ const GridContainer = styled.div`
   overflow: hidden;
 `;
 
-interface Props {
-  description?: string;
-  title?: string;
-  demos: {
-    laptop?: ReactNode;
-    mobile?: ReactNode;
-  };
-  livePath?: string;
-}
+type SlideProps = Omit<Project, "id">;
 
-function Slide({ demos, description = "", livePath, title = "" }: Props) {
+function Slide({ demos, description, livePath, title }: SlideProps) {
   return (
     <GridContainer>
       <DemoContainer name="demo">

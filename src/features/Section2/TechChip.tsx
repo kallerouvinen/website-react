@@ -21,14 +21,12 @@ const Label = styled.p`
   color: #fff;
 `;
 
-interface Props {
+interface TechChipProps {
   icon?: ReactNode;
-  label?: string;
+  label: string;
 }
 
-function TechChip(props: Props) {
-  const { icon = null, label } = props;
-
+function TechChip({ icon = null, label }: TechChipProps) {
   return (
     <Container>
       {icon}

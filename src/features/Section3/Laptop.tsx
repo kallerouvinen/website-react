@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -102,12 +101,14 @@ const Bottom = styled.div`
   //   box-shadow: 0px 0.375em 0.5em #808080;
 `;
 
-interface Props {
-  component?: ReactNode;
+interface LaptopProps {
+  component?: string;
 }
 
-function Laptop(props: Props) {
-  const { component = null } = props;
+function Laptop({ component }: LaptopProps) {
+  if (!component) {
+    return null;
+  }
 
   return (
     <Container>

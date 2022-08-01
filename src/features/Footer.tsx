@@ -57,17 +57,17 @@ function Footer() {
           </Copyright>
           <Links name="links">
             <SocialMediaLink
-              ariaLabel="link-to-instagram"
+              aria-label="link-to-instagram"
               href="https://instagram.com/kallerouvinen"
               icon={<Instagram />}
             />
             <SocialMediaLink
-              ariaLabel="link-to-linkedin"
+              aria-label="link-to-linkedin"
               href="https://linkedin.com/in/kalle-rouvinen-794b4215b"
               icon={<LinkedIn />}
             />
             <SocialMediaLink
-              ariaLabel="link-to-github"
+              aria-label="link-to-github"
               href="https://github.com/kallerouvinen"
               icon={<GitHub />}
             />

@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
 
 const Bezel = styled.div`
@@ -46,12 +45,14 @@ const Screen = styled.div`
   overflow: hidden;
 `;
 
-interface Props {
-  component?: ReactNode;
+interface MobileProps {
+  component?: string;
 }
 
-function Mobile(props: Props) {
-  const { component = null } = props;
+function Mobile({ component }: MobileProps) {
+  if (!component) {
+    return null;
+  }
 
   return (
     <Bezel>
