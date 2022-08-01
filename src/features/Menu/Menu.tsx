@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled, { css, keyframes, SimpleInterpolation } from "styled-components";
 
-import MenuIcon from "@/components/sections/menu/MenuIcon";
+import MenuIcon from "@/features/Menu/MenuIcon";
 
 const springWobbly = (t: number) => {
   return (

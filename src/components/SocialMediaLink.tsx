@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-import ButtonBase from "@/components/basic/ButtonBase";
+import ButtonBase from "@/components/ButtonBase";
 
 const Button = styled(ButtonBase)`
   margin: 8px;

@@ -1,9 +1,9 @@
 import MUIContainer from "@mui/material/Container";
 import styled from "styled-components";
 
-import Carousel from "@/components/basic/Carousel";
-import Slide from "@/components/sections/section3/Slide";
+import Carousel from "@/components/Carousel";
 import { demos } from "@/data";
+import Slide from "@/features/Section3/Slide";
 
 const Root = styled.div`
   display: flex;

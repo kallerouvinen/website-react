@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Divider } from "@/components";
+import Divider from "@/components/Divider";
 
 const Container = styled.div`
   display: flex;

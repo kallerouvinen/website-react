@@ -4,10 +4,10 @@ import { Formik, FormikErrors, FormikHelpers } from "formik";
 import { useRef, useState } from "react";
 import styled from "styled-components";
 
-import GridItem from "@/components/basic/GridItem";
-import SubmitButton from "@/components/sections/section4/SubmitButton";
-import TextAreaInput from "@/components/sections/section4/TextAreaInput";
-import TextInput from "@/components/sections/section4/TextInput";
+import GridItem from "@/components/GridItem";
+import SubmitButton from "@/features/Section4/SubmitButton";
+import TextAreaInput from "@/features/Section4/TextAreaInput";
+import TextInput from "@/features/Section4/TextInput";
 
 function validateEmail(email: string) {
   const regEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;

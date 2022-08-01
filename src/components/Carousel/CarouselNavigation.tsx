@@ -4,7 +4,7 @@ import { useSwiper } from "swiper/react";
 
 import { ReactComponent as ChevronLeft } from "@/assets/icons/chevron-left.svg";
 import { ReactComponent as ChevronRight } from "@/assets/icons/chevron-right.svg";
-import ButtonBase from "@/components/basic/ButtonBase";
+import ButtonBase from "@/components/ButtonBase";
 
 const BrowseButton = styled(ButtonBase)`
   position: absolute;

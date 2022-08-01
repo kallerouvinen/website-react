@@ -9,8 +9,8 @@ import { ReactComponent as JSIcon } from "@/assets/icons/language-javascript.svg
 import { ReactComponent as TSIcon } from "@/assets/icons/language-typescript.svg";
 import { ReactComponent as ReactIcon } from "@/assets/icons/react.svg";
 import { ReactComponent as UnrealIcon } from "@/assets/icons/unreal.svg";
-import { Divider } from "@/components";
-import TechChip from "@/components/sections/section2/TechChip";
+import Divider from "@/components/Divider";
+import TechChip from "@/features/Section2/TechChip";
 
 const Container = styled.div`
   display: flex;

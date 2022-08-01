@@ -3,8 +3,8 @@ import styled from "styled-components";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import CarouselNavigation from "@/components/basic/Carousel/CarouselNavigation";
-import CarouselPagination from "@/components/basic/Carousel/CarouselPagination";
+import CarouselNavigation from "@/components/Carousel/CarouselNavigation";
+import CarouselPagination from "@/components/Carousel/CarouselPagination";
 import { useMediaQuery } from "@/hooks";
 
 const StyledSwiper = styled(Swiper)`

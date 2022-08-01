@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { ReactComponent as GitHub } from "@/assets/icons/github.svg";
 import { ReactComponent as Instagram } from "@/assets/icons/instagram.svg";
 import { ReactComponent as LinkedIn } from "@/assets/icons/linkedin.svg";
-import GridItem from "@/components/basic/GridItem";
-import SocialMediaLink from "@/components/basic/SocialMediaLink";
+import GridItem from "@/components/GridItem";
+import SocialMediaLink from "@/components/SocialMediaLink";
 
 const StyledFooter = styled.footer`
   background-color: #3d28a4;

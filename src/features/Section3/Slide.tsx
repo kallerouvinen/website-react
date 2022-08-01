@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-import { PrimaryButton } from "@/components";
-import GridItem from "@/components/basic/GridItem";
-import Laptop from "@/components/sections/section3/Laptop";
-import Mobile from "@/components/sections/section3/Mobile";
+import GridItem from "@/components/GridItem";
+import PrimaryButton from "@/components/PrimaryButton";
+import Laptop from "@/features/Section3/Laptop";
+import Mobile from "@/features/Section3/Mobile";
 
 const DemoContainer = styled(GridItem)`
   display: flex;
@@ -72,9 +72,7 @@ interface Props {
   livePath?: string;
 }
 
-function Slide(props: Props) {
-  const { demos, description = "", livePath, title = "" } = props;
-
+function Slide({ demos, description = "", livePath, title = "" }: Props) {
   return (
     <GridContainer>
       <DemoContainer name="demo">
@@ -84,6 +82,7 @@ function Slide(props: Props) {
         </MobileContainer>
       </DemoContainer>
       <TextContainer name="info">
+        {/* TODO: This shouldn't be h1 */}
         <h1>{title}</h1>
         <Paragraph>{description}</Paragraph>
         {livePath && livePath !== "NOT_AVAILABLE" && (

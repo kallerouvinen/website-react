@@ -1,9 +1,9 @@
 import MUIContainer from "@mui/material/Container";
 import styled from "styled-components";
 
-import GridItem from "@/components/basic/GridItem";
-import CardTechnologies from "@/components/sections/section2/CardTechnologies";
-import CardWhatIDo from "@/components/sections/section2/CardWhatIDo";
+import GridItem from "@/components/GridItem";
+import CardTechnologies from "@/features/Section2/CardTechnologies";
+import CardWhatIDo from "@/features/Section2/CardWhatIDo";
 
 const Root = styled.div`
   // TODO: Get backgroundColor from theme
