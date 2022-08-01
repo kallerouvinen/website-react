@@ -1,8 +1,7 @@
 import MUIContainer from "@mui/material/Container";
-import { useState } from "react";
 import styled from "styled-components";
 
-import Carousel from "@/components/sections/section3/Carousel";
+import Carousel from "@/components/basic/Carousel";
 import Slide from "@/components/sections/section3/Slide";
 import { demos } from "@/data";
 
@@ -37,34 +36,11 @@ const Title = styled.h1`
 `;
 
 function Section3() {
-  const [selected, setSelected] = useState(0);
-
-  const decrementSelected = () => {
-    if (selected > 0) {
-      setSelected(selected - 1);
-    }
-  };
-
-  const incrementSelected = () => {
-    if (selected < demos.length - 1) {
-      setSelected(selected + 1);
-    }
-  };
-
-  const handleChangeIndex = (index: number) => {
-    setSelected(index);
-  };
-
   return (
     <Root>
       <Container id="section3" maxWidth="lg">
         <Title>My work</Title>
-        <Carousel
-          onChangeIndex={handleChangeIndex}
-          onNextClick={incrementSelected}
-          onPrevClick={decrementSelected}
-          selected={selected}
-        >
+        <Carousel>
           {demos.map((item, index) => (
             <Slide
               demos={item.demos}
