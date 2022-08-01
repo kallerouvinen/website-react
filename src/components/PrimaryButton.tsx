@@ -18,8 +18,8 @@ const PrimaryButton = styled(ButtonBase)`
   }
 
   font-size: 18px;
+  font-weight: 600;
   color: #fff;
-  font-weight: 500;
 `;
 
 export default PrimaryButton;

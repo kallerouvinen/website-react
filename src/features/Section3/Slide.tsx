@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 
 import GridItem from "@/components/GridItem";
+import LinkBase from "@/components/LinkBase";
 import PrimaryButton from "@/components/PrimaryButton";
 import Laptop from "@/features/Section3/Laptop";
 import Mobile from "@/features/Section3/Mobile";
@@ -82,17 +83,17 @@ function Slide({ demos, description = "", livePath, title = "" }: Props) {
         </MobileContainer>
       </DemoContainer>
       <TextContainer name="info">
-        {/* TODO: This shouldn't be h1 */}
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         <Paragraph>{description}</Paragraph>
-        {livePath && livePath !== "NOT_AVAILABLE" && (
-          <a href={livePath} target="_blank" rel="noreferrer">
-            <PrimaryButton>Visit Website</PrimaryButton>
-          </a>
-        )}
-        {/* TODO: Change this to !livePath && */}
-        {livePath === "NOT_AVAILABLE" && (
-          <PrimaryButton disabled>No live demo</PrimaryButton>
+        {livePath && (
+          <PrimaryButton
+            as={LinkBase}
+            href={livePath}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Visit Website
+          </PrimaryButton>
         )}
       </TextContainer>
     </GridContainer>
