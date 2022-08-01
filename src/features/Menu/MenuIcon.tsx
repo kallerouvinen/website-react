@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const inBezier = "cubic-bezier(0.55, 0.05, 0.67, 0.2)";
 const outBezier = "cubic-bezier(0.2, 0.6, 0.35, 1)";
@@ -40,7 +40,7 @@ const Icon = styled.span<IconProps>`
 
   ${({ isOpen }) =>
     isOpen &&
-    css`
+    `
       transition: transform 0.2s ${outBezier} 0.1s;
       transform: rotate(135deg);
       &::before {

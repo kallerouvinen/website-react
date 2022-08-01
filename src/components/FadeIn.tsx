@@ -1,5 +1,5 @@
 import { useEffect, useState, ReactNode } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface ContainerProps {
   animatedIn: boolean;
@@ -13,14 +13,14 @@ const Container = styled.div<ContainerProps>`
   opacity: ${({ animatedIn }) => (animatedIn ? 1 : 0)};
   transform: ${({ animatedIn, direction }) =>
     animatedIn
-      ? css`translate(0px)`
+      ? "translate(0px)"
       : direction === "up"
-      ? css`translateY(-30px)`
+      ? "translateY(-30px)"
       : direction === "down"
-      ? css`translateY(30px)`
+      ? "translateY(30px)"
       : direction === "left"
-      ? css`translateX(-30px)`
-      : css`translateX(30px)`};
+      ? "translateX(-30px)"
+      : "translateX(30px)"};
 `;
 
 interface Props {
