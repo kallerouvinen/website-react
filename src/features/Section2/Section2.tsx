@@ -8,8 +8,7 @@ import CardWhatIDo from "@/features/Section2/CardWhatIDo";
 const Root = styled.div`
   display: flex;
   justify-content: center;
-  // TODO: Get backgroundColor from theme
-  background-color: #fc466b;
+  background-color: ${({ theme }) => theme.color4.main};
   border-top: 3px solid #fff;
   padding: 24px 0 96px 0;
   @media (min-width: 600px) {

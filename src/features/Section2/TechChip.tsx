@@ -10,7 +10,7 @@ const Container = styled.div`
   > svg {
     font-size: 18px;
     padding-right: 4px;
-    color: #61dafb; // TODO: Move to theme
+    color: ${({ theme }) => theme.techIcon};
   }
 `;
 

@@ -24,6 +24,8 @@ const theme = {
   gray: "#d9d9d9",
   black: "#000",
 
+  techIcon: "#61dafb",
+
   success: "#5cb85c",
   error: "#eb4034",
 };
