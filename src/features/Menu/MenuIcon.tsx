@@ -15,26 +15,23 @@ const MenuIcon = styled.span<MenuIconProps>`
   background-color: #fff;
   border-radius: 2px;
   transition: transform 0.2s ${inBezier};
-  &::before {
+
+  &::before,
+  ::after {
     position: absolute;
     display: block;
-    bottom: 8px;
     width: 100%;
     height: 100%;
     background-color: #fff;
     border-radius: 2px;
     content: "";
+  }
+  &::before {
+    bottom: 8px;
     transition: bottom 0.1s ${inBezier} 0.2s, transform 0.2s ${inBezier};
   }
   &::after {
-    position: absolute;
-    display: block;
     top: 8px;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    border-radius: 2px;
-    content: "";
     transition: top 0.1s ${inBezier} 0.2s, transform 0.2s ${inBezier};
   }
 
