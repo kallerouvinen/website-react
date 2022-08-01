@@ -53,10 +53,7 @@ const ToggleMenuButton = styled.button<ToggleMenuButtonProps>`
   background-color: #3f5efb;
 
   ${({ isOpen }) =>
-    !isOpen &&
-    css`
-      box-shadow: 0px 3px 16px 5px rgba(0, 0, 0, 0.1);
-    `}
+    !isOpen && "box-shadow: 0px 3px 16px 5px rgba(0, 0, 0, 0.1);"}
 
   & > * {
     color: #fff;
@@ -128,6 +125,7 @@ const MenuContainer = styled.div<MenuContainerProps>`
   border-bottom-left-radius: ${size - 25}px;
   overflow: hidden;
   box-shadow: -3px 3px 16px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 
   animation: ${({ isOpen, shouldAnimate }) =>
     isOpen
@@ -138,7 +136,7 @@ const MenuContainer = styled.div<MenuContainerProps>`
       ? css`
           ${closeMenu} 300ms
         `
-      : css``};
+      : ``};
   animation-fill-mode: ${({ isOpen }) => (isOpen ? "forwards" : "none")};
 `;
 

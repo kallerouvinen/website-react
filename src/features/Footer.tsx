@@ -1,27 +1,46 @@
-import MUIContainer from "@mui/material/Container";
 import styled from "styled-components";
 
 import { ReactComponent as GitHub } from "@/assets/icons/github.svg";
 import { ReactComponent as Instagram } from "@/assets/icons/instagram.svg";
 import { ReactComponent as LinkedIn } from "@/assets/icons/linkedin.svg";
+import Container from "@/components/Container";
 import GridItem from "@/components/GridItem";
 import SocialMediaLink from "@/components/SocialMediaLink";
 
 const StyledFooter = styled.footer`
   background-color: #3d28a4;
-`;
-
-const Container = styled(MUIContainer)`
   display: flex;
-  flex-direction: column;
-  padding: 8px 48px;
+  justify-content: center;
 `;
 
 const GridContainer = styled.div`
   display: grid;
   gap: 16px;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "copyright links";
+  grid-template-areas:
+    "copyright copyright"
+    "links links";
+  @media (min-width: 600px) {
+    grid-template-areas: "copyright links";
+  }
+`;
+
+const Copyright = styled(GridItem)`
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 600px) {
+    justify-content: flex-start;
+  }
+`;
+
+const Links = styled(GridItem)`
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 600px) {
+    justify-content: flex-end;
+  }
 `;
 
 const Text = styled.p`
@@ -31,17 +50,12 @@ const Text = styled.p`
 function Footer() {
   return (
     <StyledFooter>
-      <Container maxWidth="md">
+      <Container maxWidth={900} padding="8px 48px">
         <GridContainer>
-          <GridItem name="copyright">
+          <Copyright name="copyright">
             <Text>© 2021 Kalle Rouvinen. All rights reserved.</Text>
-          </GridItem>
-          <GridItem
-            name="links"
-            direction="row"
-            justify="center"
-            align="center"
-          >
+          </Copyright>
+          <Links name="links">
             <SocialMediaLink
               ariaLabel="link-to-instagram"
               href="https://instagram.com/kallerouvinen"
@@ -57,7 +71,7 @@ function Footer() {
               href="https://github.com/kallerouvinen"
               icon={<GitHub />}
             />
-          </GridItem>
+          </Links>
         </GridContainer>
       </Container>
     </StyledFooter>

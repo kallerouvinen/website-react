@@ -1,14 +1,12 @@
-import MUIContainer from "@mui/material/Container";
 import styled from "styled-components";
 
 import Carousel from "@/components/Carousel";
+import Container from "@/components/Container";
 import { demos } from "@/data";
 import Slide from "@/features/Section3/Slide";
 
 const Root = styled.div`
   display: flex;
-  position: relative;
-  flex-direction: column;
   justify-content: center;
   padding: 24px 0;
   @media (min-width: 600px) {
@@ -25,20 +23,16 @@ const Root = styled.div`
   }
 `;
 
-const Container = styled(MUIContainer)`
-  padding: 24px 0 !important;
-  text-align: center;
-`;
-
 const Title = styled.h1`
   margin: 0px;
   font-size: 44px;
+  text-align: center;
 `;
 
 function Section3() {
   return (
     <Root>
-      <Container id="section3" maxWidth="lg">
+      <Container id="section3" padding="24px 0" maxWidth={1200}>
         <Title>My work</Title>
         <Carousel>
           {demos.map((item, index) => (

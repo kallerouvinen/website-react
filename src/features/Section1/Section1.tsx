@@ -1,21 +1,16 @@
-import MUIContainer from "@mui/material/Container";
 import styled from "styled-components";
 
+import Container from "@/components/Container";
 import FadeIn from "@/components/FadeIn";
 import GridItem from "@/components/GridItem";
 import ScrollIndicator from "@/features/Section1/ScrollIndicator";
 import TextPanel from "@/features/Section1/TextPanel";
 
 const Root = styled.div`
-  position: relative;
   display: flex;
-  min-height: 100%;
   justify-content: center;
+  min-height: 100%;
   overflow: hidden;
-`;
-
-const Container = styled(MUIContainer)`
-  display: flex;
 `;
 
 const GridContainer = styled.div`
@@ -34,6 +29,7 @@ const GridContainer = styled.div`
 
 const ImageContainer = styled(GridItem)`
   align-items: center;
+  justify-content: center;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -41,6 +37,7 @@ const ImageContainer = styled(GridItem)`
   margin-left: auto;
   margin-right: auto;
   opacity: 0.1;
+  overflow: hidden;
 
   @media (min-width: 960px) {
     width: initial;
@@ -66,9 +63,9 @@ const ScrollIndicatorContainer = styled.div`
 function Section1() {
   return (
     <Root id="section1">
-      <Container maxWidth="xl">
+      <Container maxWidth={1536}>
         <GridContainer>
-          <ImageContainer name="image" justify="flex-end">
+          <ImageContainer name="image">
             <FadeIn delay={0} direction="down">
               <picture>
                 <source

@@ -1,9 +1,9 @@
-import MUIContainer from "@mui/material/Container";
 import emailjs from "emailjs-com";
 import { Formik, FormikErrors, FormikHelpers } from "formik";
 import { useRef, useState } from "react";
 import styled from "styled-components";
 
+import Container from "@/components/Container";
 import GridItem from "@/components/GridItem";
 import SubmitButton from "@/features/Section4/SubmitButton";
 import TextAreaInput from "@/features/Section4/TextAreaInput";
@@ -17,7 +17,6 @@ function validateEmail(email: string) {
 const Root = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: #6e58d7;
   padding: 96px 0 24px 0;
   @media (min-width: 600px) {
@@ -46,11 +45,6 @@ const Root = styled.div`
   @media (min-width: 1920px) {
     clip-path: polygon(0 0, 100% 96px, 100% 100%, 0 100%);
   }
-`;
-
-const Container = styled(MUIContainer)`
-  flex-direction: column;
-  padding: 24px;
 `;
 
 const GridContainer = styled.div`
@@ -92,6 +86,11 @@ const ReCaptchaText = styled.p`
     text-decoration: none;
     color: #bad8f8;
   }
+`;
+
+const GridItemSubmit = styled(GridItem)`
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const ErrorText = styled.p`
@@ -171,7 +170,7 @@ function Section4() {
 
   return (
     <Root>
-      <Container id="section4" maxWidth="md">
+      <Container id="section4" maxWidth={900} padding="16px">
         <Title>Say hello</Title>
         <Paragraph>
           You can contact me using this form or via any of my social media.
@@ -261,12 +260,7 @@ function Section4() {
                     apply.
                   </ReCaptchaText>
                 </GridItem>
-                <GridItem
-                  name="submit"
-                  direction="row"
-                  align="center"
-                  justify="space-between"
-                >
+                <GridItemSubmit name="submit">
                   <SubmitButton
                     state={loadingState}
                     disabled={loadingState !== "Ready"}
@@ -280,7 +274,7 @@ function Section4() {
                       ? "Invalid email address"
                       : errorMessage}
                   </ErrorText>
-                </GridItem>
+                </GridItemSubmit>
                 {renderCaptcha()}
               </GridContainer>
             </form>

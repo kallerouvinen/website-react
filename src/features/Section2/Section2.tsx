@@ -1,11 +1,13 @@
-import MUIContainer from "@mui/material/Container";
 import styled from "styled-components";
 
+import Container from "@/components/Container";
 import GridItem from "@/components/GridItem";
 import CardTechnologies from "@/features/Section2/CardTechnologies";
 import CardWhatIDo from "@/features/Section2/CardWhatIDo";
 
 const Root = styled.div`
+  display: flex;
+  justify-content: center;
   // TODO: Get backgroundColor from theme
   background-color: #fc466b;
   border-top: 3px solid #fff;
@@ -38,14 +40,6 @@ const Root = styled.div`
   }
 `;
 
-const Container = styled(MUIContainer)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-`;
-
 const GridContainer = styled.div`
   display: grid;
   gap: 16px;
@@ -61,9 +55,8 @@ const GridContainer = styled.div`
 function Section2() {
   return (
     <Root>
-      <Container id="section2" maxWidth="lg">
+      <Container id="section2" maxWidth={1200}>
         <GridContainer>
-          {/* TODO: Styling */}
           <GridItem name="about-me">
             <CardWhatIDo />
           </GridItem>
