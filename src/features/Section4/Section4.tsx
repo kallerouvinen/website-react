@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import Container from "@/components/Container";
 import GridItem from "@/components/GridItem";
+import ReCaptcha from "@/features/Section4/ReCaptcha";
 import SubmitButton from "@/features/Section4/SubmitButton";
 import TextAreaInput from "@/features/Section4/TextAreaInput";
 import TextInput from "@/features/Section4/TextInput";
@@ -78,24 +79,15 @@ const Paragraph = styled.p`
   color: #fff;
 `;
 
-const ReCaptchaText = styled.p`
-  font-size: 12px;
-  margin: 0px 8px 16px 8px;
-  color: #fff;
-  > a {
-    text-decoration: none;
-    color: #bad8f8;
-  }
-`;
-
 const GridItemSubmit = styled(GridItem)`
   align-items: center;
   justify-content: space-between;
 `;
 
 const ErrorText = styled.p`
-  color: #fff;
   max-width: 50vw;
+  margin: 0;
+  color: #fff;
 `;
 
 interface FormValues {
@@ -127,14 +119,12 @@ function Section4() {
       );
       setLoadingState("Success");
       resetForm();
-      setTimeout(() => {
-        setLoadingState("Ready");
-      }, 2000);
     } catch (e) {
       setLoadingState("Error");
       setErrorMessage(
         "Something went wrong. Please try again or contact me via social media",
       );
+    } finally {
       setTimeout(() => {
         setLoadingState("Ready");
       }, 2000);
@@ -145,21 +135,6 @@ function Section4() {
     name: "",
     email: "",
     message: "",
-  };
-
-  const renderCaptcha = () => {
-    if (!shouldRenderCaptcha) {
-      return null;
-    }
-
-    const ReCAPTCHA = require("react-google-recaptcha").default;
-    return (
-      <ReCAPTCHA
-        ref={captchaRef}
-        sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-        size="invisible"
-      />
-    );
   };
 
   const loadCaptcha = () => {
@@ -201,11 +176,7 @@ function Section4() {
           onSubmit={handleFormSubmit}
         >
           {({ values, errors, handleChange, handleSubmit }) => (
-            <form
-              autoComplete="off"
-              className="contact-form"
-              onSubmit={handleSubmit}
-            >
+            <form autoComplete="off" onSubmit={handleSubmit}>
               <GridContainer>
                 <GridItem name="name">
                   <TextInput
@@ -240,25 +211,10 @@ function Section4() {
                   />
                 </GridItem>
                 <GridItem name="recaptcha">
-                  <ReCaptchaText>
-                    This site is protected by reCAPTCHA and the Google{" "}
-                    <a
-                      href="https://policies.google.com/privacy"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      Privacy Policy
-                    </a>{" "}
-                    and{" "}
-                    <a
-                      href="https://policies.google.com/terms"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      Terms of Service
-                    </a>{" "}
-                    apply.
-                  </ReCaptchaText>
+                  <ReCaptcha
+                    ref={captchaRef}
+                    shouldRender={shouldRenderCaptcha}
+                  />
                 </GridItem>
                 <GridItemSubmit name="submit">
                   <SubmitButton
@@ -275,7 +231,6 @@ function Section4() {
                       : errorMessage}
                   </ErrorText>
                 </GridItemSubmit>
-                {renderCaptcha()}
               </GridContainer>
             </form>
           )}

@@ -36,10 +36,6 @@ const GlobalStyle = createGlobalStyle`
     flex-shrink: 0;
     user-select: none;
   }
-
-  .grecaptcha-badge {
-    visibility: hidden;
-  }
 `;
 
 export default GlobalStyle;
