@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSwiper } from "swiper/react";
 
@@ -19,22 +19,30 @@ const Dot = styled.div<DotProps>`
   border-radius: 50%;
   transition: 0.1s transform;
   transform: ${({ active }) => (active ? "scale(1.2)" : "scale(1)")};
+  cursor: pointer;
 `;
 
 function CarouselPagination() {
   const swiper = useSwiper();
-  const [slideProgress, setSlideProgress] = useState(0);
+  const [selectedSlide, setSelectedSlide] = useState(0);
 
-  swiper.on("slideChange", (e) => {
-    setSlideProgress(e.progress);
-  });
+  useEffect(() => {
+    const listener = () => setSelectedSlide(swiper.realIndex);
+
+    swiper.on("slideChange", listener);
+    return () => swiper.off("slideChange", listener);
+  }, [swiper]);
 
   const dots = Array.from(Array(swiper.slides.length));
 
   return (
     <Container>
       {dots.map((_, i) => (
-        <Dot key={i} active={slideProgress === i} />
+        <Dot
+          key={i}
+          active={selectedSlide === i}
+          onClick={() => swiper.slideTo(i)}
+        />
       ))}
     </Container>
   );

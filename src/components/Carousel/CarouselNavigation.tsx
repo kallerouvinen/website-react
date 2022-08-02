@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSwiper } from "swiper/react";
 
@@ -53,11 +53,14 @@ const ButtonNext = styled(BrowseButton)`
 
 function CarouselNavigation() {
   const swiper = useSwiper();
-  const [slideProgress, setSlideProgress] = useState(0);
+  const [selectedSlide, setSelectedSlide] = useState(0);
 
-  swiper.on("slideChange", (e) => {
-    setSlideProgress(e.progress);
-  });
+  useEffect(() => {
+    const listener = () => setSelectedSlide(swiper.realIndex);
+
+    swiper.on("slideChange", listener);
+    return () => swiper.off("slideChange", listener);
+  }, [swiper]);
 
   const prevSlide = () => swiper.slidePrev();
   const nextSlide = () => swiper.slideNext();
@@ -66,14 +69,14 @@ function CarouselNavigation() {
     <>
       <ButtonPrev
         aria-label="Previous project"
-        disabled={slideProgress <= 0}
+        disabled={selectedSlide <= 0}
         onClick={prevSlide}
       >
         <ChevronLeft />
       </ButtonPrev>
       <ButtonNext
         aria-label="Next project"
-        disabled={slideProgress >= swiper.slides.length - 1}
+        disabled={selectedSlide >= swiper.slides.length - 1}
         onClick={nextSlide}
       >
         <ChevronRight />
