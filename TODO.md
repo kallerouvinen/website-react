@@ -1,4 +1,5 @@
 ## TODO
 
-- Tests (use jest and playwright)
+- Optimizations (Google Lighthouse)
+- Tests (Jest and Playwright)
 - Generate CNAME automatically on deploy
