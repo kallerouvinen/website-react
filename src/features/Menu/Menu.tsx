@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import styled, { css, keyframes, SimpleInterpolation } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 import ButtonBase from "@/components/ButtonBase";
 import MenuIcon from "@/features/Menu/MenuIcon";
@@ -17,13 +17,15 @@ const lerp = (a: number, b: number, p: number) => {
 };
 
 const wobblyAnimation = (start: number, end: number) => {
-  const anim: SimpleInterpolation = {};
+  const anim: Record<string, { height: number; width: number }> = {};
+
   for (let i = 0; i <= 100; i++) {
     const t = i / 100;
     const p = springWobbly(t);
     const size = lerp(start, end, p);
     anim[`${i}%`] = { height: size, width: size };
   }
+
   return anim;
 };
 

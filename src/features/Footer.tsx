@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { ReactComponent as GitHub } from "@/assets/icons/github.svg";
-import { ReactComponent as Instagram } from "@/assets/icons/instagram.svg";
-import { ReactComponent as LinkedIn } from "@/assets/icons/linkedin.svg";
+import GitHubIcon from "@/assets/icons/github.svg?react";
+import InstagramIcon from "@/assets/icons/instagram.svg?react";
+import LinkedInIcon from "@/assets/icons/linkedin.svg?react";
 import Container from "@/components/Container";
 import GridItem from "@/components/GridItem";
 import SocialMediaLink from "@/components/SocialMediaLink";
@@ -59,17 +59,17 @@ function Footer() {
             <SocialMediaLink
               aria-label="link-to-instagram"
               href="https://instagram.com/kallerouvinen"
-              icon={<Instagram />}
+              icon={<InstagramIcon />}
             />
             <SocialMediaLink
               aria-label="link-to-linkedin"
               href="https://linkedin.com/in/kalle-rouvinen-794b4215b"
-              icon={<LinkedIn />}
+              icon={<LinkedInIcon />}
             />
             <SocialMediaLink
               aria-label="link-to-github"
               href="https://github.com/kallerouvinen"
-              icon={<GitHub />}
+              icon={<GitHubIcon />}
             />
           </Links>
         </GridContainer>

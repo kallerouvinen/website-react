@@ -32,7 +32,7 @@ const Title = styled.h1`
 function Section3() {
   return (
     <Root>
-      <Container id="section3" padding="24px 0" maxWidth={1200}>
+      <Container id="section3" maxWidth={1200} padding="24px 0">
         <Title>My work</Title>
         <Carousel>
           {projects.map((project, index) => (

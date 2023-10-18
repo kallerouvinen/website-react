@@ -68,14 +68,8 @@ function Section1() {
           <ImageContainer name="image">
             <FadeIn delay={0} direction="down">
               <picture>
-                <source
-                  srcSet={`${process.env.PUBLIC_URL}/assets/image900.webp`}
-                  type="image/webp"
-                />
-                <Image
-                  src={`${process.env.PUBLIC_URL}/assets/image900.jpg`}
-                  alt=""
-                />
+                <source srcSet={"/assets/image900.webp"} type="image/webp" />
+                <Image src={"/assets/image900.jpg"} alt="" />
               </picture>
             </FadeIn>
           </ImageContainer>

@@ -1,4 +1,4 @@
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { Formik, FormikErrors, FormikHelpers } from "formik";
 import { useRef, useState } from "react";
 import styled from "styled-components";
@@ -90,11 +90,11 @@ const ErrorText = styled.p`
   color: #fff;
 `;
 
-interface FormValues {
+type FormValues = {
   name: string;
   email: string;
   message: string;
-}
+};
 
 function Section4() {
   const [loadingState, setLoadingState] = useState("Ready");
@@ -107,15 +107,15 @@ function Section4() {
     { resetForm }: FormikHelpers<FormValues>,
   ) => {
     try {
-      await captchaRef.current?.executeAsync();
+      const token = await captchaRef.current?.executeAsync();
       setLoadingState("Loading");
       setErrorMessage("");
 
       await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
-        values,
-        process.env.REACT_APP_EMAILJS_USER_ID as string,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID as string,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string,
+        { ...values, "g-recaptcha-response": token },
+        import.meta.env.VITE_EMAILJS_USER_ID as string,
       );
       setLoadingState("Success");
       resetForm();

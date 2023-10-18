@@ -4,7 +4,7 @@ const inBezier = "cubic-bezier(0.55, 0.05, 0.67, 0.2)";
 const outBezier = "cubic-bezier(0.2, 0.6, 0.35, 1)";
 
 interface MenuIconProps {
-  isOpen?: boolean;
+  isOpen: boolean;
 }
 
 const MenuIcon = styled.span<MenuIconProps>`
@@ -17,7 +17,7 @@ const MenuIcon = styled.span<MenuIconProps>`
   transition: transform 0.2s ${inBezier};
 
   &::before,
-  ::after {
+  &::after {
     position: absolute;
     display: block;
     width: 100%;
@@ -28,11 +28,15 @@ const MenuIcon = styled.span<MenuIconProps>`
   }
   &::before {
     bottom: 8px;
-    transition: bottom 0.1s ${inBezier} 0.2s, transform 0.2s ${inBezier};
+    transition:
+      bottom 0.1s ${inBezier} 0.2s,
+      transform 0.2s ${inBezier};
   }
   &::after {
     top: 8px;
-    transition: top 0.1s ${inBezier} 0.2s, transform 0.2s ${inBezier};
+    transition:
+      top 0.1s ${inBezier} 0.2s,
+      transform 0.2s ${inBezier};
   }
 
   ${({ isOpen }) =>

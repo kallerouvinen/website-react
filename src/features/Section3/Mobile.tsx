@@ -58,10 +58,7 @@ function Mobile({ component }: MobileProps) {
     <Bezel>
       <Screen>
         <video width="100%" height="100%" autoPlay loop muted playsInline>
-          <source
-            src={`${process.env.PUBLIC_URL}/assets/${component}`}
-            type="video/mp4"
-          />
+          <source src={`/assets/${component}`} type="video/mp4" />
         </video>
       </Screen>
     </Bezel>

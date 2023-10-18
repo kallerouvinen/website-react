@@ -1,6 +1,6 @@
-# Portfolio
+# My website
 
-Portfolio website for my developer stuff
+My professional website created with React + TypeScript + Vite.
 
 ## Available scripts
 

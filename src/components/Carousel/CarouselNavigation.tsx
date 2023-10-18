@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSwiper } from "swiper/react";
 
-import { ReactComponent as ChevronLeft } from "@/assets/icons/chevron-left.svg";
-import { ReactComponent as ChevronRight } from "@/assets/icons/chevron-right.svg";
+import ChevronLeftIcon from "@/assets/icons/chevron-left.svg?react";
+import ChevronRightIcon from "@/assets/icons/chevron-right.svg?react";
 import ButtonBase from "@/components/ButtonBase";
 
 const BrowseButton = styled(ButtonBase)`
@@ -72,14 +72,14 @@ function CarouselNavigation() {
         disabled={selectedSlide <= 0}
         onClick={prevSlide}
       >
-        <ChevronLeft />
+        <ChevronLeftIcon />
       </ButtonPrev>
       <ButtonNext
         aria-label="Next project"
         disabled={selectedSlide >= swiper.slides.length - 1}
         onClick={nextSlide}
       >
-        <ChevronRight />
+        <ChevronRightIcon />
       </ButtonNext>
     </>
   );
