@@ -8,6 +8,7 @@ import Slide from "@/features/Section3/Slide";
 const Root = styled.div`
   display: flex;
   justify-content: center;
+  background-color: ${({ theme }) => theme.bg.section3};
   padding: 24px 0;
   @media (min-width: 600px) {
     padding: 24px 0;

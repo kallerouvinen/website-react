@@ -8,7 +8,7 @@ import GridItem from "@/components/GridItem";
 import SocialMediaLink from "@/components/SocialMediaLink";
 
 const StyledFooter = styled.footer`
-  background-color: #3d28a4;
+  background-color: ${({ theme }) => theme.bg.footer};
   display: flex;
   justify-content: center;
 `;

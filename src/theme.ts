@@ -28,6 +28,13 @@ const theme = {
 
   success: "#5cb85c",
   error: "#eb4034",
+
+  bg: {
+    section2: "#fc466b",
+    section3: "#fff",
+    section4: "#6e58d7",
+    footer: "#3d28a4",
+  },
 };
 
 export default theme;

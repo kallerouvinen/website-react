@@ -1,12 +1,14 @@
-import { lazy, Suspense } from "react";
-
 import GlobalStyle from "@/components/GlobalStyle";
-import { Section1, Section2 } from "@/features";
-
-const Section3 = lazy(() => import("@/features/Section3"));
-const Section4 = lazy(() => import("@/features/Section4"));
-const Footer = lazy(() => import("@/features/Footer"));
-const Menu = lazy(() => import("@/features/Menu"));
+import SectionClip from "@/components/SectionClip";
+import {
+  Section1,
+  Section2,
+  // Section3,
+  Section4,
+  Menu,
+  Footer,
+} from "@/features";
+import theme from "@/theme";
 
 function App() {
   return (
@@ -14,12 +16,15 @@ function App() {
       <GlobalStyle />
       <Section1 />
       <Section2 />
-      <Suspense fallback={null}>
-        <Section3 />
-        <Section4 />
-        <Footer />
-        <Menu />
-      </Suspense>
+      {/* Commented out for now as there are currently no projects to show */}
+      {/* <Section3 /> */}
+      <SectionClip
+        startColor={theme.bg.section2}
+        endColor={theme.bg.section4}
+      />
+      <Section4 />
+      <Footer />
+      <Menu />
     </>
   );
 }
