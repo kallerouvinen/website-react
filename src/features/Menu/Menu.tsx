@@ -178,7 +178,7 @@ function Menu() {
 
   const scrollToSection1 = () => scrollToSection(1);
   const scrollToSection2 = () => scrollToSection(2);
-  const scrollToSection3 = () => scrollToSection(3);
+  // const scrollToSection3 = () => scrollToSection(3);
   const scrollToSection4 = () => scrollToSection(4);
 
   return (
