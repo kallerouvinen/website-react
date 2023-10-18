@@ -82,13 +82,12 @@ interface MenuLinkContainerProps {
 
 const MenuLinkContainer = styled.div<MenuLinkContainerProps>`
   display: flex;
+  flex: 1;
   flex-direction: column;
-  align-items: flex-end;
-  padding-top: 64px;
-  padding-right: calc(45vw - 75px);
-  @media (min-width: 400px) {
-    padding-right: 105px;
-  }
+  padding-left: 10%;
+  padding-bottom: 20%;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   transition: ${({ isOpen }) =>
@@ -102,11 +101,12 @@ interface MenuContainerProps {
 
 const MenuContainer = styled.div<MenuContainerProps>`
   position: fixed;
+  display: flex;
   top: 0;
   right: 0;
   width: 0;
   height: 0;
-  background-color: #3f5efb;
+  background-color: ${({ theme }) => theme.color1.main};
   border-bottom-left-radius: ${size - 25}px;
   overflow: hidden;
   box-shadow: -3px 3px 16px 5px rgba(0, 0, 0, 0.1);
@@ -191,7 +191,8 @@ function Menu() {
         <MenuLinkContainer isOpen={isOpen}>
           <MenuLink onClick={scrollToSection1}>Home</MenuLink>
           <MenuLink onClick={scrollToSection2}>About</MenuLink>
-          <MenuLink onClick={scrollToSection3}>My work</MenuLink>
+          {/* Currently commented out as Section3 is disabled */}
+          {/* <MenuLink onClick={scrollToSection3}>My work</MenuLink> */}
           <MenuLink onClick={scrollToSection4}>Contact</MenuLink>
         </MenuLinkContainer>
       </MenuContainer>
