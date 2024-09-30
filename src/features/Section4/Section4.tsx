@@ -1,11 +1,10 @@
-import emailjs from "@emailjs/browser";
 import { Formik, FormikErrors, FormikHelpers } from "formik";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import useWeb3Forms from "@web3forms/react";
 
 import Container from "@/components/Container";
 import GridItem from "@/components/GridItem";
-import ReCaptcha from "@/features/Section4/ReCaptcha";
 import SubmitButton from "@/features/Section4/SubmitButton";
 import TextAreaInput from "@/features/Section4/TextAreaInput";
 import TextInput from "@/features/Section4/TextInput";
@@ -34,6 +33,11 @@ const Root = styled.div`
   }
 `;
 
+const Honeypot = styled.input`
+  position: absolute;
+  left: -9999px;
+`;
+
 const GridContainer = styled.div`
   display: grid;
   gap: 16px;
@@ -42,13 +46,11 @@ const GridContainer = styled.div`
     "name name"
     "email email"
     "message message"
-    "recaptcha recaptcha"
     "submit submit";
   @media (min-width: 900px) {
     grid-template-areas:
       "name email"
       "message message"
-      "recaptcha recaptcha"
       "submit submit";
   }
 `;
@@ -85,24 +87,27 @@ type FormValues = {
 function Section4() {
   const [loadingState, setLoadingState] = useState("Ready");
   const [errorMessage, setErrorMessage] = useState("");
-  const [shouldRenderCaptcha, setShouldRenderCaptcha] = useState(false);
-  const captchaRef = useRef<any>(null);
+
+  const { submit } = useWeb3Forms({
+    access_key: import.meta.env.VITE_WEB3FORMS_PUBLIC_KEY,
+    settings: {
+      from_name: "kallerouvinen.com",
+      subject: "New Contact Message from your Website",
+    },
+    onSuccess: () => {},
+    onError: () => {},
+  });
 
   const handleFormSubmit = async (
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>,
   ) => {
     try {
-      const token = await captchaRef.current?.executeAsync();
       setLoadingState("Loading");
       setErrorMessage("");
 
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID as string,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string,
-        { ...values, "g-recaptcha-response": token },
-        import.meta.env.VITE_EMAILJS_USER_ID as string,
-      );
+      await submit(values);
+
       setLoadingState("Success");
       resetForm();
     } catch (e) {
@@ -121,12 +126,6 @@ function Section4() {
     name: "",
     email: "",
     message: "",
-  };
-
-  const loadCaptcha = () => {
-    if (!shouldRenderCaptcha) {
-      setShouldRenderCaptcha(true);
-    }
   };
 
   return (
@@ -163,6 +162,12 @@ function Section4() {
         >
           {({ values, errors, handleChange, handleSubmit }) => (
             <form autoComplete="off" onSubmit={handleSubmit}>
+              <Honeypot
+                autoComplete="off"
+                name="botcheck"
+                tabIndex={-1}
+                type="checkbox"
+              />
               <GridContainer>
                 <GridItem name="name">
                   <TextInput
@@ -172,7 +177,6 @@ function Section4() {
                     value={values.name}
                     type="text"
                     autoComplete="off"
-                    onFocus={loadCaptcha}
                   />
                 </GridItem>
                 <GridItem name="email">
@@ -183,7 +187,6 @@ function Section4() {
                     value={values.email}
                     type="text"
                     autoComplete="off"
-                    onFocus={loadCaptcha}
                   />
                 </GridItem>
                 <GridItem name="message">
@@ -193,13 +196,6 @@ function Section4() {
                     onChange={handleChange}
                     rows={5}
                     value={values.message}
-                    onFocus={loadCaptcha}
-                  />
-                </GridItem>
-                <GridItem name="recaptcha">
-                  <ReCaptcha
-                    ref={captchaRef}
-                    shouldRender={shouldRenderCaptcha}
                   />
                 </GridItem>
                 <GridItemSubmit name="submit">
