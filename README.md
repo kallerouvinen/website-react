@@ -1,5 +1,7 @@
 # My website
 
+> ℹ️ This repository is no longer actively maintained. Using React for a simple website is overkill, and I have migrated the project to plain HTML, CSS, and JavaScript. However, I’m keeping this repository available for reference, as it contains some implementations that I chose not to carry over to the new version.<br><br>You can find the updated website and its source code in https://github.com/kallerouvinen/website.
+
 My professional website created with React + TypeScript + Vite.
 
 ## Available scripts
